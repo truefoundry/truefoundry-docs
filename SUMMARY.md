@@ -9,28 +9,29 @@
     * [Add mlfoundry to your code](experiment-tracking/getting-started/add-mlfoundry.md)
     * [Examples](experiment-tracking/getting-started/examples.md)
   * Log Data
-    * Creating a run
-    * Capturing tags and hyperparameters
-    * Capturing Metrics over time
-    * Logging Artifacts
-    * Logging Models
-    * Logging Dataset
-      * Tabular Dataset
-      * Non-tabular Dataset
-    * Logging Prediction service
+    * [Creating a run](experiment-tracking/log-data/create-run.md)
+    * [Log parameters](experiment-tracking/log-data/log-params.md)
+    * [Log Metrics over time](experiment-tracking/log-data/log-metrics.md)
+    * [Log Artifacts](experiment-tracking/log-data/log-artifacts.md)
+    * [Log Models](experiment-tracking/log-data/log-models.md)
+    * [Add Tags](experiment-tracking/log-data/add-tags.md)
+    * Log Dataset
+      * [Tabular Dataset](experiment-tracking/log-data/tabular-data.md)
+      * [Non-tabular Dataset](experiment-tracking/log-data/non-tabular-data.md)
+    * Logging Prediction service (experiment-tracking/log-service/non-tabular-data.md)
   * Compare Runs
-    * Compare metrics
-    * Compare datasets
-  * Migrating from MLFlow
-  * Collaboration with Team
+    * [Compare metrics](experiment-tracking/compare-runs/compare-metrics.md)
+    * [Compare datasets](experiment-tracking/compare-runs/compare-dataset-stats.md)
+  * [Migrate from MLFlow](experiment-tracking/migrate-from-mlflow.md)
+  * [Collaboration with Team](experiment-tracking/collaboration.md)
   * API Doc 
 * Deploy Model
   * Getting Started
     * Installation and Setup
-    * Deploy code using servicefoundry
+    * Deploy code using truefoundry
     * Concepts 
     * Examples
-  * Create a new project with truefoundrym
+  * Create a new project with truefoundry
   * Deploy your existing project with truefoundry
   * Deploying Models
     * Deploy a simple predict function
@@ -42,6 +43,7 @@
     * Deploy model as a serverless function
     * Deploy multiple models in a single service
     * Deploy multiple models with dynamic loading
+    * Deploy pretrained models
     * Not sure of best way to deploy? Read our guide.
   * Deploy pipelines
   * Cost Estimation and Optimization
@@ -61,6 +63,10 @@
   * Shadow Test your new model
   * A/B Test your new model
 * Need something custom? 
+* End to End Examples
+  * Iris Model
+  * Churn Prediction Model
+  * Image Segmentation Model
 * Getting Help
 * Deploying on your own cloud
 
