@@ -1,8 +1,73 @@
 # Table of contents
 
-* [Overview](README.md)
+* [Introduction](introduction.md)
 * [Quick Start](quick-start.md)
-* Guides
+* Track Experiments
+  * Getting Started
+    * [Installation and Setup](experiment-tracking/getting-started/installation-and-setup.md)
+    * [Concepts](experiment-tracking/getting-started/concepts.md)
+    * [Add mlfoundry to your code](experiment-tracking/getting-started/add-mlfoundry.md)
+    * [Examples](experiment-tracking/getting-started/examples.md)
+  * Log Data
+    * Creating a run
+    * Capturing tags and hyperparameters
+    * Capturing Metrics over time
+    * Logging Artifacts
+    * Logging Models
+    * Logging Dataset
+      * Tabular Dataset
+      * Non-tabular Dataset
+    * Logging Prediction service
+  * Compare Runs
+    * Compare metrics
+    * Compare datasets
+  * Migrating from MLFlow
+  * Collaboration with Team
+  * API Doc 
+* Deploy Model
+  * Getting Started
+    * Installation and Setup
+    * Deploy code using servicefoundry
+    * Concepts 
+    * Examples
+  * Create a new project with truefoundrym
+  * Deploy your existing project with truefoundry
+  * Deploying Models
+    * Deploy a simple predict function
+    * Deploy model as fastapi service
+    * Deploy mlfoundry model in one click
+    * Deploy model using TensorFlowServe
+    * Deploy model using PytorchServe
+    * Deploy model using BentoML
+    * Deploy model as a serverless function
+    * Deploy multiple models in a single service
+    * Deploy multiple models with dynamic loading
+    * Not sure of best way to deploy? Read our guide.
+  * Deploy pipelines
+  * Cost Estimation and Optimization
+  * Collaboration with Team
+* Monitoring
+  * Introduction
+  * Service Health
+    * Metrics
+    * Logs 
+    * Add custom metrics
+  * Pipeline Health
+  * Model Health
+  * Feature Health
+  * Data Health
+* Model Traffic Shaping
+  * Canary Rollout
+  * Shadow Test your new model
+  * A/B Test your new model
+* Need something custom? 
+* Getting Help
+* Deploying on your own cloud
+
+
+
+
+<!-- * Guides
   * Experiment Tracking
     * [Setting up MLFoundry](guides/experiment_tracking/setup.md)
     * [Creating a run](guides/experiment_tracking/run.md)
@@ -40,4 +105,4 @@
   * [MlFlow API](api-doc/experiment-tracking/mlflow-api.md)
   * [Enums](api-doc/experiment-tracking/enums.md)
   * [Get Client](api-doc/experiment-tracking/get_client.md)
-
+ -->
