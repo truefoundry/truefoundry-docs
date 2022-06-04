@@ -44,8 +44,11 @@
     * Deploy multiple models in a single service
     * Deploy multiple models with dynamic loading
     * Deploy pretrained models
+    * Deploy models on GPU
     * Not sure of best way to deploy? Read our guide.
   * Deploy pipelines
+  * Deploy Applications
+    * JupyterHub
   * Cost Estimation and Optimization
   * Collaboration with Team
 * Monitoring
