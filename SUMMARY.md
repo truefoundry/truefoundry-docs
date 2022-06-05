@@ -57,6 +57,10 @@
     * JupyterHub
   * Cost Estimation and Optimization
   * Collaboration with Team
+* Demo Your Model
+  * Create using Streamlit
+  * Create using Gradio
+  * Deploy on Truefoundry and Share
 * Monitoring
   * Introduction
   * Service Health
