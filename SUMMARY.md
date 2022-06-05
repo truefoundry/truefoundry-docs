@@ -33,6 +33,10 @@
     * Examples
   * Create a new project with truefoundry
   * Deploy your existing project with truefoundry
+  * Environment Variables and Secrets
+    * Adding environment variables
+    * Creating secrets
+    * Using secrets in your application
   * Deploying Models
     * Deploy a simple predict function
     * Deploy model as fastapi service
@@ -46,6 +50,8 @@
     * Deploy pretrained models
     * Deploy models on GPU
     * Not sure of best way to deploy? Read our guide.
+  * Deploy from Jupyter Notebook
+  * Deploy your training code
   * Deploy pipelines
   * Deploy Applications
     * JupyterHub
