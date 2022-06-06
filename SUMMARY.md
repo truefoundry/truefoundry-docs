@@ -51,11 +51,14 @@
     * Deploy models on GPU
     * Not sure of best way to deploy? Read our guide.
   * Deploy from Jupyter Notebook
+  * Deploy From UI
   * Deploy your training code
   * Deploy pipelines
   * Deploy Applications
     * JupyterHub
   * Cost Estimation and Optimization
+    * Sleep services
+    * Sleep workspace
   * Collaboration with Team
 * Demo Your Model
   * Create using Streamlit
