@@ -78,8 +78,10 @@
 * Need something custom? 
 * End to End Examples
   * Iris Model
+  * Image Segmentation Model / Object Detection Model
+  * Question Answering Model
+  * Ranking Model
   * Churn Prediction Model
-  * Image Segmentation Model
 * Getting Help
 * Deploying on your own cloud
 
