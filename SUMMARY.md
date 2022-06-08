@@ -25,7 +25,7 @@
   * [Migrate from MLFlow](experiment-tracking/migrate-from-mlflow.md)
   * [Collaboration with Team](experiment-tracking/collaboration.md)
   * API Doc 
-* Deploy Model $~~~~$ <mark style="background-color: #32a889"> $~$ Coming Soon $~$</mark>  
+* Deploy Model
   * Getting Started
     * Installation and Setup
     * Deploy code using truefoundry
