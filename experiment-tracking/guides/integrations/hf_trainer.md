@@ -23,7 +23,7 @@ trainer = Trainer(..., args=args, callbacks=[mlf_cb])
 trainer.train()
 ```
 
-> Make sure to login or set the API Key in the environment. See [Setting up MLFoundry](guides/experiment_tracking/setup.md)
+> Make sure to login or set the API Key in the environment. See [Setting up MLFoundry](https://docs.truefoundry.com/documentation/track-experiments/guide/setup)
 
 **You can also create the callback from a pre initialised run**
 
