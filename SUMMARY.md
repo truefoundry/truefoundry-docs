@@ -85,8 +85,8 @@
   * Question Answering Model
   * Ranking Model
   * Churn Prediction Model
-* Getting Help
-* Deploying on your own cloud
+* [Getting Help](getting-help.md)
+* [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md)
 
 
 
