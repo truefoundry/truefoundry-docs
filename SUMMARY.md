@@ -9,7 +9,7 @@
     * [Add mlfoundry to your code](experiment-tracking/getting-started/add-mlfoundry.md)
     * [Examples](experiment-tracking/getting-started/examples.md)
   * Log Data
-    * [Creating a run](experiment-tracking/log-data/create-run.md)
+    * [Creating a run](experiment-tracking/log-data/create-run.md) 
     * [Log parameters](experiment-tracking/log-data/log-params.md)
     * [Log Metrics over time](experiment-tracking/log-data/log-metrics.md)
     * [Log Artifacts](experiment-tracking/log-data/log-artifacts.md)
@@ -25,7 +25,7 @@
   * [Migrate from MLFlow](experiment-tracking/migrate-from-mlflow.md)
   * [Collaboration with Team](experiment-tracking/collaboration.md)
   * API Doc 
-* Deploy Model
+* Deploy Model $~~~~$ <mark style="background-color: #32a889"> $~$ Coming Soon $~$</mark>  
   * Getting Started
     * Installation and Setup
     * Deploy code using truefoundry
