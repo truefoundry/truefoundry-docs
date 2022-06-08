@@ -26,7 +26,7 @@ run.end()
 ```
 This is how it looks like on the dashboard.
 
-![Dataset Stats](../../.gitbook/assets/guide_exp_dataset_stats.png)
+![Dataset Stats](/assets/guide_exp_dataset_stats.png)
 
 #### Example of storing the Iris dataset
 

@@ -42,7 +42,7 @@
     * [Enums](experiment-tracking/api-doc/enums.md)
     * [Get Client](experiment-tracking/api-doc/get_client.md)
 
-* Deploy Model [Coming Soon]
+* Deploy Model (Coming Soon)
   * Getting Started
     * Installation and Setup
     * Deploy code using truefoundry
@@ -77,11 +77,11 @@
     * Sleep services
     * Sleep workspace
   * Collaboration with Team
-* Demo Your Model [Coming Soon]
+* Demo Your Model (Coming Soon)
   * Create using Streamlit
   * Create using Gradio
   * Deploy on Truefoundry and Share
-* Monitoring  [Coming Soon]
+* Monitoring  (Coming Soon)
   * Introduction
   * Service Health
     * Metrics

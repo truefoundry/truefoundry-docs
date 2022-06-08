@@ -21,7 +21,7 @@ run.end()
 
 This is how it looks like on the dashboard.
 
-![Artifact Browser](../../.gitbook/assets/guide_exp_artifacts.png)
+![Artifact Browser](/assets/guide_exp_artifacts.png)
 
 #### Are artifacts versioned?
 
