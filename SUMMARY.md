@@ -25,7 +25,7 @@
   * [Migrate from MLFlow](experiment-tracking/migrate-from-mlflow.md)
   * [Collaboration with Team](experiment-tracking/collaboration.md)
   * API Doc 
-* Deploy Model <img width="80" alt="image" src="https://user-images.githubusercontent.com/97437109/172595010-5127e7e5-3358-4a9c-afc4-3126878345d7.png"/>
+* Deploy Model [Coming Soon]
   * Getting Started
     * Installation and Setup
     * Deploy code using truefoundry
@@ -60,11 +60,11 @@
     * Sleep services
     * Sleep workspace
   * Collaboration with Team
-* Demo Your Model <img width="80" alt="image" src="https://user-images.githubusercontent.com/97437109/172595010-5127e7e5-3358-4a9c-afc4-3126878345d7.png"/>
+* Demo Your Model [Coming Soon]
   * Create using Streamlit
   * Create using Gradio
   * Deploy on Truefoundry and Share
-* Monitoring  <img width="80" alt="image" src="https://user-images.githubusercontent.com/97437109/172595010-5127e7e5-3358-4a9c-afc4-3126878345d7.png"/>
+* Monitoring  [Coming Soon]
   * Introduction
   * Service Health
     * Metrics
