@@ -2,7 +2,7 @@
 
 You can log tabular datasets for a run as an artifact using the `log_dataset` function. This also captures statistics about your dataset which you can visualize on the dashboard.
 
-You can find more details [here](../../api-doc/experiment-tracking/mlfoundryrun/log_dataset.md).
+You can find more details [here](../../api-doc/mlfoundryrun/log_dataset.md).
 
 ```python
 import mlfoundry
