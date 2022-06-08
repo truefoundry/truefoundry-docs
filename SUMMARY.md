@@ -60,7 +60,7 @@
     * Sleep services
     * Sleep workspace
   * Collaboration with Team
-* Demo Your Model <img width="80" alt="image" src="https://user-images.githubusercontent.com/97437109/172595010-5127e7e5-3358-4a9c-afc4-3126878345d7.png"/>
+* Demo Your Model ![img](https://user-images.githubusercontent.com/97437109/172595010-5127e7e5-3358-4a9c-afc4-3126878345d7.png)
   * Create using Streamlit
   * Create using Gradio
   * Deploy on Truefoundry and Share
