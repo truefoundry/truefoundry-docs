@@ -1,0 +1,1 @@
+We allow deploying on your own cloud. Reach out to us on [Slack](https://join.slack.com/t/truefoundry/shared_invite/zt-19h90rcfa-7NVJHJZFB587JlHoGqbRNA) or email ( [support@truefoundry.com](mailto:support@truefoundry.com)) to get this done for you.
