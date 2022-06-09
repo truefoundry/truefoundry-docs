@@ -2,9 +2,9 @@
 
 ## 1. Track Your Experiments
 Make your models reproducible by logging metrics, data and models.
-1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
-    
-    ![img](assets/api_key.png)
+1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key
+
+    ![Get API Key](assets/api_key.png)
 
 2. **Install MLFoundry:** Run the following command to install MLFoundry.
 
@@ -43,7 +43,7 @@ Make your models reproducible by logging metrics, data and models.
 
 4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
 
-![img](assets/mlfoundry-dashboard.png)
+![MLFoundry Dashboard](assets/mlfoundry-dashboard.png)
 
 ## 2. Deploy your Model (Coming Soon)
 Make your models reproducible by logging metrics, data and models.
@@ -130,4 +130,4 @@ Share a demo of your model with streamlit UI
 
 2. **Deploy and share your model:** 
 
-![img](assets/demo.png)
+![Model Demo](assets/demo.png)
