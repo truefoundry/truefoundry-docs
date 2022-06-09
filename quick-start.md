@@ -3,12 +3,15 @@ Make your models reproducible by logging metrics, data and models.
 1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
 
     ![img](assets/api_key.png)
+    
 2. **Install MLFoundry:** Run the following command to install MLFoundry.
 
     ```
     pip install mlfoundry
     ```
-3. **Inject Log Lines in your training script:** 
+
+3. **Inject Log Lines in your training script:**
+
     ```python
     import pandas as pd
     import numpy as np
@@ -35,9 +38,11 @@ Make your models reproducible by logging metrics, data and models.
     mlf_run.log_metrics(metrics_dict)
     mlf_run.log_params(clf.get_params())
     ```
+
 4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
 
     ![img](assets/mlfoundry-dashboard.png)
+
 ## 2. Deploy your Model (Coming Soon)
 Make your models reproducible by logging metrics, data and models.
 
@@ -47,6 +52,7 @@ Run the following command to install ServiceFoundry.
     ```
     pip install servicefoundry
     ```
+
 2. **Write Service code:** A predict function for the model needs to defined as shown below.
 
     ```python
@@ -63,14 +69,18 @@ Run the following command to install ServiceFoundry.
         prediction = model.predict(features)
         return prediction
     ```
+
 3. **Deploy your service:** Run the following command
+
     ```
     servicefoundry deploy
     ```
 
 ## 3. Monitor in production (Coming Soon)
 Monitor your models (batch and realtime) for prediction drift, accuracy, feature and data drift.
+
 1. **Add log lines to your inference function:** 
+
     ```python
     import pandas as pd
     import mlfoundry as mlf
@@ -88,6 +98,7 @@ Monitor your models (batch and realtime) for prediction drift, accuracy, feature
     actual_val = some_val
     mlf_run.log_actual(actual_val, prediction_id)
     ```
+
 2. **View Model Monitoring Metrics:**
 
     ![img](assets/monitoring.png)
@@ -114,5 +125,7 @@ Share a demo of your model with streamlit UI
     # Generic streamlit code- maybe to collect feedback for prediction, or building a model feedback tool.
     mlf.webapp(predict, inputs=[number,number,number,number], outputs=[text])
     ```
+
 2. **Deploy and share your model:** 
+
     ![img](assets/demo.png)
