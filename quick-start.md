@@ -4,7 +4,7 @@
 Make your models reproducible by logging metrics, data and models.
 1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
 
-    <img align="center" width="600" src="assets/api_key.png">
+    ![img](assets/api_key.png)
 
 2. **Install MLFoundry:** Run the following command to install MLFoundry.
 
@@ -41,9 +41,9 @@ Make your models reproducible by logging metrics, data and models.
     mlf_run.log_params(clf.get_params())
     ```
 
-4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MLFoundry Dashboard
+4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
 
-    <img align="center" width="600" src="assets/mlfoundry-dashboard.png">
+    ![img](assets/mlfoundry-dashboard.png)
 
 ## 2. Deploy your Model (Coming Soon)
 Make your models reproducible by logging metrics, data and models.
@@ -103,7 +103,7 @@ Monitor your models (batch and realtime) for prediction drift, accuracy, feature
 
 2. **View Model Monitoring Metrics:**
 
-    <img align="center" width="600" src="assets/monitoring.png">
+    ![img](assets/monitoring.png)
     
 ## 4. Showcase your model 
 Share a demo of your model with streamlit UI
@@ -130,4 +130,4 @@ Share a demo of your model with streamlit UI
 
 2. **Deploy and share your model:** 
 
-    <img align="center" width="300" src="assets/demo.png">
+    ![img](assets/demo.png)
