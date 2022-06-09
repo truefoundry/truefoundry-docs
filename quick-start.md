@@ -2,17 +2,17 @@
 
 ## 1. Track Your Experiments
 Make your models reproducible by logging metrics, data and models.
-1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
+###1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
 
     ![img](assets/api_key.png)
 
-2. **Install MLFoundry:** Run the following command to install MLFoundry.
+###2. **Install MLFoundry:** Run the following command to install MLFoundry.
 
     ```
     pip install mlfoundry
     ```
 
-3. **Inject Log Lines in your training script:**
+###3. **Inject Log Lines in your training script:**
 
     ```python
     import pandas as pd
@@ -41,21 +41,21 @@ Make your models reproducible by logging metrics, data and models.
     mlf_run.log_params(clf.get_params())
     ```
 
-4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
+###4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
 
     ![img](assets/mlfoundry-dashboard.png)
 
 ## 2. Deploy your Model (Coming Soon)
 Make your models reproducible by logging metrics, data and models.
 
-1. **Install Servicefoundry:**
+###1. **Install Servicefoundry:**
 Run the following command to install ServiceFoundry.
 
     ```
     pip install servicefoundry
     ```
 
-2. **Write Service code:** A predict function for the model needs to defined as shown below.
+###2. **Write Service code:** A predict function for the model needs to defined as shown below.
 
     ```python
     import pandas as pd
@@ -72,7 +72,7 @@ Run the following command to install ServiceFoundry.
         return prediction
     ```
 
-3. **Deploy your service:** Run the following command
+###3. **Deploy your service:** Run the following command
 
     ```
     servicefoundry deploy
@@ -81,7 +81,7 @@ Run the following command to install ServiceFoundry.
 ## 3. Monitor in production (Coming Soon)
 Monitor your models (batch and realtime) for prediction drift, accuracy, feature and data drift.
 
-1. **Add log lines to your inference function:** 
+###1. **Add log lines to your inference function:** 
 
     ```python
     import pandas as pd
@@ -101,13 +101,13 @@ Monitor your models (batch and realtime) for prediction drift, accuracy, feature
     mlf_run.log_actual(actual_val, prediction_id)
     ```
 
-2. **View Model Monitoring Metrics:**
+###2. **View Model Monitoring Metrics:**
 
-    ![img](assets/monitoring.png)
+![img](assets/monitoring.png)
     
 ## 4. Showcase your model 
 Share a demo of your model with streamlit UI
-1. **One Line of Code to generate the UI:** 
+###1. **One Line of Code to generate the UI:** 
 
     ```python
     import pandas as pd
@@ -128,6 +128,6 @@ Share a demo of your model with streamlit UI
     mlf.webapp(predict, inputs=[number,number,number,number], outputs=[text])
     ```
 
-2. **Deploy and share your model:** 
+###2. **Deploy and share your model:** 
 
-    ![img](assets/demo.png)
+    ![img](./assets/demo.png)
