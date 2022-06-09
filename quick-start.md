@@ -2,11 +2,14 @@
 
 ## 1. Track Your Experiments
 Make your models reproducible by logging metrics, data and models.
-#### 1.  **Get API Key:** Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
+#### 1.  Get API Key: 
+
+   Login to the our [website](https://app.truefoundry.com/settings) to obtain an api key.
 
    ![img](assets/api_key.png)
 
-#### 2. **Install MLFoundry:** Run the following command to install MLFoundry.
+#### 2. Install MLFoundry: 
+   Run the following command to install MLFoundry.
 
     ```
     pip install mlfoundry
