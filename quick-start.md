@@ -43,7 +43,7 @@ Make your models reproducible by logging metrics, data and models.
 
 4. ***View logged data in dashboard:*** Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
 
-    ![img](assets/mlfoundry-dashboard.png)
+![img](assets/mlfoundry-dashboard.png)
 
 ## 2. Deploy your Model (Coming Soon)
 Make your models reproducible by logging metrics, data and models.
@@ -103,7 +103,7 @@ Monitor your models (batch and realtime) for prediction drift, accuracy, feature
 
 2. **View Model Monitoring Metrics:**
 
-    ![img](assets/monitoring.png)
+![Model Monitoring Metrics](assets/monitoring.png)
     
 ## 4. Showcase your model 
 Share a demo of your model with streamlit UI
@@ -130,4 +130,4 @@ Share a demo of your model with streamlit UI
 
 2. **Deploy and share your model:** 
 
-    ![img](assets/demo.png)
+![img](assets/demo.png)
