@@ -46,7 +46,7 @@ mlf_run.log_params(clf.get_params())
 ### View logged data in dashboard
 Click [here](https://app.truefoundry.com/mlfoundry) to view your MlFoundry Dashboard
 
-![img](assets/mlfoundry-dashboard.png)
+![MLFoundry Dashboard](assets/mlfoundry-dashboard.png)
 
 ### Compare different runs
 Click on the comparison view on top-right corner of MLFoundry dashboard to switch to comparison mode.
@@ -140,4 +140,4 @@ mlf.webapp(predict, inputs=[number,number,number,number], outputs=[text])
 
 ### Deploy and share your model
 
-![img](assets/demo.png)
+![Model Demo](assets/demo.png)
