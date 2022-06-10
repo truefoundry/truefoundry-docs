@@ -1,7 +1,7 @@
 # Quick Start
 Signup on our [website](https://app.truefoundry.com/settings) and get an API Key.
 
-![img](assets/api_key.png)
+![Generating an API Key](assets/api_key.png)
 
 
 ## 1. Track Your Experiments
