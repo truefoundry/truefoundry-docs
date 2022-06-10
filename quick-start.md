@@ -56,7 +56,7 @@ Click on the comparison view on top-right corner of MLFoundry dashboard to switc
 ## 2. Deploy your Model (Coming Soon)
 Deploy your model to production in 15 minutes.
 
-### Install Servicefoundry:
+<!-- ### Install Servicefoundry:
 Run the following command to install ServiceFoundry.
 
 ```
@@ -86,12 +86,12 @@ Run the following command
 
 ```
 servicefoundry deploy
-```
+``` -->
 
 ## 3. Monitor in production (Coming Soon)
 Monitor your models (batch and realtime) for prediction drift, accuracy, feature and data drift.
 
-### Add log lines to your inference function
+<!-- ### Add log lines to your inference function
 
 ```python
 import pandas as pd
@@ -114,10 +114,10 @@ mlf_run.log_actual(actual_val, prediction_id)
 ### View Model Monitoring Metrics
 
 ![Model Monitoring Metrics](assets/monitoring.png)
-    
+     -->
 ## 4. Showcase your model 
 Share a demo of your model with streamlit UI
-### One Line of Code to generate the UI
+<!-- ### One Line of Code to generate the UI
 
 ```python
 import pandas as pd
@@ -140,4 +140,4 @@ mlf.webapp(predict, inputs=[number,number,number,number], outputs=[text])
 
 ### Deploy and share your model
 
-![Model Demo](assets/demo.png)
+![Model Demo](assets/demo.png) -->
