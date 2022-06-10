@@ -1,5 +1,5 @@
 # Quick Start
-### Signup on our [website](https://app.truefoundry.com/settings) and get an API Key.
+Signup on our [website](https://app.truefoundry.com/settings) and get an API Key.
 
 ![img](assets/api_key.png)
 
