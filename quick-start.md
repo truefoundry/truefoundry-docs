@@ -115,7 +115,7 @@ mlf_run.log_actual(actual_val, prediction_id)
 
 ![Model Monitoring Metrics](assets/monitoring.png)
      -->
-## 4. Showcase your model 
+## 4. Showcase your model (Coming Soon)
 Share a demo of your model with streamlit UI
 <!-- ### One Line of Code to generate the UI
 
