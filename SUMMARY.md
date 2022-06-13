@@ -18,12 +18,13 @@
     * [Add Tags](experiment-tracking/log-data/add-tags.md)
     * Log Dataset (Coming Soon)
   * Compare Runs
-    * [Compare Metrics](experiment-tracking/compare-runs/compare.metrics.md)
+    * [Compare Metrics](experiment-tracking/compare-runs/compare-metrics.md)
     * Compare Datasets (Coming Soon)
   * Collaboration with team
     * [Roles and their meanings](experiment-tracking/collaboration/roles.md)
     * [Adding Collaborator](experiment-tracking/collaboration/add-collaborator.md)
     * Making Experiments Public (Coming Soon)
+  * [Comparison with MlFlow](experiment-tracking/comparison-mlflow.md)
 
 * Deploy Model (Coming Soon)
   * Getting Started
