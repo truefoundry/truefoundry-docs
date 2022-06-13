@@ -6,11 +6,11 @@ A run is an entity that represents a single experiment. Create a run at the begi
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="iris-sklearn-example", run_name="svm-model-1")
+run = client.create_run(project_name="iris-sklearn-example", run_name="svm-model")
 # Your code here.
 run.end()
 ```
-You can organize multiple runs under a single project. For example, the run `svm-model-1` will be created under the project `iris-sklearn-example`.
+You can organize multiple runs under a single project. For example, the run `svm-model` will be created under the project `iris-sklearn-example`.
 
 You can view these runs in the MLFoundry dashboard.
 ![Runs in MLFoundry](../../assets/mlf-run.png)

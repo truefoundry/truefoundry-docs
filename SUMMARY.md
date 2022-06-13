@@ -5,10 +5,10 @@
 * Track Experiments
   * [Overview](experiment-tracking/overview.md)
   * Getting Started
-    * [Installation and Setup](experiment-tracking/setup.md)
-    * [Concepts](experiment-tracking/concepts.md)
-    * [Add MLFoundry to your code](experiment-tracking/quick-start.md)
-    * [Examples](experiment-tracking/examples.md)
+    * [Installation and Setup](experiment-tracking/getting-started/setup.md)
+    * [Concepts](experiment-tracking/getting-started/concepts.md)
+    * [Add MLFoundry to your code](experiment-tracking/getting-started/quick-start.md)
+    * [Examples](experiment-tracking/getting-started/examples.md)
   * Log Data
     * [Creating a run](experiment-tracking/log-data/create-run.md) 
     * [Log parameters](experiment-tracking/log-data/log-params.md)
