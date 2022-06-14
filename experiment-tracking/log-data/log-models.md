@@ -12,7 +12,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project")
+run = client.create_run(project_name="iris-demo")
 X = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1]])
 y = np.array([1, 1, 2, 2])
 clf = make_pipeline(StandardScaler(), SVC(gamma='auto'))

@@ -10,7 +10,7 @@ Note that parameter values are stringified before storing.
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="sklearn-iris-example", run_name="svm-model")
+run = client.create_run(project_name="iris-demo", run_name="svm-model")
 
 run.log_params({"cache_size": 200.0, "kernel": "linear"})
 
@@ -41,7 +41,7 @@ parser.add_argument("-batch_size", type=int, required=True)
 args = parser.parse_args()
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project")
+run = client.create_run(project_name="iris-demo")
 
 run.log_params(args)
 

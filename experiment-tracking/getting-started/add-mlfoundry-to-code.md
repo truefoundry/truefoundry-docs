@@ -24,7 +24,7 @@ Initialize a new run. This initialization will start tracking system metrics aut
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project", run_name="my-first-run")
+run = client.create_run(project_name="iris-demo", run_name="svm-model")
 ```
 
 ### Track parameters

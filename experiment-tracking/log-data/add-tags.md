@@ -7,7 +7,7 @@ Tags are labels for a run. A tag is represented by a string tag name and value.
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project", run_name="my-first-run")
+run = client.create_run(project_name="iris-demo", run_name="svm-model")
 
 run.set_tags({"env": "development", "task": "classification"})
 run.end()

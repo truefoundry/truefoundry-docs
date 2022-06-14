@@ -8,7 +8,7 @@ You can capture metrics using the `log_metrics` method.
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="sample-project")
+run = client.create_run(project_name="iris-demo")
 run.log_metrics(metric_dict={"accuracy": 0.7, "loss": 0.6})
 
 run.end()

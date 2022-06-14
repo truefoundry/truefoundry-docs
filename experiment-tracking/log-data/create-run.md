@@ -6,7 +6,7 @@ A run is an entity that represents a single experiment. Create a run at the begi
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="iris-sklearn-example", run_name="svm-model")
+run = client.create_run(project_name="iris-demo", run_name="svm-model")
 # Your code here.
 run.end()
 ```
@@ -34,8 +34,8 @@ You can use the owner argument to pass the user's username who owns the project.
 
 ```python
 run = client.create_run(
-    project_name="my-first-project",
-    run_name="my-first-run",
+    project_name="iris-demo",
+    run_name="svm-model",
     owner="bob",
 )
 # Your code here.
@@ -47,7 +47,7 @@ run.end()
 Yes, we can use runs as a context manager. A run will be automatically ended after the execution exits the `with` block.
 
 ```python
-run = client.create_run(project_name="my-first-project", run_name="my-first-run")
+run = client.create_run(project_name="iris-demo", run_name="svm-model")
 with run:
     # Your code here.
     ...
@@ -64,7 +64,7 @@ If you do not pass a run name while creating a run, we generate a random name.
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project")
+run = client.create_run(project_name="iris-demo")
 
 print(run.run_name)
 run.end()
@@ -78,7 +78,7 @@ Runs are identified by by their `id`.
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project")
+run = client.create_run(project_name="iris-demo")
 
 print(run.run_id)
 run.end()

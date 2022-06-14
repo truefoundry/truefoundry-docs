@@ -12,7 +12,7 @@ with open("artifact.txt", "w") as f:
     f.write("hello-world")
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project")
+run = client.create_run(project_name="iris-demo")
 
 run.log_artifact(local_path="artifact.txt", artifact_path="my-artifacts")
 
@@ -41,7 +41,7 @@ with open("artifact.txt", "w") as f:
     f.write("hello-world")
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="my-first-project")
+run = client.create_run(project_name="iris-demo")
 
 run.log_artifact(local_path="artifact.txt", artifact_path="my-artifacts")
 

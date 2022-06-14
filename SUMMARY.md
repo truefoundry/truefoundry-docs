@@ -4,10 +4,10 @@
 * [Quick Start](quick-start.md)
 * Track Experiments
   * [Overview](experiment-tracking/overview.md)
-  * Getting Started
+  * Quick Start
     * [Installation and Setup](experiment-tracking/getting-started/setup.md)
     * [Concepts](experiment-tracking/getting-started/concepts.md)
-    * [Add MLFoundry to your code](experiment-tracking/getting-started/quick-start.md)
+    * [Add MLFoundry to your code](experiment-tracking/getting-started/add-mlfoundry-to-code.md)
     * [Examples](experiment-tracking/getting-started/examples.md)
   * Log Data
     * [Creating a run](experiment-tracking/log-data/create-run.md) 
@@ -17,6 +17,8 @@
     * [Log Models](experiment-tracking/log-data/log-models.md)
     * [Add Tags](experiment-tracking/log-data/add-tags.md)
     * Log Dataset (Coming Soon)
+  * Integrations
+    * [HuggingFaceTrainer](experiment-tracking/integrations/hf-trainer.md)
   * Compare Runs
     * [Compare Metrics](experiment-tracking/compare-runs/compare-metrics.md)
     * Compare Datasets (Coming Soon)
