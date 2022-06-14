@@ -6,4 +6,4 @@ Switch from run view to comparison view by clicking on the option on top-right c
 
 ![Comparing Runs](../../assets/run-compare-metrics.png)
 
-You can selects the set of runs you want to compare by selecting or deselecting the checkbox.
+You can select the runs you want to compare by selecting or deselecting the checkbox.

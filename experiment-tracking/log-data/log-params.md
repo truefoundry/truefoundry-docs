@@ -2,7 +2,7 @@
 
 ### Logging the hyperparameters
 Hyperparameters are independent variables for a run used to control the learning process. We can capture the hyperparameters using the `log_params` method.
-Once set, the hyperparameters are immutable.
+Once set, the hyperparameters are immutable. If you need to change the hyperparameter, it basically means that you are changing your model and it's best to create a new run for that. This way, the system exactly tracks the model along with the exact configuration to train it.
 
 Note that parameter values are stringified before storing.
 
@@ -48,7 +48,7 @@ run.log_params(args)
 run.end()
 ```
 
-### How can I programmatically parameters for a run?
+### How can I programmatically get parameters for a run?
 
 You can use the `get_params` method. It returns a dictionary
 
