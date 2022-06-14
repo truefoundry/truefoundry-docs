@@ -55,7 +55,7 @@ Users can face issues while installing MLFoundry packages on Mac OS computers wi
     ```
     Execute the following command and try installing MLFoundry again.
     ```
-    export SYSTEM_VERSION_COMPAT=1
+    SYSTEM_VERSION_COMPAT=1 pip install mlfoundry
     ```
 
     If the error still persists, follow the [link](https://stackoverflow.com/questions/64038673/could-not-build-wheels-for-which-use-pep-517-and-cannot-be-installed-directly) to solve the issue.
