@@ -53,9 +53,4 @@ Users can face issues while installing MLFoundry packages on Mac OS computers wi
     ```
     SetuptoolsDeprecationWarning: setuptools.installer is deprecated. Requirements should be satisfied by a PEP 517 installer.
     ```
-    Execute the following command and try installing MLFoundry again.
-    ```
-    SYSTEM_VERSION_COMPAT=1 pip install mlfoundry
-    ```
-
-    If the error still persists, follow the [link](https://stackoverflow.com/questions/64038673/could-not-build-wheels-for-which-use-pep-517-and-cannot-be-installed-directly) to solve the issue.
+    Follow the [link](https://stackoverflow.com/questions/72618522/error-installing-truefoundry-experiment-tracking-library-pip-install-mlfoundry) to solve the issue.
