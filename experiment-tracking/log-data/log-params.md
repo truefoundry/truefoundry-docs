@@ -19,6 +19,7 @@ run.end()
 
 ### Viewing logged parameter in dashboard
 These logged parameters can be seen in the MLFoundry dashboard. 
+
 ![Viewing Logged Parameters](../../assets/log-params.png)
 
 ### Filtering runs bases on parameter value
@@ -47,6 +48,10 @@ run.log_params(args)
 
 run.end()
 ```
+
+### Can I change the param value once logged?
+
+No you cannot change the value of param once logged.
 
 ### How can I programmatically get parameters for a run?
 

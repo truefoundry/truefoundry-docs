@@ -1,21 +1,6 @@
-### Set up mlfoundry
+# Adding MLFoundry to your code
 
-1. [Sign-up](https://app.truefoundry.com/signup) and login into your account.
-
-2. Install mlfoundry library on your system.
-
-3. Login to the mlfoundry library on your system. The CLI will prompt for an API key. Find your API key [here](https://app.truefoundry.com/settings).
-
-```
-pip install mlfoundry
-mlfoundry login
-```
-On a notebook environment you can use the `login` function.
-
-```python
-import mlfoundry
-mlfoundry.login()
-```
+After getting the api-key and logging in as described in the [setup](setup.md) section. Follow the following steps.
 
 ### Create a run and start tracking
 Initialize a new run. This initialization will start tracking system metrics automatically. This run will now appear on the mlfoundry dashboard.
