@@ -19,6 +19,7 @@ run.end()
 
 ### Viewing logged parameter in dashboard
 These logged parameters can be seen in the MLFoundry dashboard. 
+
 ![Viewing Logged Parameters](../../assets/log-params.png)
 
 ### Filtering runs bases on parameter value

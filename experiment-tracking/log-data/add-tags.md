@@ -15,6 +15,7 @@ run.end()
 
 #### Adding tags with UI
 You can view the tags from the dashboard and also create new tags.
+
 ![Adding Tags](../../assets/add-tags.png)
 
 

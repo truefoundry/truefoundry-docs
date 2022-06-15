@@ -13,6 +13,7 @@ run.end()
 You can organize multiple runs under a single project. For example, the run `svm-model` will be created under the project `iris-sklearn-example`.
 
 You can view these runs in the MLFoundry dashboard.
+
 ![Runs in MLFoundry](../../assets/mlf-run.png)
 
 ## FAQs
