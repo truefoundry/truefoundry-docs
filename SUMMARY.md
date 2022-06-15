@@ -16,11 +16,14 @@
     * [Log Artifacts](experiment-tracking/log-data/log-artifacts.md)
     * [Log Models](experiment-tracking/log-data/log-models.md)
     * [Add Tags](experiment-tracking/log-data/add-tags.md)
+    * [Logging and Visualizing System Metrics](experiment-tracking/log-data/system-metrics.md)
     * Log Dataset (Coming Soon)
+    * Logging in an existing run (Coming Soon) 
   * Integrations
     * [HuggingFaceTrainer](experiment-tracking/integrations/hf-trainer.md)
   * Compare Runs
     * [Compare Metrics](experiment-tracking/compare-runs/compare-metrics.md)
+    * [Oragnizing run-sets using tags](experiment-tracking/compare-runs/compare-with-tags.md)
     * Compare Datasets (Coming Soon)
   * Collaboration with team
     * [Roles and their meanings](experiment-tracking/collaboration/roles.md)

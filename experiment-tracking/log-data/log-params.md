@@ -48,6 +48,10 @@ run.log_params(args)
 run.end()
 ```
 
+### Can I change the param value once logged?
+
+No you cannot change the value of param once logged.
+
 ### How can I programmatically get parameters for a run?
 
 You can use the `get_params` method. It returns a dictionary
