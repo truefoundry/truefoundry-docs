@@ -17,6 +17,7 @@
     * [Log Models](experiment-tracking/log-data/log-models.md)
     * [Add Tags](experiment-tracking/log-data/add-tags.md)
     * [Logging and Visualizing System Metrics](experiment-tracking/log-data/system-metrics.md)
+    * [Logging images](experiment-tracking/log-data/log-image.md)
     * Log Dataset (Coming Soon)
     * Logging in an existing run (Coming Soon) 
   * Integrations
