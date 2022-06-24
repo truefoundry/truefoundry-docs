@@ -10,17 +10,6 @@ Use the function log_images for a `run`.
 pip install pillow
 ```
 
-<!-- Args:
-    images (Dict[str, "mlfoundry.Image"]): A map of string image key to instance of
-        `mlfoundry.Image` class. The image key should only contain alphanumeric,
-        hyphens(-) or underscores(_). For a single key and step pair, we can log only
-        one image.
-    step (int, optional): Training step/iteration for which the `images` should be
-        logged. Default is `0`.
-
-        Examples:
-        # Logging images from different sources -->
-
 Here is the sample code to log images from different sources:
 
 ```python
@@ -64,8 +53,34 @@ Images are represented and logged using this class in mlfoundry.
 
 You can initialize `mlfoundry.Image` by either by using a local path or you can use a numpy array / PIL.Image object.
 
-You can also log caption and the actual and prodicted value for an image as shown in the example below.
+You can also log caption and the actual and prodicted values for an image as shown in the examples below.
 
+#### Logging images with caption and a class label 
+
+```python
+import mlfoundry
+import numpy as np
+
+client = mlfoundry.get_client()
+run = client.create_run(
+    project_name="my-classification-project",
+)
+
+imarray = np.random.randint(low=0, high=256, size=(100, 100, 3))
+
+images_to_log = {
+    "logged-image-array": mlfoundry.Image(
+        data_or_path=imarray,
+        caption="testing image logging",
+        class_groups={"actuals": "dog", "predictions": "cat"},
+    ),
+}
+run.log_images(images_to_log, step=1)
+
+run.end()
+```
+
+#### Logging image with multi-label classification problems
 ```python
 images_to_log = {
     "logged-image-array": mlfoundry.Image(
