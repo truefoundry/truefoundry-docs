@@ -31,19 +31,22 @@
     * Making Experiments Public (Coming Soon)
   * [Comparison with MlFlow](experiment-tracking/comparison-mlflow.md)
 
-* Deploy Model (Coming Soon)
-  * Getting Started
-    * Installation and Setup
-    * Deploy code using truefoundry
-    * Concepts 
-    * Examples
-  * Create a new project with truefoundry
-  * Deploy your existing project with truefoundry
+* Deploy Model
+  * [Overview](deployment/README.md)
+  * Quick Start
+    * [Installation and Setup](deployment/quickstart/install-and-workspace.md)
+    * [Concepts](deployment/concepts.md)
+    * Examples(TBD)
+  * Deploy from Jupyter Notebook
+    * [Deploy Code using Notebook](deployment/quickstart/fastapi-quickstart.md)
+  * Create a new project with Truefoundry
+    * [Deploy REST Service using CLI](deployment/quickstart/fastapi-quickstart.md)
+  * Deploy your existing project with Truefoundry(TBD)
   * Environment Variables and Secrets
-    * Adding environment variables
-    * Creating secrets
-    * Using secrets in your application
-  * Deploying Models
+    * Adding environment variables(TBD)
+    * Creating secrets(TBD)
+    * [Using secrets in your application(TBU)](deployment/advance_examples/adding-env-vars.md)
+  * Deploying Models(TBD)
     * Deploy a simple predict function
     * Deploy model as fastapi service
     * Deploy mlfoundry model in one click
@@ -56,16 +59,15 @@
     * Deploy pretrained models
     * Deploy models on GPU
     * Not sure of best way to deploy? Read our guide.
-  * Deploy from Jupyter Notebook
-  * Deploy From UI
-  * Deploy your training code
-  * Deploy pipelines
-  * Deploy Applications
+  * Deploy From UI(Coming Soon)
+  * Deploy your training code(Coming Soon)
+  * Deploy pipelines(Coming Soon)
+  * Deploy Applications(Coming Soon)
     * JupyterHub
-  * Cost Estimation and Optimization
+  * Cost Estimation and Optimization(Coming Soon)
     * Sleep services
     * Sleep workspace
-  * Collaboration with Team
+  * Collaboration with Team(Coming Soon)
 * Demo Your Model (Coming Soon)
   * Create using Streamlit
   * Create using Gradio
@@ -80,12 +82,12 @@
   * Model Health
   * Feature Health
   * Data Health
-* Model Traffic Shaping
+* Model Traffic Shaping(Coming Soon)
   * Canary Rollout
   * Shadow Test your new model
   * A/B Test your new model
-* Need something custom? 
-* End to End Examples
+* Need something custom? (Coming Soon)
+* End to End Examples (TBD)
   * Iris Model
   * Image Segmentation Model / Object Detection Model
   * Question Answering Model
@@ -93,4 +95,13 @@
   * Churn Prediction Model
 * [Getting Help](getting-help.md)
 * [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md)
+
+## Reference
+* [Jupyter Notebook](deployment/api-doc/notebook/README.md)
+  * [load_predict](deployment/api-doc/notebook/load_predictor.md)
+  * [Predictor](deployment/api-doc/notebook/Predictor.md)
+  * [sfn_load_predict](deployment/api-doc/notebook/sfn_load_predict.md)
+  * [create_service](deployment/api-doc/notebook/create_service.md)
+  * [deploy_local](deployment/api-doc/notebook/deploy_local.md)
+  * [deploy](deployment/api-doc/notebook/deploy.md)
 
