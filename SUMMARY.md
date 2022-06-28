@@ -19,7 +19,7 @@
     * [Logging and Visualizing System Metrics](experiment-tracking/log-data/system-metrics.md)
     * [Logging images](experiment-tracking/log-data/log-image.md)
     * [Logging Plots](experiment-tracking/log-data/log-plots.md)
-    * [Log Dataset] (experiment-tracking/log-data/log-dataset.md)
+    * [Log Dataset](experiment-tracking/log-data/log-dataset.md)
     * Logging in an existing run (Coming Soon) 
   * Integrations
     * [HuggingFaceTrainer](experiment-tracking/integrations/hf-trainer.md)
