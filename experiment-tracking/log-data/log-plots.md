@@ -1,22 +1,21 @@
 # Logging Plots
 
-Mlfoundry allows you to log custom plots under the current `run` at the given `step` using the log_plot() function.
+Mlfoundry allows you to log custom plots under the current `run` at the given `step` using the `log_plot` function.
 You can use this function to log custom matplotlib, plotly plots as shown in examples below:
 
 ```python
 import mlfoundry
-client = mlfoundry.get_client()
 from sklearn.metrics import ConfusionMatrixDisplay
 import matplotlib.pyplot as plt
 
+client = mlfoundry.get_client()
 run = client.create_run(
-    project_name="demo",
+    project_name="my-classification-project",
 )
 
 ConfusionMatrixDisplay.from_predictions(["spam", "ham"], ["ham", "ham"])
 
 run.log_plots({"confusion_matrix": plt}, step=1)
-
 ```
 
 You can visualize the logged plots in the Mlfoundry Dashboard.
@@ -29,7 +28,7 @@ import mlfoundry
 import plotly.express as px
 
 client = mlfoundry.get_client()
-run = client.create_run(project_name="demo")
+run = client.create_run(project_name="my-classification-project")
 
 df = px.data.tips()
 fig = px.histogram(
@@ -48,34 +47,6 @@ plots_to_log = {
 run.log_plots(plots_to_log, step=1)
 run.end()
 ```
+You can find this logged image in the dashboard.
 
-### Logging a matplotlib plt or figure
-```python
-import mlfoundry
-from matplotlib import pyplot as plt
-import numpy as np
-
-client = mlfoundry.get_client()
-run = client.create_run(
-    project_name="demo",
-)
-
-t = np.arange(0.0, 5.0, 0.01)
-s = np.cos(2 * np.pi * t)
-(line,) = plt.plot(t, s, lw=2)
-
-plt.annotate(
-    "local max",
-    xy=(2, 1),
-    xytext=(3, 1.5),
-    arrowprops=dict(facecolor="black", shrink=0.05),
-)
-
-plt.ylim(-2, 2)
-
-plots_to_log = {"cos-plot": plt, "cos-plot-using-figure": plt.gcf()}
-
-run.log_plots(plots_to_log, step=1)
-run.end()
-```
-
+![Plotly Image](../../assets/log-plot-plotly.png)
