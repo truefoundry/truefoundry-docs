@@ -34,6 +34,7 @@ images_to_log = {
 
 run.log_images(images_to_log, step=1)
 run.end()
+
 ```
 
 ### Visualizing the logged images
@@ -65,6 +66,7 @@ import numpy as np
 
 data = mnist.load_data()
 (X_train, y_train), (X_test, y_test) = data
+
 client = mlf.get_client()
 run = client.create_run("mnist-sample")
 
@@ -73,14 +75,15 @@ predictions = list(np.random.randint(9, size=10))
 
 img_dict = {}
 for i in range(10):
-  img_dict[str(i)] = mlf.Image(
-      data_or_path= X_train[i],
-      caption="mnist sample",
-      class_groups={
-      "actuals": [str(actuals[i])], 
-      "predictions": [str(predictions[i])]}
-  )
-  
+    img_dict[str(i)] = mlf.Image(
+        data_or_path=X_train[i],
+        caption="mnist sample",
+        class_groups={
+            "actuals": str(actuals[i]), 
+            "predictions": str(predictions[i])
+            },
+    )
+
 run.log_images(img_dict)
 ```
 The logged images can be visualized in the mlfoundry dashboard.
