@@ -1,0 +1,45 @@
+# Table of contents
+
+* [Overview](README.md)
+* [Concepts](concepts.md)
+
+## Quick Start
+* [Install And Workspace](quickstart/install-and-workspace.md)
+* [Quick Start With FastAPI Templates](quickstart/fastapi-quickstart.md)
+* [Quick Start With Notebook](quickstart/notebook-quickstart.md)
+
+## Advance Examples
+* [Use servicefoundry in a CI/CD pipeline](advance_examples/ci-pipeline-integration.md)
+
+## Reference
+* [Jupyter Notebook](api-doc/notebook/README.md)
+  * [load_predict](api-doc/notebook/load_predictor.md)
+  * [Predictor](api-doc/notebook/Predictor.md)
+  * [sfn_load_predict](api-doc/notebook/sfn_load_predict.md)
+  * [create_service](api-doc/notebook/create_service.md)
+  * [deploy_local](api-doc/notebook/deploy_local.md)
+  * [deploy](api-doc/notebook/deploy.md)
+* [Command Line Interface](reference/cli/README.md)
+  * [sfy create](reference/cli/sfy-create/README.md)
+    * [sfy create workspace](reference/cli/sfy-create/sfy-create-workspace.md)
+  * [sfy delete](reference/cli/sfy-delete/README.md)
+    * [sfy delete service](reference/cli/sfy-delete/sfy-delete-service.md)
+    * [sfy delete workspace](reference/cli/sfy-delete/sfy-delete-workspace.md)
+  * [sfy deploy](reference/cli/sfy-deploy/README.md)
+    * [sfy deploy function](reference/cli/sfy-deploy/sfy-deploy-function.md)
+    * [sfy deploy webapp](reference/cli/sfy-deploy/sfy-deploy-webapp.md)
+  * [sfy get](reference/cli/sfy-get/README.md)
+    * [sfy get config](reference/cli/sfy-get/sfy-get-config.md)
+    * [sfy get deployment](reference/cli/sfy-get/sfy-get-deployment.md)
+    * [sfy get service](reference/cli/sfy-get/sfy-get-service.md)
+    * [sfy get workspace](reference/cli/sfy-get/sfy-get-workspace.md)
+  * [sfy list](reference/cli/sfy-list/README.md)
+    * [sfy list deployment](reference/cli/sfy-list/sfy-list-deployment.md)
+    * [sfy list service](reference/cli/sfy-list/sfy-list-service.md)
+    * [sfy list workspace](reference/cli/sfy-list/sfy-list-workspace.md)
+  * [sfy use](reference/cli/sfy-use/README.md)
+    * [sfy use cluster](reference/cli/sfy-use/sfy-use-cluster.md)
+    * [sfy use workspace](reference/cli/sfy-use/sfy-use-workspace.md)
+  * [sfy init](reference/cli/sfy-init.md)
+  * [sfy login](reference/cli/sfy-login.md)
+  * [sfy logout](reference/cli/sfy-logout.md)
