@@ -58,27 +58,34 @@ You can also log caption and the actual and prodicted values for an image as sho
 #### Logging images with caption and a class label 
 
 ```python
-import mlfoundry
+from keras.datasets import mnist
+import mlfoundry as mlf
+import time
 import numpy as np
 
-client = mlfoundry.get_client()
-run = client.create_run(
-    project_name="my-classification-project",
-)
+data = mnist.load_data()
+(X_train, y_train), (X_test, y_test) = data
+client = mlf.get_client()
+run = client.create_run("mnist-sample")
 
-imarray = np.random.randint(low=0, high=256, size=(100, 100, 3))
+actuals = list(y_test)
+predictions = list(np.random.randint(9, size=10))
 
-images_to_log = {
-    "logged-image-array": mlfoundry.Image(
-        data_or_path=imarray,
-        caption="testing image logging",
-        class_groups={"actuals": "dog", "predictions": "cat"},
-    ),
-}
-run.log_images(images_to_log, step=1)
-
-run.end()
+img_dict = {}
+for i in range(10):
+  img_dict[str(i)] = mlf.Image(
+      data_or_path= X_train[i],
+      caption="mnist sample",
+      class_groups={
+      "actuals": [str(actuals[i])], 
+      "predictions": [str(predictions[i])]}
+  )
+  
+run.log_images(img_dict)
 ```
+The logged images can be visualized in the mlfoundry dashboard.
+
+![MNIST sample images](../../assets/log-image-mnist.png)
 
 #### Logging image with multi-label classification problems
 ```python
