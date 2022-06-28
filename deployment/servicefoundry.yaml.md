@@ -44,22 +44,30 @@ service:
 
 **required: false**
 
-**default: TODO**
+**default: `{}`**
 
-The build section specifies how to package your code and generate a container image out of it.
+The build section specifies how to package your code and generate a container image out of it. When not specificied the `build` command automatically tries to detect the correct build pack to use based on the files in your code repository.
 
 ### `sfy_build_pack`
 
 **type: `string`**
 
-**required: true**
+**required: false**
 
-TODO
+**default: `sfy_build_pack_python`**
+
+The name of the servicefoundry build pack to use. Should be one of the following:
+
+- `sfy_build_pack_docker`
+- `sfy_build_pack_python`
+
+- `sfy_build_pack_fallback`
 
 **Example:**
 
 ```yaml
 build:
+  sfy_build_pack: sfy_build_pack_python
   ...
 ```
 
@@ -71,13 +79,15 @@ build:
 
 **default: `{}`**
 
-TODO
+A set of options for the selected `sfy_build_pack`. For e.g. for `sfy_build_pack_python` one of the options is `python_version` indicating the python version to use as the base.
 
 **Example:**
 
 ```yaml
 build:
-  ...
+  options:
+    python_version: python:3.9
+    ...
 ```
 
 ## `service`
@@ -148,7 +158,13 @@ service:
 
 **required: true**
 
-TODO
+The amount of memory (in bytes) to assign to 1 replica of the service. It can only be a positive integer. 
+
+The object has support for two keys:
+
+**`required`**: The minimum amount of memory required for each replica. A replica cannot be started if the available amount of available memory resource is below this.
+
+**`limit`**: The maximum amount of memory consumption allowed for each replica.
 
 **Example:**
 
@@ -157,6 +173,7 @@ service:
   memory:
     required: 500000000
     limit: 1500000000
+  ...
 ```
 
 ### `replicas`
@@ -174,6 +191,7 @@ The number of replicas for the service. All requests will be evenly distributed 
 ```yaml
 service:
   replicas: 2
+  ...
 ```
 
 ### `ports`
@@ -184,7 +202,20 @@ service:
 
 **default**: `[]`
 
-TODO
+The list of ports to expose for the service. The values can be either 
+
+- `integer` E.g. `8080`
+
+- `string` format as `{port_number}/{protocol}` E.g. `"8080/TCP"`
+
+- `object` with keys `container_port` and `protocol` E.g.
+
+  ```yaml
+  container_port: 8000
+  protocol: TCP
+  ```
+
+  when `protocol` is not specified, it is set to `TCP` by default
 
 **Example:**
 
@@ -194,6 +225,7 @@ service:
     - 8080
     - container_port: 8000
       protocol: TCP
+  ...
 ```
 
 ### `env`
@@ -204,7 +236,7 @@ service:
 
 **default**: `[]`
 
-TODO
+A list of environment variables to add in the service. Each item in the array is an `object` with keys `name` and `value`
 
 **Example:**
 
@@ -215,6 +247,7 @@ service:
       value: MY_VALUE_1
     - name: MY_ENV_2
       value: MY_VALUE_2
+  ...
 ```
 
 ### `inject_truefoundry_api_key`
@@ -232,6 +265,7 @@ When set to `true` this adds `TFY_API_KEY` to the environment in the container. 
 ```yaml
 service:
   inject_truefoundry_api_key: true
+  ...
 ```
 
 ### `command`
@@ -242,9 +276,7 @@ service:
 
 **default**: `[]`
 
-TODO
-
-**Example:**
+The command to run when your container is started. You can override the default command by specifying a different command here. When not specified, the default command of the container image/build pack is used. This is equivalent to `ENTRYPOINT` in docker.
 
 **Example:**
 
@@ -253,6 +285,7 @@ TODO
 ```yaml
 service:
   command: python /app/my_script.py
+  ...
 ```
 
 `array` value
@@ -262,6 +295,7 @@ service:
   command:
     - python
     - /app/my_script.py
+  ...
 ```
 
 ### `args`
@@ -272,7 +306,11 @@ service:
 
 **default**: `[]`
 
-TODO
+The list of arguments to pass to the `command` of the container image.You can override the default arguments by specifying a different arguments here.
+
+This is equivalent to `CMD` in docker.
+
+If you define args, but do not define a command, the default command is used with your new arguments.
 
 **Example:**
 
@@ -281,6 +319,7 @@ TODO
 ```yaml
 service:
   args: arg1 arg2
+  ...
 ```
 
 `array` value
@@ -290,6 +329,7 @@ service:
   args:
     - arg1
     - arg2
+  ...
 ```
 
 # Examples
@@ -297,8 +337,9 @@ service:
 ```yaml
 version: v1
 build:
-  sfy_build_pack: TODO
-  options: TODO
+  sfy_build_pack: sfy_build_pack_python
+  options:
+    python_version: python:3.9
 service:
   name: my-service-1
   cpu:
