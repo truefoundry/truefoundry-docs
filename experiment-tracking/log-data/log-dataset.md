@@ -63,7 +63,7 @@ You load a dataset logged under a run by using the `get_dataset` function.
 import mlfoundry
 
 client = mlfoundry.get_client()
-run = client.get_run("run-id-of-the-run")
+run = client.get_run("run-fqn-of-the-run")
 dataset = run.get_dataset(dataset_name="my-dataset")
 
 print(dataset.features) # This will be in Pandas DataFrame type.
