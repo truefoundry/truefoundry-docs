@@ -66,6 +66,7 @@
     * Sleep services
     * Sleep workspace
   * Collaboration with Team
+  * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
 * Demo Your Model (Coming Soon)
   * Create using Streamlit
   * Create using Gradio
