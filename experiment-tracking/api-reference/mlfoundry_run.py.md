@@ -88,7 +88,7 @@ Get Mlfoundry dashboard link for a `run`
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L763"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L771"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `auto_log_metrics`
 
@@ -170,7 +170,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1170"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1178"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `download_model`
 
@@ -234,7 +234,7 @@ with client.create_run(
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L504"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L512"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_dataset`
 
@@ -286,7 +286,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1071"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1079"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_metrics`
 
@@ -337,7 +337,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1152"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1160"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_model`
 
@@ -357,7 +357,7 @@ Deserialize and return the logged model object for the current `run`  and given 
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1127"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1135"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_params`
 
@@ -391,7 +391,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L699"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L707"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `get_tags`
 
@@ -523,7 +523,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L803"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L811"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `log_dataset_stats`
 
@@ -549,7 +549,7 @@ log_dataset_stats.
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1232"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1240"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `log_images`
 
@@ -599,7 +599,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L545"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L553"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `log_metrics`
 
@@ -636,7 +636,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1187"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1195"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `log_model`
 
@@ -679,7 +679,7 @@ run.log_model(clf, "sklearn")
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L600"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L608"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `log_params`
 
@@ -729,7 +729,7 @@ run.log_params(args)
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L1278"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L1286"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `log_plots`
 
@@ -813,7 +813,7 @@ run.end()
 
 ---
 
-<a href="../../../mlfoundry/mlfoundry_run.py#L663"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
+<a href="../../../mlfoundry/mlfoundry_run.py#L671"><img align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square"></a>
 
 ### <kbd>function</kbd> `set_tags`
 
