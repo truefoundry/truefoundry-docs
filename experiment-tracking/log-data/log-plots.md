@@ -22,6 +22,33 @@ You can visualize the logged plots in the Mlfoundry Dashboard.
 
 ![Visualizing the logged plots](../../assets/log-plot.png)
 
+### Logging a seaborn plot
+
+```python
+import mlfoundry
+from matplotlib import pyplot as plt
+import seaborn as sns
+
+# create a run in mlfoundry
+client = mlfoundry.get_client()
+run = client.create_run(
+    project_name="my-classification-project",
+)
+
+sns.set_theme(style="ticks", palette="pastel")
+
+# Load the example tips dataset
+tips = sns.load_dataset("tips")
+
+# Draw a nested boxplot to show bills by day and time
+sns.boxplot(x="day", y="total_bill", hue="smoker", palette=["m", "g"], data=tips)
+sns.despine(offset=10, trim=True)
+
+run.log_plots({"seaborn": plt})
+
+run.end()
+```
+
 ### Logging a plotly figure
 ```python
 import mlfoundry
