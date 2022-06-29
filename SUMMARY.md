@@ -40,7 +40,7 @@
     * [Concepts](deployment/concepts.md)
     * Examples(TBD)
   * Deploy from Jupyter Notebook
-    * [Deploy Code using Notebook](deployment/quickstart/fastapi-quickstart.md)
+    * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with Truefoundry
     * [Deploy REST Service using CLI](deployment/quickstart/fastapi-quickstart.md)
   * Deploy your existing project with Truefoundry(TBD)
