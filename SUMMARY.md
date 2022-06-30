@@ -47,7 +47,7 @@
   * Environment Variables and Secrets
     * Adding environment variables(TBD)
     * Creating secrets(TBD)
-    * [Using secrets in your application(TBU)](deployment/advance_examples/adding-env-vars.md)
+    * [Using secrets in your application](deployment/advance_examples/adding-env-vars.md)
   * Deploying Models(TBD)
     * Deploy a simple predict function
     * Deploy model as fastapi service
