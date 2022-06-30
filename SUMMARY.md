@@ -45,9 +45,8 @@
     * [Deploy REST Service using CLI](deployment/quickstart/fastapi-quickstart.md)
   * Deploy your existing project with Truefoundry(TBD)
   * Environment Variables and Secrets
-    * Adding environment variables(TBD)
-    * Creating secrets(TBD)
-    * [Using secrets in your application](deployment/advance_examples/adding-env-vars.md)
+    * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
+    * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
   * Deploying Models(TBD)
     * Deploy a simple predict function
     * Deploy model as fastapi service
