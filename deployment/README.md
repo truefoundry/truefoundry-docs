@@ -1,9 +1,5 @@
 # Overview
 
-## What is ServiceFoundry?
+TrueFoundry lets you deploy your machine learning models as services with minimal effort. This deployment comes with best practices like monitoring, auto-scaling, versioning & reproducibility out of the box.
 
-ServiceFoundry is a client library that allows you to containerize and deploy your Machine Learning model (or other services) to a managed Kubernetes Cluster. This also generates a Grafana cluster with complete visibility of your Service Health, System Logs, and Kubernetes Workspace.
-
-It is available both as a command-line-interface and via APIs that allow you to deploy directly from your Jupyter Notebook.
-
-You can access the health of your service, monitoring links and deployed endpoints by logging on to TrueFoundry's dashboard.
+ServiceFoundry is the client-side library from TrueFoundry used to deploy services. It is available both as a command line interface (CLI) and a Python module that you can use to deploy models directly from training notebooks like Jupyter.
