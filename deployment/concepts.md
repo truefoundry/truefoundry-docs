@@ -1,6 +1,6 @@
 # Concepts
 
-![Concepts](/assets/deployment-concepts.png)
+![Deployment Concepts](/assets/deployment-concepts.png)
 
 **Cluster**: The term cluster refers to a Kubernetes cluster. TrueFoundry deploys all services to Kubernetes clusters.
 
