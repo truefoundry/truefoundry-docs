@@ -343,8 +343,8 @@ build:
 service:
   name: my-service-1
   cpu:
-  	required: 0.5
-  	limit: 1.5
+    required: 0.5
+    limit: 1.5
   memory:
     required: 500000000
     limit: 1500000000
