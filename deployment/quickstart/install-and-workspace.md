@@ -16,7 +16,7 @@ pip install servicefoundry
 From the CLI, the following and follow the link to authenticate:
 
 ```
-sfy login
+servicefoundry login
 ```
 
 Output:
