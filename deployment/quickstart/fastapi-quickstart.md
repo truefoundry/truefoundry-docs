@@ -1,6 +1,6 @@
 # Create a Service using Servicefoundry Templates
 
-In this quickstart, we will deploy a FastAPI service to Servicefoundry by using init command to bootstrap the project.
+In this quickstart, we will deploy a FastAPI service to Servicefoundry by using init command to bootstrap the project. Before moving ahead, make sure you have installed the library and created a workspace. If not, see how [here](./install-and-workspace.md).
 
 ## Create a new project
 Start a new project using one of the many templates that Servicefoundry provides. On your terminal, enter the following:
@@ -29,10 +29,7 @@ Provide a name for your service (or stay with the default). Choose a Python vers
 
 After that, you will be prompted to choose a workspace. A workspace in Servicefoundry is simply a collection of services that have the same permissions on them.
 
-You can choose the workspace which you had created earlier.
-
-`Note: If you have not created any workspace, you can create a new workspace. Go to `
-[Install And Workspace](install-and-workspace.md)
+You can choose the workspace which you had created during [setup](./install-and-workspace.md).
 
 ```
 ? Please provide a name for your workspace: <workspace-name>
