@@ -71,6 +71,7 @@
     * Sleep services
     * Sleep workspace
   * Collaboration with Team (Coming Soon)
+  * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
   * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
 * Demo Your Model (Coming Soon)
   * Create using Streamlit
