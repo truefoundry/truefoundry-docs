@@ -84,7 +84,7 @@ Huggingface Transformers Trainer Callback for tracking training run on MLFoundry
 
 #### Args:
 
-- **project_name** (str): name of the project to create the run under
+  - **project_name** (str): name of the project to create the run under
   - **run_name** (Optional[str], *optional*): name of the run. When not provided a run name is automatically generated
   - **flatten_params** (bool, *optional*): if to flatten the args and model config dictionaries before logging them, By default, this is `False` E.g. When set to True,`config = {"id2label": {"0": "hello", "1": "bye"}}` will be logged as two parameters as `{"config/id2label.0": "hello", "config/id2label.1": "bye"}`. When set to False, `config = {"id2label": {"0": "hello"}}` will be logged as a single parameter as `{"config/id2label": '{"0": "hello", "1": "bye"}'}`
   - **log_model_strategy** (`mlfoundry.integrations.transformers.LogModelStrategy`, *optional*): The strategy to use for logging models
@@ -114,7 +114,7 @@ Create a MLFoundry Huggingface Transformers Trainer callback from an existing ML
 
 #### Args:
 
-- **run** (MlFoundryRun): `MlFoundry` run instance
+  - **run** (MlFoundryRun): `MlFoundry` run instance
   - **auto_end_run** (bool, *optional*): if to end the run when training finishes. By default, this is `False`
   - **flatten_params** (bool, *optional*): if to flatten the args and model config dictionaries before logging them, By default, this is `False` E.g. When set to True,`config = {"id2label": {"0": "hello", "1": "bye"}}` will be logged as two parameters as `{"config/id2label.0": "hello", "config/id2label.1": "bye"}`. When set to False, `config = {"id2label": {"0": "hello"}}` will be logged as a single parameter as `{"config/id2label": '{"0": "hello", "1": "bye"}'}`
   - **log_model_strategy** (`mlfoundry.integrations.transformers.LogModelStrategy`, *optional*): The strategy to use for logging models
