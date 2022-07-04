@@ -65,7 +65,8 @@
   * Deploy pipelines(Coming Soon)
   * Deploy Applications(Coming Soon)
     * JupyterHub
-  * Cost Estimation and Optimization(Coming Soon)
+  * [Cost Estimation](./deployment/costing/cost-estimation.md)
+  * Cost Optimization(Coming Soon)
     * Sleep services
     * Sleep workspace
   * Collaboration with Team(Coming Soon)
