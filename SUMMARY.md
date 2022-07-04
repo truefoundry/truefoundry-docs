@@ -39,6 +39,7 @@
     * [Installation and Setup](deployment/quickstart/install-and-workspace.md)
     * [Concepts](deployment/concepts.md)
     * [Deploy a service](deployment/quickstart/fastapi-quickstart.md)
+    * [More examples](deployment/quickstart/more-examples.md)
   * Deploy from Jupyter Notebook
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with Truefoundry
