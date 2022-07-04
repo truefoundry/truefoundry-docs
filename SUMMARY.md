@@ -5,7 +5,7 @@
 * Track Experiments
   * [Overview](experiment-tracking/overview.md)
   * Quick Start
-    * [Installation and Setup](experiment-tracking/getting-started/setup.md)
+    * [Installation and setup](experiment-tracking/getting-started/setup.md)
     * [Concepts](experiment-tracking/getting-started/concepts.md)
     * [Add MLFoundry to your code](experiment-tracking/getting-started/add-mlfoundry-to-code.md)
     * [Examples](experiment-tracking/getting-started/examples.md)
