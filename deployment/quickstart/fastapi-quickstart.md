@@ -3,7 +3,7 @@
 In this quickstart, we will deploy a FastAPI service to TrueFoundry. Before moving ahead, make sure you have installed the `servicefoundry` library and created a workspace. If not, see how [here](./install-and-workspace.md).
 
 ## Create a new project
-Start a new project using one of the many templates that Servicefoundry provides. On your terminal, enter the following:
+Start a new project using one of the many templates that TrueFoundry provides. On your terminal, enter the following:
 
 ```
 servicefoundry init --from-template
@@ -66,9 +66,11 @@ To deploy the service, simply run:
 sfy deploy
 ```
 
-This will deploy the service to Servicefoundry. From the logs, you can get the link to your deployed service. You can also find your service from the Servicefoundry dashboard.
+This will deploy the service to Servicefoundry. You can see the status of your deployment and access the service from the [dashboard](https://app.truefoundry.com/workspace).
 
-Go to the link and try out the FastAPI endpoints to make sure it's working as expected! You can find the docs for your service at `<service-link>/docs`
+Go to the link by clicking on `Endpoint` and try out the FastAPI endpoints to make sure it's working as expected!
+
+
 
 ## Add features to your service
 Now you can proceed to further develop your FastAPI service. The template sets you up with a FastAPI project that can add and subtract two numbers. Let's add an endpoint to multiply in `main.py`:
