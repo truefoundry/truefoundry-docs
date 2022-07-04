@@ -12,7 +12,9 @@ Make sure the following steps have been completed before moving ahead:
 ## Steps
 - Get your API key from the [dashboard](https://app.truefoundry.com/settings).
 - Add the API key to the Github repository as a secret with key `SERVICE_FOUNDRY_API_KEY`.
+  
   ![Adding the secret](../../assets/github-actions.png)
+
 - In your repository, create a folder for Github Actions
   ```bash
   mkdir -p .github/workflows
