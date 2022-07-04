@@ -36,7 +36,7 @@ You are logged in as 'user' with email 'user@xxx.xxx'
 
 To deploy services using TrueFoundry, you need to first create a workspace. A workspace is simply a collection of services that have the same set of permissions on them.
 
-1. To create a workspace, go to the [Workspaces page on the TrueFoundry dashboard](https://app.truefoundry.com/workspace) and click on `Create Workspace`.
+1. To create a workspace, go to the [workspaces page on the TrueFoundry dashboard](https://app.truefoundry.com/workspace) and click on `Create Workspace`.
 
 ![Create Workspace](../../assets/create-workspace.png)
 
