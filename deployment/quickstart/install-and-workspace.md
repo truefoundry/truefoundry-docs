@@ -39,6 +39,8 @@ To deploy services using TrueFoundry, you need to first create a workspace. A wo
 1. To create a workspace, go to the [Workspaces page on the TrueFoundry dashboard](https://app.truefoundry.com/workspace) and click on `Create Workspace`.
 
 ![Create Workspace](../../assets/create-workspace.png)
+
+
 2. Give a name for your workspace and choose a tier. You can choose a tier based on your resource requirements out of the four options. If you're unsure, start with a free tier and you can later upgrade your workspace.
 
 ![Workspace Tiers](../../assets/workspace-tiers.png)
