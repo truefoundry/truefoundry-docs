@@ -2,9 +2,9 @@
 
 ![Deployment Concepts](/assets/deployment-concepts.png)
 
-**Cluster**: The term cluster refers to a Kubernetes cluster. TrueFoundry deploys all services to Kubernetes clusters.
+**Cluster**: The term cluster refers to a [Kubernetes cluster](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/). TrueFoundry deploys all services to Kubernetes clusters.
 
-**Workspace**: A Workspace in TrueFoundry is a collection of services. A user will have the same set of permissions on all services inside a workspace. The workspace also maps to namespace in the Kubernetes cluster. 
+**Workspace**: A workspace in TrueFoundry is a collection of services. A user will have the same set of permissions on all services inside a workspace. The workspace also maps to namespace in the Kubernetes cluster. 
 
 **Service**: Service refers to the application/job that you are deploying. For example, your ML model can be deployed as a:
 
@@ -17,7 +17,7 @@
 
 **Environment**: Environment refers to the set of key value pairs that are made available as environment variables in all the pods of a service.
 
-**Secret:**: A TrueFoundry secret is a key value pair where the value is some sensitive text. You can create secrets and inject them into the environment of a deployment for use with the service.
+**Secret:**: A TrueFoundry secret is a key value pair where the value is some sensitive text. You can create secrets and [inject them into the environment of a deployment](./advance_examples/secret-env-vars.md) for use with the service.
 
 **Secret Group**: Secret group referes to a collection of secrets.
 
