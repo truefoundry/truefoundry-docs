@@ -1,22 +1,24 @@
 # Concepts
 
-<mark style="color:blue;">**Workspace:**</mark> The workspace is where you deploy your ML services. Each workspace maps directly to a kubernetes namespace and allocated a fixed amount of resources in terms of cpu and memory.
+![Concepts](/assets/deployment-concepts.png)
 
-<mark style="color:blue;">**Service:**</mark> The service in a workspace can be:
+**Cluster**: The term cluster refers to a Kubernetes cluster. TrueFoundry deploys all services to Kubernetes clusters.
 
-1. Web services which serve your inference as a REST endpoint.
-2. Web application which provide an interactive HTML based UI.
+**Workspace**: A Workspace in TrueFoundry is a collection of services. A user will have the same set of permissions on all services inside a workspace. The workspace also maps to namespace in the Kubernetes cluster. 
 
-<mark style="color:blue;">**Pods:**</mark> The pod in a service is an actual physical host which is running your service.
+**Service**: Service refers to the application/job that you are deploying. For example, your ML model service could be a:
 
-<mark style="color:blue;">**Deployments:**</mark> The deployment refers to the process of deploying new code or configuration change in your new service.
+* A web serivice that serves your model inference as REST APIs.
+* A web application which provides an interactive UI to test your model predictions.
 
-<mark style="color:blue;">**Environment:**</mark> The environment refers to the key value pairs which are set as environment variables in all the pods of the services.
+**Deployment**: A deployment is a certain set of code and configuration of the service that is deployed to the Workspace. The latest set of code and configuration that was deployed will be the active deployment for a service.
 
-<mark style="color:blue;">**Grafana:**</mark> The grafana is an analytics dashboard where you can access metrics, logs and alarms of your service.
+**Pod**: A pod in a service is an actual physical host which is running your service.
 
-<mark style="color:blue;">**Secret Group:**</mark> The Secret group is where you can create your secret key value.
+**Environment**: Environment refers to the set of key value pairs that are made available as environment variables in all the pods of a service.
 
-<mark style="color:blue;">**Secret:**</mark> The Secret is pair of key and value in a secret group.
+**Secret:**: A secret is a key value pair where the value is sensitive text. Secrets can be injected into the environment of a deployment for use with the service
 
-> > > > > > > Stashed changes
+**Secret Group**: Secret group referes to a collection of secrets.
+
+
