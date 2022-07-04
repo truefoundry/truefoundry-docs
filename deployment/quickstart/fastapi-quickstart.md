@@ -1,6 +1,6 @@
-# Create a Service using Servicefoundry Templates
+# Create a Service using TrueFoundry Templates
 
-In this quickstart, we will deploy a FastAPI service to Servicefoundry by using init command to bootstrap the project. Before moving ahead, make sure you have installed the library and created a workspace. If not, see how [here](./install-and-workspace.md).
+In this quickstart, we will deploy a FastAPI service to TrueFoundry. Before moving ahead, make sure you have installed the `servicefoundry` library and created a workspace. If not, see how [here](./install-and-workspace.md).
 
 ## Create a new project
 Start a new project using one of the many templates that Servicefoundry provides. On your terminal, enter the following:
