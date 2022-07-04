@@ -44,11 +44,11 @@
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with Truefoundry
     * [Deploy REST Service using CLI](deployment/quickstart/fastapi-quickstart.md)
-  * Deploy your existing project with Truefoundry(TBD)
+  * Deploy your existing project with Truefoundry (TBD)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
-  * Deploying Models(TBD)
+  * Deploying Models (TBD)
     * Deploy a simple predict function
     * Deploy model as fastapi service
     * Deploy mlfoundry model in one click
@@ -61,22 +61,22 @@
     * Deploy pretrained models
     * Deploy models on GPU
     * Not sure of best way to deploy? Read our guide.
-  * Deploy From UI(Coming Soon)
-  * Deploy your training code(Coming Soon)
-  * Deploy pipelines(Coming Soon)
-  * Deploy Applications(Coming Soon)
+  * Deploy From UI (Coming Soon)
+  * Deploy your training code (Coming Soon)
+  * Deploy pipelines (Coming Soon)
+  * Deploy Applications (Coming Soon)
     * JupyterHub
   * [Cost Estimation](./deployment/costing/cost-estimation.md)
-  * Cost Optimization(Coming Soon)
+  * Cost Optimization (Coming Soon)
     * Sleep services
     * Sleep workspace
-  * Collaboration with Team(Coming Soon)
+  * Collaboration with Team (Coming Soon)
   * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
 * Demo Your Model (Coming Soon)
   * Create using Streamlit
   * Create using Gradio
   * Deploy on Truefoundry and Share
-* Monitoring  (Coming Soon)
+* Monitoring (Coming Soon)
   * Introduction
   * Service Health
     * Metrics
@@ -86,7 +86,7 @@
   * Model Health
   * Feature Health
   * Data Health
-* Model Traffic Shaping(Coming Soon)
+* Model Traffic Shaping (Coming Soon)
   * Canary Rollout
   * Shadow Test your new model
   * A/B Test your new model
