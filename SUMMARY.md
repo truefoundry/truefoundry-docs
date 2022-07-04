@@ -36,7 +36,7 @@
 * Deploy Model
   * [Overview](deployment/README.md)
   * Quick Start
-    * [Installation and Setup](deployment/quickstart/install-and-workspace.md)
+    * [Installation and setup](deployment/quickstart/install-and-workspace.md)
     * [Concepts](deployment/concepts.md)
     * [Deploy a service](deployment/quickstart/fastapi-quickstart.md)
     * [More examples](deployment/quickstart/more-examples.md)
