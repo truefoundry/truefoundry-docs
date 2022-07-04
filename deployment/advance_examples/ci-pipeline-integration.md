@@ -1,22 +1,23 @@
 # Integrate servicefoundry in a CI/CD pipeline
 
 ## Introduction
-Servicefoundry can be seamlessly integrated with any CI/CD pipeline solution like Github Actions, Jenkins etc. An example leveraging github actions is provided below.
+Deployments using `servicefoundry` can be seamlessly integrated with any CI/CD pipeline solutions like Github Actions, Jenkins etc. The following steps show you how to setup Github Actions to automatically deploy your application to TrueFoundry.
 
 ## Before you start
 Make sure the following steps have been completed before moving ahead:
-- [Install servicefoundry](https://docs.truefoundry.com/servicefoundry/quick-start#install-servicefoundry-client-library)
-- [Create an application and deploy it on servicefoundry](https://docs.truefoundry.com/servicefoundry/quick-start-templates)
-- [Push the codebase to github](https://docs.github.com/en/get-started/quickstart/hello-world)
+- [Install servicefoundry and create a worksapce](https://docs.truefoundry.com/servicefoundry/quick-start#install-servicefoundry-client-library)
+- Create a Github repo with your service code including `servicefoundry.yaml`. If you are not familiar with creating a TrueFoundry service, check [this quick guide](../quickstart/fastapi-quickstart.md) out.
+
 
 ## Steps
-- Get the api key for your user from [here](https://app.devtest.truefoundry.tech/settings). Create one if one has not been provisioned yet.
-- Add the api key to the github repo as a secret with key `SERVICE_FOUNDRY_API_KEY`. This will be used by servicefoundry cli to authenticate to the server.
-- Inside the codebase directory, create a folder for github actions
+- Get your API key from the [dashboard](https://app.truefoundry.com/settings).
+- Add the API key to the Github repository as a secret with key `SERVICE_FOUNDRY_API_KEY`.
+  ![Adding the secret](../../assets/github-actions.png)
+- In your repository, create a folder for Github Actions
   ```bash
   mkdir -p .github/workflows
   ```
-- Create a file called `sfy-deploy.yaml` in this directory and paste the below content -
+- Create a file called `sfy-deploy.yaml` in this folder and paste the below content:
   ```bash
   name: sfy deploy
   on:
@@ -37,4 +38,4 @@ Make sure the following steps have been completed before moving ahead:
         env:
           SERVICE_FOUNDRY_API_KEY: ${{ secrets.SERVICE_FOUNDRY_API_KEY }}
   ```
-- Commit this file to `main`. This will trigger the pipeline and deploy the code on `main` to servicefoundry
+- Commit this file to `main`. This will trigger the pipeline and deploy the code on `main` to TrueFoundry
