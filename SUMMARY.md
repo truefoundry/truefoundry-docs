@@ -48,8 +48,6 @@
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
   * [Cost Estimation](./deployment/costing/cost-estimation.md)
-    * Sleep services
-    * Sleep workspace
   * [Collaboration with team](deployment/collab.md)
   * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
   * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
@@ -77,6 +75,8 @@
     * Deploy Applications
       * JupyterHub
     * Cost Optimization
+      * Sleep services
+      * Sleep workspace
   * Demo Your Model
     * Create using Streamlit
     * Create using Gradio

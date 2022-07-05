@@ -6,5 +6,3 @@ You pay for a service deployed on TrueFoundry based off how much CPU and memory 
 2. Go to the `Cost` tab to see hourly, daily and weekly usages. You can also see the split of consumption based off memory and CPU usage.
 
 ![Cost Report](../../assets/cost-estimation.png)
-
-![Cost Split](../../assets/cost-split.png)
