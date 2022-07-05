@@ -44,62 +44,64 @@
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with Truefoundry
     * [Deploy REST Service using CLI](deployment/quickstart/fastapi-quickstart.md)
-  * Deploy your existing project with Truefoundry (TBD)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
-  * Deploying Models (TBD)
-    * Deploy a simple predict function
-    * Deploy model as fastapi service
-    * Deploy mlfoundry model in one click
-    * Deploy model using TensorFlowServe
-    * Deploy model using PytorchServe
-    * Deploy model using BentoML
-    * Deploy model as a serverless function
-    * Deploy multiple models in a single service
-    * Deploy multiple models with dynamic loading
-    * Deploy pretrained models
-    * Deploy models on GPU
-    * Not sure of best way to deploy? Read our guide.
-  * Deploy From UI (Coming Soon)
-  * Deploy your training code (Coming Soon)
-  * Deploy pipelines (Coming Soon)
-  * Deploy Applications (Coming Soon)
-    * JupyterHub
   * [Cost Estimation](./deployment/costing/cost-estimation.md)
-  * Cost Optimization (Coming Soon)
     * Sleep services
     * Sleep workspace
   * [Collaboration with team](deployment/collab.md)
   * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
   * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
-* Demo Your Model (Coming Soon)
-  * Create using Streamlit
-  * Create using Gradio
-  * Deploy on Truefoundry and Share
-* Monitoring (Coming Soon)
-  * Introduction
-  * Service Health
-    * Metrics
-    * Logs 
-    * Add custom metrics
-  * Pipeline Health
-  * Model Health
-  * Feature Health
-  * Data Health
-* Model Traffic Shaping (Coming Soon)
-  * Canary Rollout
-  * Shadow Test your new model
-  * A/B Test your new model
-* Need something custom? (Coming Soon)
-* End to End Examples (TBD)
-  * Iris Model
-  * Image Segmentation Model / Object Detection Model
-  * Question Answering Model
-  * Ranking Model
-  * Churn Prediction Model
 * [Getting Help](getting-help.md)
 * [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md)
+* Coming Soon
+  * Deploy Model
+    * Deploy your existing project with Truefoundry
+    * Deploying Models
+      * Deploy a simple predict function
+      * Deploy model as fastapi service
+      * Deploy mlfoundry model in one click
+      * Deploy model using TensorFlowServe
+      * Deploy model using PytorchServe
+      * Deploy model using BentoML
+      * Deploy model as a serverless function
+      * Deploy multiple models in a single service
+      * Deploy multiple models with dynamic loading
+      * Deploy pretrained models
+      * Deploy models on GPU
+      * Not sure of best way to deploy? Read our guide.
+    * Deploy From UI
+    * Deploy your training code
+    * Deploy pipelines
+    * Deploy Applications
+      * JupyterHub
+    * Cost Optimization
+  * Demo Your Model
+    * Create using Streamlit
+    * Create using Gradio
+    * Deploy on Truefoundry and Share
+  * Monitoring
+    * Introduction
+    * Service Health
+      * Metrics
+      * Logs 
+      * Add custom metrics
+    * Pipeline Health
+    * Model Health
+    * Feature Health
+    * Data Health
+  * End to End Examples
+    * Iris Model
+    * Image Segmentation Model / Object Detection Model
+    * Question Answering Model
+    * Ranking Model
+    * Churn Prediction Model
+  * Model Traffic Shaping
+    * Canary Rollout
+    * Shadow Test your new model
+    * A/B Test your new model
+  * Need something custom?
 
 ## Reference
 * [Jupyter Notebook](deployment/api-doc/notebook/README.md)
