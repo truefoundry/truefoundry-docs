@@ -11,7 +11,7 @@ In this guide, we cover:
 
 You can follow along this tutorial on Google Colaboratory:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/truefoundry/truefoundry-examples/blob/main/notebook-deployment/deployment.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/truefoundry/truefoundry-examples/blob/main/sample-notebooks/deployment.ipynb)
 
 
 ## Generating an API service
