@@ -1,7 +1,5 @@
 # Deploy Inference from Notebook
 
-
-
 Servicefoundry comes with a few handy APIs that lets you easily convert your Python code in IPython notebooks (like [Jupyter](https://jupyter.org/), [Google Colaboratory](https://research.google.com/colaboratory/faq.html)) to fully fledged applications.
 
 In this guide, we cover:
