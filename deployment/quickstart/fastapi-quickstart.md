@@ -11,7 +11,7 @@ servicefoundry init --from-template
 
 This command will ask you a bunch of questions to get you set up with the project.
 
-First, you will be asked to choose from a list of templates supported by servicefoundry. For this example, we will choose `fastapi` - a simple webapp using the [FastAPI framework](https://fastapi.tiangolo.com).
+First, you will be asked to choose from a list of templates supported by servicefoundry. For this example, we will choose `fastapi` - a simple webapp using FastAPI.
 
 ```
 ? Choose a template (Use arrow keys)
