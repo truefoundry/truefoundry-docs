@@ -41,3 +41,5 @@ Make sure the following steps have been completed before moving ahead:
           SERVICE_FOUNDRY_API_KEY: ${{ secrets.SERVICE_FOUNDRY_API_KEY }}
   ```
 - Commit this file to `main`. This will trigger the pipeline and deploy the code on `main` to TrueFoundry
+
+You can find code for a digit recognition service that is deployed to TrueFoundry using Github Actions [here](https://github.com/srihari-tf/mnist-truefoundry-example).
