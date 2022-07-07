@@ -47,6 +47,7 @@
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
+  * [Monitoring your services](./deployment/monitoring.md)
   * [Cost Estimation](./deployment/costing/cost-estimation.md)
   * [Collaboration with team](deployment/collab.md)
   * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
