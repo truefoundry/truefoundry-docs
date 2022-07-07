@@ -6,9 +6,12 @@ From the dashboard, you can access the metrics and logs for each your services:
 
 ![Logs and Metrics](../assets/logs-metrics.png)
 
-`Metrics` will take you to the Grafana dashboard for your application that contains system metrics like CPU, memory and disk usage.
+The `Grafana` link at the service level provides system metrics and logs for the entire workspace.
 
 ![Grafana System Metrics](../assets/grafana.png)
+
+
+At the service level, `Metrics` will take you to the Grafana dashboard that contains system metrics like CPU, memory and disk usage for that service.
 
 `Logs` provide both system and application logs. This is useful for debugging when your service is not working as expected.
 
