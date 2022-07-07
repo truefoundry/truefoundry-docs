@@ -1,0 +1,1 @@
+Read the [quickstart guide](./quickstart/fastapi-quickstart.md) to see how you can easily create and deploy a REST API service using the `servicefoundry` CLI.

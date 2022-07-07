@@ -43,7 +43,7 @@
   * Deploy from Jupyter Notebook
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with Truefoundry
-    * [Deploy REST Service using CLI](deployment/quickstart/fastapi-quickstart.md)
+    * [Deploy REST Service using CLI](deployment/new-project.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
