@@ -15,4 +15,6 @@ At the service level, `Metrics` will take you to the Grafana dashboard that cont
 
 `Logs` provide both system and application logs. This is useful for debugging when your service is not working as expected.
 
+![Application logs](../assets/app-logs.png)
+
 You can also create your own custom dashboard by collating various metrics.
