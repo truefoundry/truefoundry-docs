@@ -1,6 +1,6 @@
 # Introduction
 
-TrueFoundry is a platform to make train, deploy and monitor models very easy for both individuals and companies. 
+TrueFoundry is a platform that makes training, deploying and monitoring models very easy for both individuals and companies. 
 
 TrueFoundry comes with experiment tracking, model deployment and monitoring - all at one place so that datascientists don't need to juggle between different tools and can have high levels of flexibility and independence to deploy their models with best practices and policies that can be configured by Devops and engineering teams. 
 
