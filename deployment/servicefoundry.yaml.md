@@ -10,6 +10,7 @@
       * [workspace](#workspace)
       * [cpu](#cpu)
       * [memory](#memory)
+      * [gpu](#gpu)
       * [replicas](#replicas)
       * [ports](#ports)
       * [env](#env)
@@ -166,6 +167,8 @@ The object has support for two keys:
 
 **`limit`**: The maximum amount of memory consumption allowed for each replica.
 
+At least one of these must be specified.
+
 **Example:**
 
 ```yaml
@@ -173,6 +176,31 @@ service:
   memory:
     required: 500000000
     limit: 1500000000
+  ...
+```
+
+### `gpu`
+
+**type: `object`**
+
+**required: false**
+
+The amount of GPU to assign to 1 replica of the service.
+
+The object has support for the following keys:
+
+**`limit`**: The number of GPUs to assign to 1 replica. Only integer values are supported.
+
+> :warning: This is an experimental feature.
+
+> :information_source: Support for custom GPU instances (Tesla K80, Tesla V100, Tesla T4, Ampere A100 etc) and fractional GPU allotment are on our roadmap. Please contact us if you have such requirements.
+
+**Example:**
+
+```yaml
+service:
+  gpu:
+    limit: 1
   ...
 ```
 
