@@ -28,6 +28,6 @@ TrueFoundry is hosted as a public cloud for data scientists to try it out and ho
 Our public cloud is still in alpha - so we don't recommend it for any production usecases yet. However, feel free to try out your hobby or test projects for faster iteration times and give us feedback. This will help us in making the platform much better.
 
 ## Try out TrueFoundry!
-You can try TrueFoundry for your own personal usecase at https://app.truefoundry.com or also deploy TrueFoundry on your own cloud to provide the same developer experience to all ML teams. 
+You can try TrueFoundry for your own personal usecase [here](https://app.truefoundry.com/). 
 
-If you want to use TrueFoundry on your own cloud, please get in touch with us. As of now, we work well with the AWS ecosystem - but we do plan to extend support to other cloud providers.
+You can also deploy TrueFoundry on your own cloud to provide the same developer experience to all ML teams. To host TrueFoundry on your own cloud, please get in touch with us. As of now, we work well with the AWS ecosystem - but we do plan to extend support to other cloud providers.
