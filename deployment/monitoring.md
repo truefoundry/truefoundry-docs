@@ -6,7 +6,7 @@ From the dashboard, you can access the metrics and logs for each your services:
 
 ![Logs and Metrics](../assets/logs-metrics.png)
 
-The `Grafana` link at the service level provides system metrics and logs for the entire workspace.
+The `Grafana` link at the workspace level provides system metrics and logs for the entire workspace.
 
 ![Grafana System Metrics](../assets/grafana.png)
 
