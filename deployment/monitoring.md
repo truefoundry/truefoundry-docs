@@ -10,7 +10,6 @@ The `Grafana` link at the workspace level provides system metrics and logs for t
 
 ![Grafana System Metrics](../assets/grafana.png)
 
-
 At the service level, `Metrics` will take you to the Grafana dashboard that contains system metrics like CPU, memory and disk usage for that service.
 
 `Logs` provide both system and application logs. This is useful for debugging when your service is not working as expected.
