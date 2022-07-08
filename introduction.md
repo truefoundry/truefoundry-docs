@@ -10,13 +10,13 @@ Currently, there is lot of interdependence between the data science, data engine
 
 TrueFoundry provides a single platform to log and track your experiments and models, deploy them in whatever configuration you want and then monitor their performance. The key components are:
 
-1. **Track your experiments and models**: TrueFoundry's tracking library called `mlfoundry` builds on top of the popular open source library MLFlow. We fixed a lot of the current issues in MLFlow - added authentication, a more intuitive UI, logging custom datatypes support while retaining the core APIs.
+1. **Track your experiments and models**: TrueFoundry's [tracking library](./experiment-tracking/overview.md) called `mlfoundry` builds on top of the popular open source library MLFlow. We fixed a lot of the current issues in MLFlow - added authentication, a more intuitive UI, logging custom datatypes support while retaining the core APIs.
 
-2. **Deploy Your Models (COMING SOON)**: TrueFoundry's deployment library is called `servicefoundry` and makes it super easy to deploy models on managed Kubernetes clusters. Since we build on top of Kubernetes, it provides complete flexibilty to add any integrations that come with Kubernetes. 
+2. **Deploy Your models**: TrueFoundry's deployment library is called `servicefoundry` and [makes it super easy](./deployment/README.md) to deploy models on managed Kubernetes clusters. Since we build on top of Kubernetes, it provides complete flexibilty to add any integrations that come with Kubernetes. 
 
-3. **Monitor Your Models (COMING SOON)**: TrueFoundry can also generate a lot of model monitoring metrics automatically like feature drift, prediction drift, etc. Data scientists can also add custom metrics and create alerts on their models.
+3. **Monitor your models (COMING SOON)**: TrueFoundry can also generate a lot of model monitoring metrics automatically like feature drift, prediction drift, etc. Data scientists can also add custom metrics and create alerts on their models.
 
-4. **Demo your model (COMING SOON)**: Data scientists are often required to demo models to product managers or early users to collect feedback. Building a frontend app requires learning frontend frameworks like React/Vue/Angular. However we make it very easy to demo models by writing only simple Python code.
+4. **Demo your models (COMING SOON)**: Data scientists are often required to demo models to product managers or early users to collect feedback. Building a frontend app requires learning frontend frameworks like React/Vue/Angular. However we make it very easy to demo models by writing only simple Python code.
 
 5. **Run end to end pipelines (In the roadmap)**: We are also working on providing support for running end-to-end pipelines using KubeFlow, Metaflow and a few other frameworks.
 
