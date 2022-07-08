@@ -42,7 +42,7 @@
     * [More examples](deployment/quickstart/more-examples.md)
   * Deploy from Jupyter Notebook
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
-  * Create a new project with Truefoundry
+  * Create a new project with TrueFoundry
     * [Deploy REST Service using CLI](deployment/new-project.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
@@ -57,7 +57,7 @@
 * [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md)
 * Coming Soon
   * Deploy Model
-    * Deploy your existing project with Truefoundry
+    * Deploy your existing project with TrueFoundry
     * Deploying Models
       * Deploy a simple predict function
       * Deploy model as fastapi service
@@ -82,7 +82,7 @@
   * Demo Your Model
     * Create using Streamlit
     * Create using Gradio
-    * Deploy on Truefoundry and Share
+    * Deploy on TrueFoundry and Share
   * Monitoring
     * Introduction
     * Service Health

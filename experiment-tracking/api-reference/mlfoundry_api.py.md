@@ -53,7 +53,7 @@ Initializes and returns the mlfoundry client.
 
 **Args:**
  
- - <b>`tracking_uri`</b> (Optional[str], optional):  Custom tracking server URL.  If not passed, by default all the run details are sent to Truefoundry server 
+ - <b>`tracking_uri`</b> (Optional[str], optional):  Custom tracking server URL.  If not passed, by default all the run details are sent to TrueFoundry server 
  - <b>`and can be visualized at https`</b>: //app.truefoundry.com/mlfoundry. Tracking server URL can be also configured using the `MLF_HOST` environment variable. In case environment variable and argument is passed, the URL passed via this argument will take precedence. 
  - <b>`disable_analytics`</b> (bool, optional):  To turn off usage analytics collection, pass `True`.  By default, this is set to `False`. 
  - <b>`api_key`</b> (Optional[str], optional):  API key. 
