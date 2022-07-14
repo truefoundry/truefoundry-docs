@@ -44,6 +44,9 @@
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with TrueFoundry
     * [Deploy REST Service using CLI](deployment/new-project.md)
+  * Deploy your existing project with TrueFoundry
+    * [Deploy a Python application to TrueFoundry](./deployment/deploy-project/python.md)
+    * [Deploy a Docker application to TrueFoundry](./deployment/deploy-project/docker.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
