@@ -22,18 +22,25 @@ The below shows the resources that will be brought up to provide an installation
 
 ## Installation
 
+We explain below the steps to install truefoundry with support for both experiment tracking and model deployment on AWS. 
 
+### Required Resources for production deployment
 
+- S3 bucket for experiment tracking 
+- S3 bucket for model deployment
+- RDS instances with two PostgreSQL databases, one for experiment tracking and model deployment.
 
-https://github.com/truefoundry/terraform-aws-truefoundry
+We provide the ![terraform-aws-truefoundry](https://github.com/truefoundry/terraform-aws-truefoundry) terraform module to assist with the creation of these resources on AWS.
 
 ### Installation Steps
 
-- Reaching out to Truefoundry to create and share the required keys at abhishek@truefoundry.com
-- Create the required buckets and DBs on your cloud environment.
+- Reach out to the Truefoundry team to create and share the required keys at abhishek@truefoundry.com
+- Create the required buckets and DBs on your cloud environment. 
 - Configure the truefoundry url and the workload url DNS records to point to the appropriate load balancer endpoints or IPs
-- Install the helm charts listed below using the following commands. The values files to be used in each case will be shared with you. They will require that you fill in the sections with the information 
+- Install the `truefoundry` helm chart below using the following commands. This is required for all installations.
+- (Optional) If you wish to use model deployment, Add a cluster from the Truefoundry dashboard. This will provide a truefoundry cluster token. With this token install the `tfy-workload` helm chart
 
+The values files to be used in each case will be shared with you. They will require that you fill in the sections with the information.
 
 #### Pre Installation
 
