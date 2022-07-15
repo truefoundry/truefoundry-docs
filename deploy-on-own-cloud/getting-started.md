@@ -30,7 +30,7 @@ We explain below the steps to install truefoundry with support for both experime
 - S3 bucket for model deployment
 - RDS instances with two PostgreSQL databases, one for experiment tracking and model deployment.
 
-We provide the ![terraform-aws-truefoundry](https://github.com/truefoundry/terraform-aws-truefoundry) terraform module to assist with the creation of these resources on AWS.
+We provide the [terraform-aws-truefoundry](https://github.com/truefoundry/terraform-aws-truefoundry) terraform module to assist with the creation of these resources on AWS.
 
 ### Installation Steps
 
@@ -44,7 +44,7 @@ The values files to be used in each case will be shared with you. They will requ
 
 #### Pre Installation
 
-Make sure that ![helm](https://helm.sh/docs/intro/install/) is installed.
+Make sure that [helm](https://helm.sh/docs/intro/install/) is installed.
 
 #### Helm Repository Addition
 
