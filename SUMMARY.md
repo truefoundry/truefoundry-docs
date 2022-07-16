@@ -58,6 +58,10 @@
   * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
 * [Getting Help](getting-help.md)
 * [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md)
+* Deploying on your own cloud
+  * [Overview](deploy-on-own-cloud/overview.md)
+  * [Requirements](requirements.md)
+  * [Installation](installation.md)
 * Coming Soon
   * Deploy Model
     * Deploy your existing project with TrueFoundry
