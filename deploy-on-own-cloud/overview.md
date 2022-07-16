@@ -32,12 +32,12 @@ We have two client libraries for datascientists, engineers and devops to interac
 1. [mlfoundry](https://pypi.org/project/mlfoundry/) (`pip install mlfoundry`)
 2. [servicefoundry](https://pypi.org/project/servicefoundry/) (`pip install servicefoundry`)
 
+All the above functionalities can be installed independently or together depending on your requirements.
+
 ### Central Authentication Server
 
 Truefoundry team maintains a central authentication server for users and license management to which all the above components talk.
 
-
-All the above functionalities can be installed independently or together depending on your requirements.
 
 
 ![Architecture](../assets/architecture.png)
