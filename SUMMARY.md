@@ -60,8 +60,8 @@
 * [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md)
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)
-  * [Requirements](requirements.md)
-  * [Installation](installation.md)
+  * [Requirements](deploy-on-own-cloud/requirements.md)
+  * [Installation](deploy-on-own-cloud/installation.md)
 * Coming Soon
   * Deploy Model
     * Deploy your existing project with TrueFoundry
