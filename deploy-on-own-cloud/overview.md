@@ -38,6 +38,4 @@ All the above functionalities can be installed independently or together dependi
 
 Truefoundry team maintains a central authentication server for users and license management to which all the above components talk.
 
-
-
 ![Architecture](../assets/architecture.png)
