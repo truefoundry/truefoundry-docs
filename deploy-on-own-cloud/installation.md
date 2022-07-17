@@ -15,7 +15,7 @@ mentioned in the [requirements](./requirements.md) page.
 
 This guide will walk you through the process of setting up Truefoundry. 
 
-## Install Truefoundry Helm-Chart
+## Install Truefoundry Helm-Charts
 
 Make sure that [helm](https://helm.sh/docs/intro/install/) is installed.
 
@@ -127,26 +127,30 @@ servicefoundry-server:
 Install the helm chart with this values file:
 
 ```
-helm upgrade --install truefoundry truefoundry/truefoundry -f tfy.yaml --wait
+helm upgrade --install truefoundry truefoundry/truefoundry -f tfy.yaml --wait --create-namespace --namespace truefoundry
 ```
 
-The above command can take a few seconds since it will wait for all the pods to come up. Once its done, check
+The above command can take a few seconds since it will wait for all the pods to come up. The default installation should install the components to the truefoundry namepsace. Once its done, check
 the final staus using the following command:
 
 ```
-kubectl command
+kubectl get pods -l 'app.kubernetes.io/name in (truefoundry-frontend-app,servicefoundry-server,mlfoundry-server)' -n truefoundry
 ```
+
+You should see pods for each of the services truefoundry-frontend-app, servicefoundry-server, mlfoundry-server in `Running` condition
+
+![Running Pods in truefoundry namespace](../assets/running-pods-truefoundry.png)
 
 #### Verify Installation
 
 If you have provided an ingress in tfy.yaml, you should be able to access truefoundry at the link provided in the 
-hosts section, else you can always port-forward and check.
+hosts section, else you can always port-forward the service truefoundry frontend app and check.
 
 ```
-kubectl port-forward command
+kubectl port-forward svc/truefoundry-frontend-app 8080:5000 -n truefoundry
 ```
 
-You should be greeted with a screen like below:
+You should be greeted with a screen like below when you visit `https://localhost:8080` :
 
 ![Verify Installation](../assets/verify-truefoundry-installation.png)
 

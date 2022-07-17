@@ -15,14 +15,13 @@ MlFoundry needs one S3 bucket and ServiceFoundry needs one S3 bucket. So if you 
 
 ### Postgres Database:
 
-We need one Postgres database each for MLFoundry, ServiceFoundry and ML-Monitoring. You can provision one RDS on AWS and create three databases on it with the name mlfoundry, svcfoundry and ml-monitoring or provide different databases. 
+We need one Postgres database each for MLFoundry, ServiceFoundry and ML-Monitoring. You can provision an RDS on AWS and create three databases on it with the name mlfoundry, svcfoundry and ml-monitoring or provide different databases hosts also. 
 
 We also provide a [Terraform module](https://github.com/truefoundry/tfy-terraform) to provision the DB and S3 buckets on AWS which can be found at https://github.com/truefoundry/tfy-terraform
 
 ### Tenant ID 
 
 You will need a tenantId to install Truefoundry. You will be getting this from the Truefoundry team prior to the installation. You will also get the password for the initial admin user of the platform. 
-
 
 ## Networking Configuration
 1. Truefoundry services should have access to dockerhub registry - the credentials for which will be provided by Truefoundry.
