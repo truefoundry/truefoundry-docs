@@ -41,7 +41,3 @@ Truefoundry team maintains a central authentication server for users and license
 
 
 ![Architecture](../assets/architecture.png)
-
-
-
-The guide will cover the installation with Helm charts. This is the recommended method of installation for your own cloud.
