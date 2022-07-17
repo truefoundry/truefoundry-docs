@@ -29,7 +29,7 @@ helm repo list
 
 ### Install Truefoundry helm chart
 
-Create a values file (values.yaml) as shown below. Fill up the values as provided by Truefoundry team
+Create a values file (tfy.yaml) as shown below. Fill up the values as provided by Truefoundry team
 and what is relevant for your cluster. 
 
 TODO: Fix the values file below
@@ -42,8 +42,7 @@ global:
   mlfoundry_enabled: true / false (If you want experiment tracking / ml metadata store)
   servicefoundry_enabled: true / false (If you want model deployment)
 
-  controlPlaneHost: example.organization.com (Hostname for the ingress)
-
+  controlPlaneHost: example.organization.com (? why is this needed?)
 truefoundry-frontend-app:
   replicaCount: 1
   # You can choose to configure generic ingress or istio virtual service
@@ -128,8 +127,34 @@ servicefoundry-server:
 Install the helm chart with this values file:
 
 ```
-helm upgrade --install truefoundry truefoundry/truefoundry -f values.yaml
+helm upgrade --install truefoundry truefoundry/truefoundry -f tfy.yaml --wait
 ```
+
+The above command can take a few seconds since it will wait for all the pods to come up. Once its done, check
+the final staus using the following command:
+
+```
+kubectl command
+```
+
+#### Verify Installation
+
+If you have provided an ingress in tfy.yaml, you should be able to access truefoundry at the link provided in the 
+hosts section, else you can always port-forward and check.
+
+```
+kubectl port-forward command
+```
+
+You should be greeted with a screen like below:
+
+![Verify Installation](../assets/verify-truefoundry-installation.png)
+
+You can login using the admin username and password provided to you. 
+
+Please note at this point you can use MLFoundry and ML-Monitoring, but additional work is needed for 
+getting started with ServiceFoundry. We need to provide the workload cluster to ServiceFoundry so that it can deploy
+the workloads there. 
 
 
 
