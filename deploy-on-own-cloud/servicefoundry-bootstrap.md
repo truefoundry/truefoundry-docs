@@ -131,7 +131,7 @@ Once you have added the cluster, you will need to install the tfy-workload helm 
 ### Setup a Default Docker Image Registry
 
 Storing Docker images of services that are built for model deployment and inference will require setup of a default Docker image registry. We support commonly used docker image registries like 
-Dockerhub, Github, AWS ECR (Elastic Container Registry) out of the box. We also support any docker image registry that uses the standard username password flows. 
+Dockerhub, Github, Gitlab out of the box. We also support any docker image registry that uses the standard username password flows. 
 
 To setup the registry :
 
