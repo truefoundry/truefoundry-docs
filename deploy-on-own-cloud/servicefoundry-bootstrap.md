@@ -36,20 +36,23 @@ global:
   # The below are installation secrets that will be provided as is.
   # These are customised for your account. Please use the provided values as
   # is.
-  imagePullCredentials: '<to be provided by Truefoundry Team>'
+  imagePullCredentials: "<to_be_provided_by_truefoundry>"
 
   # Auth token for your workload cluster
-  sfyAgentToken: ''<Copy from the token provided in UI>''
+  sfyAgentToken: "<to_be_taken_from_clusters_ui_in_truefoundry_dashboard>"
 
-  # Host for the control plane
-  controlPlaneHost: '<Url for the control plane dashboard>'
+  # Host for the control plane. The default value is the inner cluster IP, but
+  # you can provide the url of the dashboard in case control plane is on a different
+  # cluster
+  controlPlaneHost: "truefoundry-truefoundry-frontend-app.truefoundry.svc.cluster.local:3000"
 
-  # Configure the below with the url you wish to set up the workload on.
+  # Configure the below with the url that you configure in the ingress.
   # NOTE: This host should be accessible to control-plane
-  workloadHost: ''
+  workloadHost: "tfy-workload-sfy-proxy.tfy-workload.svc.cluster.local:3000"
 
-  # Base domain url that will be used to map your services against this cluster
-  baseDomainUrl: '<base domain attached to this cluster>'
+  # Base domain url that will be used to map your services against this cluster.
+  # Without this, all services deployed by Servicefoundry will be ClusterIP.
+  baseDomainUrl: ""
 
   # Monitoring: we can provision grafana, loki, prometheous stacks within your cluster
   # 1. disabled : No monitoring components will be setup by truefoundry
@@ -58,11 +61,7 @@ global:
   monitoring: disabled | external
 
   # This is mandatory incase of monitoring: external
-  externalGrafanaUrl: ''
-
-################################
-# Below configuration is option
-################################
+  externalGrafanaUrl: ""
 
 sfy-proxy:
   replicaCount: 2
@@ -84,16 +83,6 @@ sfy-proxy:
       hosts: []
       # hosts:
       #   - <workloadHost>
-  serviceAccount:
-    annotations: {}
-
-sfy-agent:
-  serviceAccount:
-    annotations: {}
-
-sfy-operators:
-  serviceAccount:
-    annotations: {}
 ```
 
 Install the helm chart with this values file:
@@ -103,7 +92,7 @@ helm upgrade --install tfy-workload truefoundry/tfy-workload -f tfy-workload.yam
 ```
 
 The above command can take a few seconds since it will wait for all the pods to come up. Once its done, check
-the final staus using the following command:
+the final status using the following command:
 
 // TODO: Add kubectl command to observe status
 
@@ -117,7 +106,7 @@ Once the pods are up and if everything is correct, you should see the status of 
 
 The workflow to add another cluster is quite similar to the flow above. In this case, you need to click on `New Cluster` and provide the following inputs. 
 
-1. Name: This can be any string that helps yuo identify the cluster later (maybe something like example-org-aws-production)
+1. Name: This can be any string that helps you identify the cluster later (maybe something like example-org-aws-production)
 2. Region: This specifies the region in which the cluster is present. It can be any string - but we recommend you to put the region as the region string of the cloud provider you are using. 
 
 Once you have added the cluster, you will need to install the tfy-workload helm chart in the target cluster using the same instructions as done for local cluster. 

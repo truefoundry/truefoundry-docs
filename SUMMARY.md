@@ -63,7 +63,6 @@
   * [Requirements](deploy-on-own-cloud/requirements.md)
   * [Installation](deploy-on-own-cloud/installation.md)
   * [Bootstrap Servicefoundry](deploy-on-own-cloud/servicefoundry-bootstrap.md)
-  * [Add users](deploy-on-own-cloud/add-users.md)
 * Coming Soon
   * Deploy Model
     * Deploy your existing project with TrueFoundry

@@ -30,30 +30,24 @@ helm repo list
 ### Install Truefoundry helm chart
 
 Create a values file (tfy.yaml) as shown below. Fill up the values as provided by Truefoundry team
-and what is relevant for your cluster. 
-
-TODO: Fix the values file below
+and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/tfy-workload/values.yaml)
 
 ```
 global:
-  imagePullCredentials: '<to_be_provided_by_truefoundry>'
-  authTenantId: '<to_be_provided_by_truefoundry>'
-
-  mlfoundry_enabled: true / false (If you want experiment tracking / ml metadata store)
-  servicefoundry_enabled: true / false (If you want model deployment)
-
-  # Configure the below with the url you wish to set up the control plane
-  # on. You will need to configure the DNS to point to this cluster's
-  # loadbalancer
-  controlPlaneHost: example.organization.com
+  # The below are installation secrets that will be provided as is.
+  # These are customised for your account. Please use the provided values as
+  # is.
+  imagePullCredentials: "<to_be_provided_by_truefoundry>"
+  authTenantId: "<to_be_provided_by_truefoundry>"
 
 ##########################
 # Settings specific to dashboard app
 truefoundry-frontend-app:
   enabled: true
   replicaCount: 1
-  # You can choose to configure generic ingress or istio virtual service
-    ingress:
+  # We support both generic ingress controller as well Istio Virtual Service. You
+  # can configure either of them.
+  ingress:
     enabled: false
     annotations: {}
     labels: {}
@@ -73,11 +67,11 @@ mlfoundry-server:
   enabled: true
   replicaCount: 1
   env:
-    # Database config mandatory
-    DB_USERNAME: ''
-    DB_PASSWORD: ''
-    DB_NAME: ''
-    DB_HOST: ''
+    # Database config for mlfoundry
+    DB_USERNAME: ""
+    DB_PASSWORD: ""
+    DB_NAME: ""
+    DB_HOST: ""
     DB_PORT: 5432
     # S3 bucket name mandatory
     S3_BUCKET_NAME: <s3_bucket_name>
@@ -95,13 +89,17 @@ servicefoundry-server:
     # S3 buckey name mandatory
     S3_BUCKET_NAME: <s3_bucket_name>
     # API KEY recieved from truefoundry for servicefoundry
-    SVC_FOUNDRY_SERVICE_API_KEY: <API_KEY>
+    SVC_FOUNDRY_SERVICE_API_KEY: <to_be_provided_by_truefoundry>
     # Database config mandatory
-    DB_USERNAME: ''
-    DB_PASSWORD: ''
-    DB_NAME: ''
-    DB_HOST: ''
+    DB_USERNAME: ""
+    DB_PASSWORD: ""
+    DB_NAME: ""
+    DB_HOST: ""
     DB_PORT: 5432
+    # This is the externally reachable url configured above in the
+    # ingress section of truefoundry-frontend-app. Without this value, servicefoundry
+    # will not work.
+    CONTROL_PLANE_URL: "https://truefoundry.organization.com"
   serviceAccount:
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
@@ -131,7 +129,7 @@ If you have provided an ingress in tfy.yaml, you should be able to access truefo
 hosts section, else you can always port-forward the service truefoundry frontend app and check.
 
 ```
-kubectl port-forward svc/truefoundry-frontend-app 8080:5000 -n truefoundry
+kubectl port-forward svc/truefoundry-truefoundry-frontend-app 8080:5000 -n truefoundry
 ```
 
 You should be greeted with a screen like below when you visit `https://localhost:8080` :
