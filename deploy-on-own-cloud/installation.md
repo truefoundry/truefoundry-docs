@@ -15,7 +15,7 @@ mentioned in the [requirements](./requirements.md) page.
 
 This guide will walk you through the process of setting up Truefoundry. 
 
-## Install Truefoundry Helm-Chart
+## Install Truefoundry Helm-Charts
 
 Make sure that [helm](https://helm.sh/docs/intro/install/) is installed.
 
@@ -36,17 +36,24 @@ TODO: Fix the values file below
 
 ```
 global:
-  imagePullCredentials: <to_be_provided_by_truefoundry>
-  authTenantId: <to_be_provided_by_truefoundry>
+  imagePullCredentials: '<to_be_provided_by_truefoundry>'
+  authTenantId: '<to_be_provided_by_truefoundry>'
 
   mlfoundry_enabled: true / false (If you want experiment tracking / ml metadata store)
   servicefoundry_enabled: true / false (If you want model deployment)
 
-  controlPlaneHost: example.organization.com (? why is this needed?)
+  # Configure the below with the url you wish to set up the control plane
+  # on. You will need to configure the DNS to point to this cluster's
+  # loadbalancer
+  controlPlaneHost: example.organization.com
+
+##########################
+# Settings specific to dashboard app
 truefoundry-frontend-app:
+  enabled: true
   replicaCount: 1
   # You can choose to configure generic ingress or istio virtual service
-  ingress:
+    ingress:
     enabled: false
     annotations: {}
     labels: {}
@@ -59,23 +66,12 @@ truefoundry-frontend-app:
       annotations: {}
       gateways: []
       hosts: []
-  # These details will be autofilled
-  imagePullCredentials: "{{ .Values.global.imagePullCredentials }}"
-  env:
-    VITE_SERVICEFOUNDRY_SERVER_ENABLED: "{{ .Values.global.servicefoundry_enabled }}"
-    VITE_MLFOUNDRY_SERVER_ENABLED: "{{ .Values.global.mlfoundry_enabled }}"
-    VITE_TENANT_ID: "{{ .Values.global.authTenantId }}"
-    VITE_PUSHER_KEY: "{{ .Values.global.PUSHER_KEY }}"
-    VITE_PUSHER_CLUSTER: "{{ .Values.global.PUSHER_CLUSTER }}"
-    SERVICEFOUNDRY_SERVER_URL: 'http://{{ .Release.Name }}-servicefoundry-server.{{ .Release.Namespace }}.svc.cluster.local:3000'
-    MLFOUNDRY_SERVER_URL: 'http://{{ .Release.Name }}-mlfoundry-server.{{ .Release.Namespace }}.svc.cluster.local:5000'
 
 #############################
 # Settings specific to mlfoundry.
 mlfoundry-server:
   enabled: true
   replicaCount: 1
-  imagePullCredentials: "{{ .Values.global.imagePullCredentials }}"
   env:
     # Database config mandatory
     DB_USERNAME: ''
@@ -84,11 +80,8 @@ mlfoundry-server:
     DB_HOST: ''
     DB_PORT: 5432
     # S3 bucket name mandatory
-    ARTIFACT_ROOT: "s3://<mlfoundry_bucket_name>"
-    # No change needed here
-    AUTH_TENANT_ID: "{{ .Values.global.authTenantId }}"
+    S3_BUCKET_NAME: <s3_bucket_name>
   serviceAccount:
-    create: true
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
       eks.amazonaws.com/role-arn: <role_arn>
@@ -98,12 +91,8 @@ mlfoundry-server:
 servicefoundry-server:
   enabled: true
   replicaCount: 1
-  imagePullCredentials: "{{ .Values.global.imagePullCredentials }}"
-  serviceAccount:
-    create: true
-    annotations:
-      eks.amazonaws.com/role-arn: "{{ .Values.IAMRoleArn }}"
   env:
+    # S3 buckey name mandatory
     S3_BUCKET_NAME: <s3_bucket_name>
     # API KEY recieved from truefoundry for servicefoundry
     SVC_FOUNDRY_SERVICE_API_KEY: <API_KEY>
@@ -113,40 +102,39 @@ servicefoundry-server:
     DB_NAME: ''
     DB_HOST: ''
     DB_PORT: 5432
-    # These fill be auto-filled
-    AUTH_TENANT_ID: "{{ .Values.global.authTenantId }}"
-    CONTROL_PLANE_URL: 'https://{{ .Values.global.controlPlaneHost }}'
-    IMAGE_PULL_CREDENTIALS: "{{ .Values.global.imagePullCredentials }}"
-    PUSHER_APP_ID: "{{ .Values.global.PUSHER_APP_ID }}"
-    PUSHER_KEY: "{{ .Values.global.PUSHER_KEY }}"
-    PUSHER_SECRET: "{{ .Values.global.PUSHER_SECRET }}"
-    PUSHER_CLUSTER: "{{ .Values.global.PUSHER_CLUSTER }}"
-    WORKSPACE_PER_USER_WITHOUT_PAYMENT: '10'
+  serviceAccount:
+    annotations:
+      # Provide permission to s3 using role_arn or anything compatible
+      eks.amazonaws.com/role-arn: <role_arn>
 ```
 
 Install the helm chart with this values file:
 
 ```
-helm upgrade --install truefoundry truefoundry/truefoundry -f tfy.yaml --wait
+helm upgrade --install truefoundry truefoundry/truefoundry -f tfy.yaml --wait --create-namespace --namespace truefoundry
 ```
 
-The above command can take a few seconds since it will wait for all the pods to come up. Once its done, check
-the final staus using the following command:
+The above command can take a few seconds since it will wait for all the pods to come up. The default installation should install the components to the truefoundry namepsace. Once its done, check
+the final status using the following command:
 
 ```
-kubectl command
+kubectl get pods -l 'app.kubernetes.io/name in (truefoundry-frontend-app,servicefoundry-server,mlfoundry-server)' -n truefoundry
 ```
+
+You should see pods for each of the services truefoundry-frontend-app, servicefoundry-server, mlfoundry-server in `Running` condition
+
+![Running Pods in truefoundry namespace](../assets/running-pods-truefoundry.png)
 
 #### Verify Installation
 
 If you have provided an ingress in tfy.yaml, you should be able to access truefoundry at the link provided in the 
-hosts section, else you can always port-forward and check.
+hosts section, else you can always port-forward the service truefoundry frontend app and check.
 
 ```
-kubectl port-forward command
+kubectl port-forward svc/truefoundry-frontend-app 8080:5000 -n truefoundry
 ```
 
-You should be greeted with a screen like below:
+You should be greeted with a screen like below when you visit `https://localhost:8080` :
 
 ![Verify Installation](../assets/verify-truefoundry-installation.png)
 

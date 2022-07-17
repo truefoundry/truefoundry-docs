@@ -36,16 +36,16 @@ global:
   # The below are installation secrets that will be provided as is.
   # These are customised for your account. Please use the provided values as
   # is.
-  imagePullCredentials: <to be provided by Truefoundry Team>
+  imagePullCredentials: '<to be provided by Truefoundry Team>'
 
   # Auth token for your workload cluster
-  sfyAgentToken: '<Copy from the token provided in UI>'
+  sfyAgentToken: ''<Copy from the token provided in UI>''
 
   # Host for the control plane
   controlPlaneHost: '<Url for the control plane dashboard>'
 
   # Configure the below with the url you wish to set up the workload on.
-  # You will need to configure the DNS to point to this cluster's loadbalancer
+  # NOTE: This host should be accessible to control-plane
   workloadHost: ''
 
   # Base domain url that will be used to map your services against this cluster
@@ -53,19 +53,19 @@ global:
 
   # Monitoring: we can provision grafana, loki, prometheous stacks within your cluster
   # 1. disabled : No monitoring components will be setup by truefoundry
-  # 2. local: provision all monitoring components grafana, loki, prometheous
-  # 3. external: provide externalGrafanaUrl to redirect users from dashboard
+  # 2. external: provide externalGrafanaUrl to redirect users from dashboard
   # Note: Incase of local, we map grafana to grafana.<baseDomainUrl>
-  monitoring: disabled | local | external
+  monitoring: disabled | external
 
   # This is mandatory incase of monitoring: external
   externalGrafanaUrl: ''
 
 ################################
+# Below configuration is option
+################################
 
 sfy-proxy:
   replicaCount: 2
-  imagePullCredentials: "{{ .Values.global.imagePullCredentials }}"
   # You can choose to configure any one for dashboard ingress
   ingress:
     enabled: false
@@ -74,32 +74,26 @@ sfy-proxy:
     ingressClassName: istio
     tls: []
     hosts: []
+    # hosts:
+    #   - <workloadHost>
   istio:
     virtualservice:
       enabled: false
       annotations: {}
       gateways: []
       hosts: []
+      # hosts:
+      #   - <workloadHost>
   serviceAccount:
     annotations: {}
-
-#############################
-# You don't need to change any config below
 
 sfy-agent:
-  imagePullCredentials: "{{ .Values.global.imagePullCredentials }}"
   serviceAccount:
     annotations: {}
-  env:
-    BASE_DOMAIN_URL: "{{ .Values.global.baseDomainUrl }}"
-    SFY_PROXY_URL: "https://{{ .Values.global.workloadHost }}/api/kubernetes"
-    GRAFANA_URL: "{{ .Values.global.externalGrafanaUrl }}"
-    MONITORING: "{{ .Values.global.monitoring }}"
-    SFY_SERVER_URL: "https://{{ .Values.global.controlPlaneHost }}/api/svc"
-    SFY_CLUSTER_AUTH_API_KEY: "{{ .Values.global.sfyAgentToken }}"
 
 sfy-operators:
-  imagePullCredentials: "{{ .Values.global.imagePullCredentials }}"
+  serviceAccount:
+    annotations: {}
 ```
 
 Install the helm chart with this values file:
