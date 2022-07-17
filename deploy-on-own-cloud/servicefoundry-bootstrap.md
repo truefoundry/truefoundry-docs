@@ -91,14 +91,10 @@ Install the helm chart with this values file:
 helm upgrade --install tfy-workload truefoundry/tfy-workload -f tfy-workload.yaml --wait
 ```
 
-The above command can take a few seconds since it will wait for all the pods to come up. Once its done, check
-the final status using the following command:
-
-// TODO: Add kubectl command to observe status
+The above command can take a few seconds since it will wait for all the pods to come up. 
 
 Once the pods are up and if everything is correct, you should see the status of the cluster as Connected on the UI. You might need to refresh the page to see the effect. Once its connected, you are all set to deploy workloads on the cluster.
 
-// TODO: Add connect cluster screenshot
 ![Connected Cluster](../assets/connected-cluster.png)
 
 
