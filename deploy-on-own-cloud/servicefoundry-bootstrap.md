@@ -111,4 +111,25 @@ The workflow to add another cluster is quite similar to the flow above. In this 
 
 Once you have added the cluster, you will need to install the tfy-workload helm chart in the target cluster using the same instructions as done for local cluster. 
 
+### Setup a Default Docker Image Registry
 
+Storing Docker images of services that are built for model deployment and inference will require setup of a default Docker image registry. We support commonly used docker image registries like 
+Dockerhub, Github, Gitlab out of the box. We also support any docker image registry that uses the standard username password flows. 
+
+To setup the registry :
+
+- Navigate to the settings section of your installed truefoundry dashboard, and go to the registry section. 
+
+![Registry section of Settings](../assets/registry-section-of-settings.png)
+
+- Click on the `Create Registry` button, and add the credentials with a name, username, password and registry url. Registry urls for some common registries like dockerhub, github are pre configured. Any permissions required for these credentials are mentioned alongwith.
+
+![Adding Dockerhub Registry](../assets/adding-dockerhub-registry.png)
+
+- Once added, the registry will show up in the list of registries. 
+
+![Added Dockerhub Registry](../assets/added-dockerhub-registry.png)
+
+- On the registry you want to use as default, Choose the `Set default` option from the menu.
+
+![Set Default Registry](../assets/set-default-registry.png)
