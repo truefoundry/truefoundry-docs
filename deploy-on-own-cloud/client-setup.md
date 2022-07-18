@@ -1,11 +1,17 @@
 # Using clients with the installed Truefoundry services
 
-### Setup Mlfoundry client for Experiment tracking and ML metadata store
+To configure clients to use the installed truefoundry setup, do ensure that you have
+the host for the installation on hand. This is host configured in the installation section
+of the truefoundry-frontend-app.
+
+For the examples mentioned below, the installation is assumed to be at `https://truefoundry.organization.com`
+
+## Setup Mlfoundry client for Experiment tracking and ML metadata store
 
 To use the `mlfoundry` client with your installation of truefoundry,
 
-```
-// This is the url where the truefoundry installation can be reached
+```python
+# This is the url where your truefoundry installation can be reached
 base_url = "https://truefoundry.organization.com" 
 
 import mlfoundry as mlf
@@ -15,17 +21,33 @@ client = mlf.get_client(base_url)
 
 If you wish to use an already generated api_key instead use :
 
-```
-client = mlf.get_client(base_url), api_key="...")
+```python
+client = mlf.get_client(base_url, api_key="...")
 ```
 
-### Setup Servicefoundry Cli for ML Training and Model deployment
+## Setup Servicefoundry Clients for ML Training and Model deployment
+
+### Setup CLI
 
 The servicefoundry cli can configured to point to the newly deployed truefoundry installation, with the following command.
 
-```
-// This is the url where the truefoundry installation can be reached
+```bash
+# This is the url where your truefoundry installation can be reached
 CONTROL_PLANE_URL=https://truefoundry.organization.com
 
-sfy user server $CONTROL_PLANE_URL
+sfy use server $CONTROL_PLANE_URL
+```
+
+### Setup client use in code
+
+Servicefoundry can also be used in your python code.
+
+```python
+import servicefoundry.core as sfy
+
+# This is the url where your truefoundry installation can be reached
+control_plane_url = "https://truefoundry.organization.com" 
+
+sfy.use_server(control_plane_url)
+sfy.login()
 ```
