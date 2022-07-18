@@ -49,5 +49,13 @@ import servicefoundry.core as sfy
 control_plane_url = "https://truefoundry.organization.com" 
 
 sfy.use_server(control_plane_url)
+
+# Interactive login
 sfy.login()
+```
+
+If you want to use an api_key to login, instead use :
+
+```python
+sfy.login(api_key="...")
 ```
