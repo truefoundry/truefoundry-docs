@@ -129,3 +129,21 @@ To setup the registry :
 - On the registry you want to use as default, Choose the `Set default` option from the menu.
 
 ![Set Default Registry](../assets/set-default-registry.png)
+
+### Setup Servicefoundry Cli with your Installation
+
+The Servicefoundry Cli can be now be used to deploy services to your service. The cli can be
+installed using the pip command below. 
+
+```
+pip install servicefoundry
+```
+
+Once installed, the cli can configured to point to the newly deployed truefoundry installation, with the following command.
+
+```
+sfy user server https://<control_plane>
+```
+
+Once the cli is configured to point to your installation, you can follow the instructions from
+[here](https://docs.truefoundry.com/documentation/deploy-model/quick-start/install-and-workspace#install-servicefoundry-client-library) to use the same.
