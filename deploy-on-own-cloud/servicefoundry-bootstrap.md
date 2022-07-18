@@ -57,7 +57,6 @@ global:
   # Monitoring: we can provision grafana, loki, prometheous stacks within your cluster
   # 1. disabled : No monitoring components will be setup by truefoundry
   # 2. external: provide externalGrafanaUrl to redirect users from dashboard
-  # Note: Incase of local, we map grafana to grafana.<baseDomainUrl>
   monitoring: disabled | external
 
   # This is mandatory incase of monitoring: external

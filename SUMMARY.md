@@ -57,12 +57,12 @@
   * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
   * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
 * [Getting Help](getting-help.md)
-<!-- * [Deploying on your own cloud](deploy-on-own-cloud/getting-started.md) -->
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)
   * [Requirements](deploy-on-own-cloud/requirements.md)
   * [Installation](deploy-on-own-cloud/installation.md)
   * [Bootstrap Servicefoundry](deploy-on-own-cloud/servicefoundry-bootstrap.md)
+  * [Client Setup](deploy-on-own-cloud/client-setup.md)
 * Coming Soon
   * Deploy Model
     * Deploy your existing project with TrueFoundry
