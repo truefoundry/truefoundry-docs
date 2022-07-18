@@ -11,10 +11,11 @@ For the examples mentioned below, the installation is assumed to be at `https://
 To use the `mlfoundry` client with your installation of truefoundry,
 
 ```python
+import mlfoundry as mlf
+
 # This is the url where your truefoundry installation can be reached
 base_url = "https://truefoundry.organization.com" 
 
-import mlfoundry as mlf
 mlf.login(base_url)
 client = mlf.get_client(base_url)
 ```
@@ -22,6 +23,11 @@ client = mlf.get_client(base_url)
 If you wish to use an already generated api_key instead use :
 
 ```python
+import mlfoundry as mlf
+
+# This is the url where your truefoundry installation can be reached
+base_url = "https://truefoundry.organization.com" 
+
 client = mlf.get_client(base_url, api_key="...")
 ```
 
@@ -57,5 +63,12 @@ sfy.login()
 If you want to use an api_key to login, instead use :
 
 ```python
+import servicefoundry.core as sfy
+
+# This is the url where your truefoundry installation can be reached
+control_plane_url = "https://truefoundry.organization.com" 
+
+sfy.use_server(control_plane_url)
+
 sfy.login(api_key="...")
 ```
