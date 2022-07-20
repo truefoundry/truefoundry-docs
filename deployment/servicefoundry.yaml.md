@@ -193,7 +193,7 @@ The object has support for the following keys:
 
 > :warning: This is an experimental feature.
 
-> :information_source: Support for custom GPU instances (Tesla K80, Tesla V100, Tesla T4, Ampere A100 etc) and fractional GPU allotment are on our roadmap. Please contact us if you have such requirements.
+> :information_source: Support for custom GPU instances (Tesla K80, Tesla V100, Tesla T4, Ampere A100 etc) and fractional GPU allotment are on our roadmap. Please [contact us](https://docs.truefoundry.com/documentation/getting-help) if you have such requirements.
 
 **Example:**
 
