@@ -57,7 +57,12 @@ global:
   # Monitoring: we can provision grafana, loki, prometheous stacks within your cluster
   # 1. disabled : No monitoring components will be setup by truefoundry
   # 2. external: provide externalGrafanaUrl to redirect users from dashboard
-  monitoring: disabled | external
+  # 3. local: A local monitoring stack will be brought up including loki, prometheus and grafana
+  monitoring: disabled | external | local
+
+  # This option needs to be true for the option monitoring : local
+  # - To further configure the chart see the section.
+  create-local-monitoring-stack: false
 
   # This is mandatory incase of monitoring: external
   externalGrafanaUrl: ""
@@ -82,6 +87,15 @@ sfy-proxy:
       hosts: []
       # hosts:
       #   - <workloadHost>
+
+tfy-monitoring:
+  grafana:
+    adminPassword: CHANGE_ME_NOW
+    ingress:
+      enabled: false
+      ingressClassName: istio
+      hosts:
+      - grafana.{{ .global.baseDomainUrl }}
 ```
 
 Install the helm chart with this values file:
@@ -128,3 +142,8 @@ To setup the registry :
 - On the registry you want to use as default, Choose the `Set default` option from the menu.
 
 ![Set Default Registry](../assets/set-default-registry.png)
+
+### (Optional) Local Monitoring Stack
+
+Choosing the monitoring option as local, and enabling create-local-monitoring-stack will create local deployments of prometheus, loki, grafana. 
+This will provide an out of the box for testing the complete UI/UX of each. The 'local' option provided is not expected to be used for production use.
