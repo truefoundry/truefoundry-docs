@@ -1,7 +1,7 @@
 # Adding users to your truefoundry installation
 
 Adding users to your truefoundry installation allows them to access the dashboard.
-The dashboard contains an easy view each of the truefoundry components you are using, including experiment tracking, model deployments and monitoring.
+Users are added as against the `Member` role, which allows an easy view each of the truefoundry components you are using, including experiment tracking, model deployments and monitoring. Some functionality like the `Add clusters` and `Add docker registries` are limited to the `Admin` role.
 
 - To add users, head to the Settings section, by click on the Gear icon from the bottom right.
 - You should be able to see the `Users` section. Choose the section.
@@ -23,7 +23,7 @@ The dashboard contains an easy view each of the truefoundry components you are u
 
 ![User Invite Resend Invite](../assets/user-invite-resend-invite.png)
 
-- You can choose to promote a user to the admin role, by chooing the `Edit` option from the menu against the user. Change the users role to `Admin` and Save the changes. 
+- You can choose to promote a user to the `Admin` role, by chooing the `Edit` option from the menu against the user. Change the users role to `Admin` and Save the changes.
 
 ![User Invite Edit Role](../assets/user-invite-edit-role.png)
 
