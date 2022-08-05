@@ -27,7 +27,7 @@ helm repo list
 ### Install Truefoundry helm chart
 
 Create a values file (tfy.yaml) as shown below. Fill up the values as provided by Truefoundry team
-and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/truefoundry/values.yaml)
+and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/truefoundry/values.yaml).
 
 ```
 global:
@@ -71,14 +71,14 @@ mlfoundry-server:
     DB_USERNAME: "truefoundry"
     DB_PASSWORD: "test123"
     DB_NAME: "mlfoundry"
-    DB_HOST: "truefoundry-postgresql.tfy-testinstall.svc.cluster.local"
+    DB_HOST: "truefoundry-postgresql.truefoundry.svc.cluster.local"
     DB_PORT: 5432
     # S3 bucket name mandatory
     S3_BUCKET_NAME: mlf-server-bucket
     # Configure with externally reachable minio server url if minio is required
-    # S3_ENDPOINT_URL: http://truefoundry-minio.organisation.com:9000
-    # BUCKET_ACCESS_KEY_ID: truefoundryKey
-    # BUCKET_SECRET_ACCESS_KEY: truefoundrySecret
+    S3_ENDPOINT_URL: https://truefoundry-minio.organisation.com:9000
+    BUCKET_ACCESS_KEY_ID: truefoundryKey
+    BUCKET_SECRET_ACCESS_KEY: truefoundrySecret
   serviceAccount:
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
@@ -96,14 +96,14 @@ servicefoundry-server:
     DB_USERNAME: "truefoundry"
     DB_PASSWORD: "test123"
     DB_NAME: "svcfoundry"
-    DB_HOST: "truefoundry-postgresql.tfy-testinstall.svc.cluster.local"
+    DB_HOST: "truefoundry-postgresql.truefoundry.svc.cluster.local"
     DB_PORT: 5432
     # S3 bucket name mandatory
     S3_BUCKET_NAME: s3://svcf-server-bucket
     # Configure with externally reachable minio server url if minio is required
-    # S3_ENDPOINT_URL: http://truefoundry-minio.organisation.com:9000
-    # AWS_ACCESS_KEY_ID: truefoundryKey
-    # AWS_SECRET_ACCESS_KEY: truefoundrySecret
+    S3_ENDPOINT_URL: https://truefoundry-minio.organisation.com:9000
+    AWS_ACCESS_KEY_ID: truefoundryKey
+    AWS_SECRET_ACCESS_KEY: truefoundrySecret
     # This is the externally reachable url configured above in the
     # ingress section of truefoundry-frontend-app. Without this value, servicefoundry
     # will not work.
@@ -172,8 +172,9 @@ minio:
       memory: 1Gi
   ingress:
     enabled: true
+    ingressClassName: istio
     hosts:
-    - "http://truefoundry-minio.organisation.com"
+    - "https://truefoundry-minio.organisation.com"
 ```
 
 Install the helm chart with this values file:

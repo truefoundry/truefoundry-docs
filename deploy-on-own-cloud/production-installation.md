@@ -104,6 +104,18 @@ servicefoundry-server:
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
       eks.amazonaws.com/role-arn: <role_arn>
+
+#############################
+# To further configure the local postgres installation use the following section.
+# During cleanup, make sure to remove any stray pvc that might be created.
+postgresql:
+  enabled: false
+
+# To further configure the local minio installation use the following section.
+# The minio installation requires an ingress to function from outside the kubernetes
+# cluster, for eg. from the cli or a different kubernetes cluster
+minio:
+  enabled: false
 ```
 
 Install the helm chart with this values file:
