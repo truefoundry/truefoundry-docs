@@ -18,7 +18,7 @@ to the helm chart.
 
 We need one Postgres database each for MLFoundry, ServiceFoundry and ML-Monitoring. You can provision an RDS on AWS and create three databases on it with the name mlfoundry, svcfoundry and ml-monitoring or provide different databases hosts also. 
 
-We also provide a [Terraform module](https://github.com/truefoundry/tfy-terraform) to provision the DB and S3 buckets on AWS which can be found at https://github.com/truefoundry/tfy-terraform
+We also provide a [Terraform module](https://github.com/truefoundry/terraform-aws-truefoundry) to provision the DB and S3 buckets on AWS which can be found at https://github.com/truefoundry/terraform-aws-truefoundry
 
 ### Tenant ID 
 
