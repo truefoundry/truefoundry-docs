@@ -1,14 +1,11 @@
-# Installation
+# Local Installation
 
-To install Truefoundry in your own cloud, please make sure you have the following things ready as 
+To perform a local install Truefoundry in your own cloud for Non Production use, please make sure you have the following things ready as 
 mentioned in the [requirements](./requirements.md) page. 
 
 1. Kubernetes Cluster
-2. S3 Buckets
-   1. Bucket Name and credentials to access them. 
-3. Postgres DBs
-   1. Host, Port, Username, Password and DB name. 
-4. Information from Truefoundry Team
+2. An Ingress controller setup to access components in the cluster
+3. Information from Truefoundry Team
    1. Tenant ID
    2. Password of the initial user
    3. Image Pull Secret to pull the docker images
@@ -30,7 +27,7 @@ helm repo list
 ### Install Truefoundry helm chart
 
 Create a values file (tfy.yaml) as shown below. Fill up the values as provided by Truefoundry team
-and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/tfy-workload/values.yaml)
+and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/truefoundry/values.yaml)
 
 ```
 global:
@@ -38,7 +35,7 @@ global:
   # These are customised for your account. Please use the provided values as
   # is.
   imagePullCredentials: "<to_be_provided_by_truefoundry>"
-  authTenantId: "<to_be_provided_by_truefoundry>"
+  tenantName: "<to_be_provided_by_truefoundry>"
 
 ##########################
 # Settings specific to dashboard app
@@ -60,6 +57,9 @@ truefoundry-frontend-app:
       annotations: {}
       gateways: []
       hosts: []
+  resources:
+    limits:
+      memory: 1Gi
 
 #############################
 # Settings specific to mlfoundry.
@@ -68,13 +68,17 @@ mlfoundry-server:
   replicaCount: 1
   env:
     # Database config for mlfoundry
-    DB_USERNAME: ""
-    DB_PASSWORD: ""
-    DB_NAME: ""
-    DB_HOST: ""
+    DB_USERNAME: "truefoundry"
+    DB_PASSWORD: "test123"
+    DB_NAME: "mlfoundry"
+    DB_HOST: "truefoundry-postgresql.tfy-testinstall.svc.cluster.local"
     DB_PORT: 5432
     # S3 bucket name mandatory
-    S3_BUCKET_NAME: <s3_bucket_name>
+    S3_BUCKET_NAME: mlf-server-bucket
+    # Configure with externally reachable minio server url if minio is required
+    # S3_ENDPOINT_URL: http://truefoundry-minio.organisation.com:9000
+    # BUCKET_ACCESS_KEY_ID: truefoundryKey
+    # BUCKET_SECRET_ACCESS_KEY: truefoundrySecret
   serviceAccount:
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
@@ -86,16 +90,20 @@ servicefoundry-server:
   enabled: true
   replicaCount: 1
   env:
-    # S3 buckey name mandatory
-    S3_BUCKET_NAME: <s3_bucket_name>
     # API KEY recieved from truefoundry for servicefoundry
     SVC_FOUNDRY_SERVICE_API_KEY: <to_be_provided_by_truefoundry>
     # Database config mandatory
-    DB_USERNAME: ""
-    DB_PASSWORD: ""
-    DB_NAME: ""
-    DB_HOST: ""
+    DB_USERNAME: "truefoundry"
+    DB_PASSWORD: "test123"
+    DB_NAME: "svcfoundry"
+    DB_HOST: "truefoundry-postgresql.tfy-testinstall.svc.cluster.local"
     DB_PORT: 5432
+    # S3 bucket name mandatory
+    S3_BUCKET_NAME: s3://svcf-server-bucket
+    # Configure with externally reachable minio server url if minio is required
+    # S3_ENDPOINT_URL: http://truefoundry-minio.organisation.com:9000
+    # AWS_ACCESS_KEY_ID: truefoundryKey
+    # AWS_SECRET_ACCESS_KEY: truefoundrySecret
     # This is the externally reachable url configured above in the
     # ingress section of truefoundry-frontend-app. Without this value, servicefoundry
     # will not work.
@@ -104,6 +112,68 @@ servicefoundry-server:
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
       eks.amazonaws.com/role-arn: <role_arn>
+
+#############################
+# Settings specific to sfy-manifest-service.
+sfy-manifest-service:
+  enabled: false
+  replicaCount: 1
+  env:
+    PORT: 8080
+    SFY_SERVER_URL: <server_url>
+    SFY_API_KEY: <api_key>
+  serviceAccount:
+    annotations:
+      # Provide permission to read the sfy api key from ssm
+      eks.amazonaws.com/role-arn: <role_arn>
+
+#############################
+# To further configure the local postgres installation use the following section.
+# During cleanup, make sure to remove any stray pvc that might be created.
+postgresql:
+  enabled: true
+  auth:
+    # The following is an example set of configuration provided. 
+    # The same host will contain 2 databases to bring up each server
+    username: truefoundry
+    password: test123
+  primary:
+    initdb:
+      scripts:
+        intidb.sql: |
+            CREATE DATABASE mlfoundry;
+            CREATE DATABASE svcfoundry;
+            GRANT ALL PRIVILEGES ON DATABASE mlfoundry TO truefoundry;
+            GRANT ALL PRIVILEGES ON DATABASE svcfoundry TO truefoundry;
+
+# To further configure the local minio installation use the following section.
+# The minio installation requires an ingress to function from outside the kubernetes
+# cluster, for eg. from the cli or a different kubernetes cluster
+minio:
+  enabled: true
+  mode: standalone
+  rootUser: truefoundry
+  rootPassword: test123456
+  persistence:
+    enabled: false 
+  users:
+    - accessKey: truefoundryKey
+      secretKey: truefoundrySecret
+      policy: readwrite
+  buckets:
+    - name: mlf-server-bucket
+      policy: upload
+      purge: false
+    - name: svcf-server-bucket
+      policy: upload
+      purge: false
+  resources:
+    requests:
+      memory: 1Gi
+  ingress:
+    enabled: true
+    hosts:
+    - "http://truefoundry-minio.organisation.com"
 ```
 
 Install the helm chart with this values file:
