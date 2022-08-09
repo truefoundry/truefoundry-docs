@@ -1,6 +1,6 @@
-# Installation
+# Production Installation
 
-To install Truefoundry in your own cloud, please make sure you have the following things ready as 
+To install Truefoundry in your own cloud for production use, please make sure you have the following things ready as 
 mentioned in the [requirements](./requirements.md) page. 
 
 1. Kubernetes Cluster
@@ -30,7 +30,7 @@ helm repo list
 ### Install Truefoundry helm chart
 
 Create a values file (tfy.yaml) as shown below. Fill up the values as provided by Truefoundry team
-and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/tfy-workload/values.yaml)
+and what is relevant for your cluster. You can see the details values file [here](You can see the complete values file [here](https://github.com/truefoundry/charts/blob/main/charts/truefoundry/values.yaml)
 
 ```
 global:
@@ -104,6 +104,18 @@ servicefoundry-server:
     annotations:
       # Provide permission to s3 using role_arn or anything compatible
       eks.amazonaws.com/role-arn: <role_arn>
+
+#############################
+# To further configure the local postgres installation use the following section.
+# During cleanup, make sure to remove any stray pvc that might be created.
+postgresql:
+  enabled: false
+
+# To further configure the local minio installation use the following section.
+# The minio installation requires an ingress to function from outside the kubernetes
+# cluster, for eg. from the cli or a different kubernetes cluster
+minio:
+  enabled: false
 ```
 
 Install the helm chart with this values file:

@@ -60,7 +60,8 @@
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)
   * [Requirements](deploy-on-own-cloud/requirements.md)
-  * [Installation](deploy-on-own-cloud/installation.md)
+  * [Local Installation](deploy-on-own-cloud/local-installation.md)
+  * [Production Installation](deploy-on-own-cloud/production-installation.md)
   * [Bootstrap Servicefoundry](deploy-on-own-cloud/servicefoundry-bootstrap.md)
   * [Client Setup](deploy-on-own-cloud/client-setup.md)
   * [Adding Users](deploy-on-own-cloud/add-users.md)

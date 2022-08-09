@@ -1,7 +1,7 @@
 # Requirements
 
-We recommend the following requirements for installation of Truefoundry. Currently, we only have the instructions for AWS
-with support for other clouds coming soon.
+We recommend the following requirements for a production installation of Truefoundry. Currently, we only have the instructions for AWS
+with support for other clouds coming soon. We also provide support for running a local installation with required components in the cloud. 
 
 ### Kubernetes Cluster:
 

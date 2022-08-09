@@ -87,7 +87,7 @@ sfy-proxy:
 Install the helm chart with this values file:
 
 ```
-helm upgrade --install tfy-workload truefoundry/tfy-workload -f tfy-workload.yaml --wait
+helm upgrade --install tfy-workload truefoundry/tfy-workload -f tfy-workload.yaml --wait --namespace tfy-workload --create-namespace
 ```
 
 The above command can take a few seconds since it will wait for all the pods to come up. 
