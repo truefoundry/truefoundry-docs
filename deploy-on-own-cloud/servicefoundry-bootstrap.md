@@ -39,7 +39,7 @@ global:
   imagePullCredentials: "<to_be_provided_by_truefoundry>"
 
   # Auth token for your workload cluster
-  authToken: "<to_be_taken_from_clusters_ui_in_truefoundry_dashboard>"
+  clusterToken: "<to_be_taken_from_clusters_ui_in_truefoundry_dashboard>"
 
   # Host for the control plane. The default value is the inner cluster IP, but
   # you can provide the url of the dashboard in case control plane is on a different
