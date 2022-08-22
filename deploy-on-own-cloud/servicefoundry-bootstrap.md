@@ -38,6 +38,9 @@ global:
   # is.
   imagePullCredentials: "<to_be_provided_by_truefoundry>"
 
+  # Tenant Name of your organization
+  tenantName: "<to_be_provided_by_truefoundry>"
+
   # Auth token for your workload cluster
   clusterToken: "<to_be_taken_from_clusters_ui_in_truefoundry_dashboard>"
 
@@ -45,18 +48,6 @@ global:
   # you can provide the url of the dashboard in case control plane is on a different
   # cluster
   controlPlaneURL: "truefoundry-truefoundry-frontend-app.truefoundry.svc.cluster.local:3000"
-
-  # Base domain url that will be used to map your services against this cluster.
-  # Without this, all services deployed by Servicefoundry will be ClusterIP.
-  baseDomainURL: ""
-
-  # Monitoring: we can provision grafana, loki, prometheous stacks within your cluster
-  # 1. disabled : No monitoring components will be setup by truefoundry
-  # 2. external: provide externalGrafanaUrl to redirect users from dashboard
-  monitoring: disabled | external
-
-  # This is mandatory incase of monitoring: external
-  externalGrafanaURL: ""
 ```
 
 Install the helm chart with this values file:
