@@ -38,50 +38,16 @@ global:
   # is.
   imagePullCredentials: "<to_be_provided_by_truefoundry>"
 
+  # Tenant Name of your organization
+  tenantName: "<to_be_provided_by_truefoundry>"
+
   # Auth token for your workload cluster
-  sfyAgentToken: "<to_be_taken_from_clusters_ui_in_truefoundry_dashboard>"
+  clusterToken: "<to_be_taken_from_clusters_ui_in_truefoundry_dashboard>"
 
   # Host for the control plane. The default value is the inner cluster IP, but
   # you can provide the url of the dashboard in case control plane is on a different
   # cluster
-  controlPlaneHost: "truefoundry-truefoundry-frontend-app.truefoundry.svc.cluster.local:3000"
-
-  # Configure the below with the url that you configure in the ingress.
-  # NOTE: This host should be accessible to control-plane
-  workloadHost: "tfy-workload-sfy-proxy.tfy-workload.svc.cluster.local:3000"
-
-  # Base domain url that will be used to map your services against this cluster.
-  # Without this, all services deployed by Servicefoundry will be ClusterIP.
-  baseDomainUrl: ""
-
-  # Monitoring: we can provision grafana, loki, prometheous stacks within your cluster
-  # 1. disabled : No monitoring components will be setup by truefoundry
-  # 2. external: provide externalGrafanaUrl to redirect users from dashboard
-  monitoring: disabled | external
-
-  # This is mandatory incase of monitoring: external
-  externalGrafanaUrl: ""
-
-sfy-proxy:
-  replicaCount: 2
-  # You can choose to configure any one for dashboard ingress
-  ingress:
-    enabled: false
-    annotations: {}
-    labels: {}
-    ingressClassName: istio
-    tls: []
-    hosts: []
-    # hosts:
-    #   - <workloadHost>
-  istio:
-    virtualservice:
-      enabled: false
-      annotations: {}
-      gateways: []
-      hosts: []
-      # hosts:
-      #   - <workloadHost>
+  controlPlaneURL: "truefoundry-truefoundry-frontend-app.truefoundry.svc.cluster.local:3000"
 ```
 
 Install the helm chart with this values file:
