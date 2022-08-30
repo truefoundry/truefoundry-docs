@@ -83,7 +83,7 @@ import logging
 from servicefoundry import (
     Build,
     Job,
-    TfyPythonBuild,
+    PythonBuild,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -92,7 +92,7 @@ logging.basicConfig(level=logging.INFO)
 # servicefoundry uses this specification to automatically create
 # a Dockerfile and build an image,
 image = Build(
-    build_spec=TfyPythonBuild(
+    build_spec=PythonBuild(
         command="python train.py",
         requirements_path="train_requirement.txt",
     )
@@ -192,12 +192,12 @@ Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actu
 ```python
 import logging
 
-from servicefoundry import Build, Service, TfyPythonBuild
+from servicefoundry import Build, Service, PythonBuild
 
 logging.basicConfig(level=logging.INFO)
 
 image = Build(
-    build_spec=TfyPythonBuild(
+    build_spec=PythonBuild(
         command="uvicorn inference_api:app --port 8000 --host 0.0.0.0",
         requirements_path="inference_requirements.txt",
     ),
