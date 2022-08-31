@@ -78,10 +78,12 @@ In this section, we will deploy the model training code we defined in the above 
 
 #### Defining and deploying using our python API
 
-Here we are using the `Job` class to define the training job. We will the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN` their corresponding values.
+Here we are using the `Job` class to define the training job. We will the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
 
 **`train_deploy.py`**
 ```python
+# Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
+# with the actual values.
 import logging
 
 from servicefoundry import (
@@ -122,6 +124,8 @@ You can deploy the job using, `python train_deploy.py` command. Run this command
 
 **`train_deploy.yaml`**
 ```yaml
+# Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
+# with the actual values.
 name: my-training-job
 components:
 - name: my-training-job
@@ -195,6 +199,8 @@ Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actu
 
 **`inference_api_deploy.py`**
 ```python
+# Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
+# with the actual values.
 import logging
 
 from servicefoundry import Build, Service, PythonBuild
@@ -232,6 +238,8 @@ Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actu
 
 **`inference_api_deploy.yaml`**
 ```yaml
+# Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
+# with the actual values.
 name: my-inference-service
 components:
 - name: my-inference-service
