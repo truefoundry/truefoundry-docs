@@ -78,7 +78,7 @@ In this section, we will deploy the model training code we defined in the above 
 
 #### Defining and deploying using our python API
 
-Here we are using the `Job` class to define the training job. We will the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
+Here we are using the `Job` class to define the training job. We will use the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
 
 **`train_deploy.py`**
 ```python
@@ -195,7 +195,7 @@ scikit-learn==1.1.2
 
 #### Defining and deploying using our python API
 
-Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
+Here we are using the `Service` class to define the service that we will deploy. Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
 
 **`inference_api_deploy.py`**
 ```python
