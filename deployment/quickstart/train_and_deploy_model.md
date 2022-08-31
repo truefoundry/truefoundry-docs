@@ -13,8 +13,8 @@ We will use the _Iris_ dataset and the _sklearn_ library to create the model for
 Before we begin, we will first create an API key and save it as a secret. This will help us securely inject the API key as an environment variable.
 
 1. Go to [the settings page](https://app.truefoundry.com/settings) and copy an API key.
-2. Go to [the secrets page](https://app.truefoundry.com/secrets) and click on _Add Secret Group_. Give a name and click on _Save Changes_.
-3. Click on _New Secret_ under the newly created secret group and paste the API key in the value field. You can provide a _key_ name of your choice and save it.
+2. Go to [the secrets page](https://app.truefoundry.com/secrets) and click on _Add Secret Group_. Give a name (_Ex:- mlfoundry_) and click on _Save Changes_.
+3. Click on _New Secret_ under the newly created secret group and paste the API key in the value field. You can provide a _key_ name of your choice (_Ex:- api_key_) and save it.
 4. Each _Secret_ under _Secret Group_ will have a _Fully Qualified Name_ (FQN). Keep this handy for the secret we just created. We will use this to securely mount and access the API key in our training job and API service. 
 
 ## Creating a training job
@@ -237,8 +237,10 @@ components:
       type: local
     build_spec:
       type: tfy-python-buildpack
-      command: uvicorn inference_api:app --port 4000 --host 0.0.0.0
+      command: uvicorn inference_api:app --port 8000 --host 0.0.0.0
       requirements_path: inference_requirements.txt
+  ports:
+    - port: 8000
   env:
   - name: MLF_API_KEY
     value: tfy-secret://YOUR_SECRET_FQN
