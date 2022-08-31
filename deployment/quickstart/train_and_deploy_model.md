@@ -21,7 +21,7 @@ Before we begin, we will first create an API key and save it as a secret. This w
 
 ### Writing model training code and requirements
 
-Create the `train.py` and `train_requirement.txt` files in a directory.
+Create the `train.py` and `train_requirements.txt` files in a directory.
 
 **`train.py`**
 ```python
@@ -58,7 +58,7 @@ run.log_model(pipe, framework="sklearn")
 run.log_metrics({"accuracy": pipe.score(test_x, test_y)})
 ```
 
-**`train_requirement.txt`**
+**`train_requirements.txt`**
 ```
 mlfoundry==0.3.34
 scikit-learn==1.1.2
@@ -94,7 +94,7 @@ logging.basicConfig(level=logging.INFO)
 image = Build(
     build_spec=PythonBuild(
         command="python train.py",
-        requirements_path="train_requirement.txt",
+        requirements_path="train_requirements.txt",
     )
 )
 env = [
@@ -113,7 +113,7 @@ job = Job(
 job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
-You can deploy the job using, `python train_deploy.py` command. Run this command from the same directory containing the `train.py` and `train_requirement.txt` files.
+You can deploy the job using, `python train_deploy.py` command. Run this command from the same directory containing the `train.py` and `train_requirements.txt` files.
 
 #### Defining and deploying using YAML definition file and CLI command
 
@@ -130,13 +130,13 @@ components:
     build_spec:
       type: tfy-python-buildpack
       command: python train.py
-      requirements_path: train_requirement.txt
+      requirements_path: train_requirements.txt
   env:
   - name: MLF_API_KEY
     value: tfy-secret://YOUR_SECRET_FQN
 ```
 
-You can deploy the training job using `servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml` command. Run this command from the same directory containing the `train.py` and `train_requirement.txt` files.
+You can deploy the training job using `servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml` command. Run this command from the same directory containing the `train.py` and `train_requirements.txt` files.
 
 ## Creating a REST API service
 
