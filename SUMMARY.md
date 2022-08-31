@@ -40,6 +40,7 @@
     * [Concepts](deployment/concepts.md)
     * [Deploy a service](deployment/quickstart/fastapi-quickstart.md)
     * [More examples](deployment/quickstart/more-examples.md)
+  * [Train and deploy model](deployment/train_and_deploy_model.md)
   * Deploy from Jupyter Notebook
     * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
   * Create a new project with TrueFoundry

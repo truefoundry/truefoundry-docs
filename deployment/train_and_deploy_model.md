@@ -10,12 +10,20 @@ We will use the _Iris_ dataset and the _sklearn_ library to create the model for
 
 > **_NOTE:_** A service should always be up and running. In comparison, a Job is intended to execute and successfully terminated.
 
-Before we begin, we will first create an API key and save it as a secret. This will help us securely inject the API key as an environment variable.
+Before we begin,
+1. You need to have the `servicefoundry`
+library installed and login using the `servicefoundry login` command. If you do not have the library installed follow [the instructions here](quickstart/install-and-workspace.md).
 
-1. Go to [the settings page](https://app.truefoundry.com/settings) and copy an API key.
-2. Go to [the secrets page](https://app.truefoundry.com/secrets) and click on _Add Secret Group_. Give a name (_Ex:- mlfoundry_) and click on _Save Changes_.
-3. Click on _New Secret_ under the newly created secret group and paste the API key in the value field. You can provide a _key_ name of your choice (_Ex:- api_key_) and save it.
-4. Each _Secret_ under _Secret Group_ will have a _Fully Qualified Name_ (FQN). Keep this handy for the secret we just created. We will use this to securely mount and access the API key in our training job and API service. 
+2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. Keep the workspace _FQN_ handy. If you already have a workspace you can use that.
+
+> **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
+
+3. We need to create an API key and save it as a secret. This will help us securely inject the API key as an environment variable.
+
+    a. Go to [the settings page](https://app.truefoundry.com/settings) and copy an API key.
+    b. Go to [the secrets page](https://app.truefoundry.com/secrets) and click on _Add Secret Group_. Give a name (_Ex:- mlfoundry_) and click on _Save Changes_.
+    c. Click on _New Secret_ under the newly created secret group and paste the API key in the value field. You can provide a _key_ name of your choice (_Ex:- api_key_) and save it.
+    d. Each _Secret_ under _Secret Group_ will have a _Fully Qualified Name_ (FQN). Keep this handy for the secret we just created. We will use this to securely mount and access the API key in our training job and API service. 
 
 ## Creating a training job
 
@@ -66,11 +74,8 @@ scikit-learn==1.1.2
 
 ### Deploying the training job
 
-In this section, we will deploy the model training code we defined in the above section. Before we begin,
-1. You need to have the `servicefoundry` python library installed.
-2. You need to create an workspace and keep the workspace _FQN_ handy.
+In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
-> **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
 
 #### Defining and deploying using our python API
 
@@ -114,7 +119,6 @@ job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
 You can deploy the job using, `python train_deploy.py` command. Run this command from the same directory containing the `train.py` and `train_requirements.txt` files.
-
 #### Defining and deploying using YAML definition file and CLI command
 
 **`train_deploy.yaml`**
@@ -176,13 +180,15 @@ def predict(
 
 **`inference_requirements.txt`**
 ```
-fastapi
-uvicorn
+fastapi==0.81.0
+uvicorn==0.18.3
 mlfoundry==0.3.34
 scikit-learn==1.1.2
 ```
 
 ### Deploying the inference API
+
+ You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
 #### Defining and deploying using our python API
 
