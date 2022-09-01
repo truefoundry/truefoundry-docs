@@ -110,7 +110,10 @@
   * Need something custom?
 
 ## Reference
-* [Servicefoundry CLI](deployment/reference/cli/README.md)
-  * [sfy deploy](deployment/reference/cli/sfy-deploy/README.md)
+* [Command Line Interface](deployment/reference/cli/README.md)
+  * [sfy use](deployment/reference/cli/sfy-use/README.md)
+    * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
+  * [sfy build](deployment/reference/cli/sfy-build.md)
+  * [sfy deploy](deployment/reference/cli/sfy-deploy.md)
   * [sfy login](deployment/reference/cli/sfy-login.md)
   * [sfy logout](deployment/reference/cli/sfy-logout.md)
