@@ -39,11 +39,11 @@
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
     * [Concepts](deployment/concepts.md)
     * [More examples](deployment/quickstart/more-examples.md)
-  * [Train and deploy model](deployment/train_and_deploy_model.md)
-  * [Deploy a Dockerized service](/deployment/docker.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
+  * [Train and deploy model](deployment/train_and_deploy_model.md)
+  * [Deploy a Dockerized service](/deployment/docker.md)
   * [Adding GPUs to your service](deployment/advance_examples/adding-gpus.md)
   * [Monitoring your services](./deployment/monitoring.md)
   * [Cost Estimation](./deployment/costing/cost-estimation.md)
