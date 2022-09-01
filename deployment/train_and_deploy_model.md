@@ -125,7 +125,7 @@ env = [
 ]
 
 job = Job(
-    name="my-training-job-4",
+    name="training-job",
     image=image,
     env=env,
 )
@@ -150,9 +150,9 @@ python train_deploy.py
 ```yaml
 # Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
 # with the actual values.
-name: my-training-job
+name: training-job
 components:
-- name: my-training-job
+- name: training-job
   type: job
   image:
     type: build
@@ -268,7 +268,7 @@ env = [
     },
 ]
 service = Service(
-    name="my-inference-service",
+    name="inference-svc",
     image=image,
     ports=[{"port": 8000}],
     env=env,
@@ -296,9 +296,9 @@ Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actu
 ```yaml
 # Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
 # with the actual values.
-name: my-inference-service
+name: inference-svc
 components:
-- name: my-inference-service
+- name: inference-svc
   type: service
   image:
     type: build
