@@ -12,13 +12,6 @@ Deploy servicefoundry Service
 
 | **Option** | **Description** |
 | :--- | :--- |
-| -d, --directory | path to service code directory |
-| -w, --workspace | workspace to deploy to |
+| -f, --file | path to servicefoundry spec YAML file |
+| -w, --workspace-fqn | FQN of the workspace to deploy to |
 | -h, --help | Show this message and exit. |
-
-**Commands**
-
-| **Command** | **Description** |
-| :--- | :--- |
-| function | Deploy a python function. |
-| webapp | Deploy a python function. |
