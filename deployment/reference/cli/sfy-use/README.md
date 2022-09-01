@@ -23,6 +23,4 @@ Supported resources:
 
 | **Command** | **Description** |
 | :--- | :--- |
-| cluster | Set default cluster |
 | server | Set truefoundry server |
-| workspace | Set default workspace |
