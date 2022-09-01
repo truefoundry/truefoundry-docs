@@ -29,7 +29,11 @@ library installed and login using the `servicefoundry login` command. If you do 
 ### Writing model training code and requirements
 
 Create the `train.py` and `train_requirements.txt` files in a directory.
-
+```
+.
+├── train.py
+└── train_requirements.txt
+```
 **`train.py`**
 ```python
 import mlfoundry
@@ -80,6 +84,15 @@ In this section, we will deploy the model training code we defined in the above 
 
 Here we are using the `Job` class to define the training job. We will use the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
 
+Create `train_deploy.py` file in the same directory containing the `train.py` and `train_requirements.txt` files.
+
+```
+.
+├── train.py
+├── train_requirements.txt
+└── train_deploy.py
+```
+
 **`train_deploy.py`**
 ```python
 # Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
@@ -119,8 +132,19 @@ job = Job(
 job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
-You can deploy the job using, `python train_deploy.py` command. Run this command from the same directory containing the `train.py` and `train_requirements.txt` files.
+You can deploy the job using, 
+```shell
+python train_deploy.py
+```
+
 #### Defining and deploying using YAML definition file and CLI command
+
+```
+.
+├── train.py
+├── train_requirements.txt
+└── train_deploy.yaml
+```
 
 **`train_deploy.yaml`**
 ```yaml
@@ -143,7 +167,12 @@ components:
     value: tfy-secret://YOUR_SECRET_FQN
 ```
 
-You can deploy the training job using `servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml` command. Run this command from the same directory containing the `train.py` and `train_requirements.txt` files.
+You can deploy the training job using the command below,
+
+```shell
+servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml
+```
+Run the above command from the same directory containing the `train.py` and `train_requirements.txt` files.
 
 ## Creating a REST API service
 
@@ -152,6 +181,12 @@ In this section we will use the model saved in the training job. Keep the _run F
 ### Writing inference service code and requirements
 
 Create the `inference_api.py` and `inference_requirements.txt` files in a directory. 
+
+```
+.
+├── inference_api.py
+└── inference_requirements.txt
+```
 
 **`inference_api.py`**
 ```python
@@ -197,6 +232,15 @@ scikit-learn==1.1.2
 
 Here we are using the `Service` class to define the service that we will deploy. Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
 
+Create `inference_api_deploy.py` file in the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
+
+```
+.
+├── inference_api.py
+├── inference_requirements.txt
+└── inference_api_deploy.p
+```
+
 **`inference_api_deploy.py`**
 ```python
 # Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
@@ -232,9 +276,21 @@ service = Service(
 deployment = service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
+You can deploy the API service using, 
+```shell
+python inference_api_deploy.py
+```
+
 #### Defining and deploying using YAML definition file and CLI command
 
 Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
+
+```
+.
+├── inference_api.py
+├── inference_requirements.txt
+└── inference_api_deploy.yaml
+```
 
 **`inference_api_deploy.yaml`**
 ```yaml
@@ -261,4 +317,8 @@ components:
     value: YOUR_RUN_FQN
 ```
 
-You can deploy the inference API service using `servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file inference_api_deploy.yaml` command. Run this command from the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
+You can deploy the inference API service using the command below,
+```shell
+servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file inference_api_deploy.yaml
+```
+Run the above command from the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
