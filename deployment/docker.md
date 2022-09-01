@@ -43,23 +43,24 @@ To deploy this Docker application using TrueFoundry, you will need to provide a 
 ### servicefoundry.yaml
 
 ```yaml
-build:
-  build_pack: sfy_build_pack_docker
-service:
-  name: gradio-app
-  cpu:
-    required: 0.05
-    limit: 0.1
-  memory:
-    required: 128000000
-    limit: 512000000
-  workspace: <paste-your-workspace-fqn>
-  ports:
-  - container_port: 8080
-    protocol: TCP
-
+name: gradio-app
+components:
+  - name: gradio-app
+    type: service
+    image:
+      type: build
+      build_source:
+        type: local
+      build_spec:
+        type: dockerfile
+    resources:
+      cpu_request: 50m
+      cpu_limit: 100m
+      memory_request: 128Mi
+      memorty_limit: 512Mi
+    ports:
+      - port: 8080
 ```
 
-We set the `build_pack` to build `sfy_build_pack_docker` since it's a Docker application. Copy your workspace FQN from the [dashboard](https://app.truefoundry.com/workspace) and paste it in the file.
-
-Now simply run `servicefoundry deploy` to deploy your Docker application on TrueFoundry. You should be able to track the deployment and find the deployed application at the [TrueFoundry dashboard](https://app.truefoundry.com/workspace).
+Now simply run, `sfy deploy --workspace-fqn <your-workspace-fqn>` in this folder to deploy your service. Copy your workspace FQN from the [workspaces dashboard](https://app.truefoundry.com/workspace).
+You should be able to track the deployment and find the deployed application at the [TrueFoundry dashboard](https://app.truefoundry.com/applications).

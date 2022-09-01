@@ -21,6 +21,8 @@ Make sure the following steps have been completed before moving ahead:
   ```
 - Create a file called `sfy-deploy.yaml` in this folder and paste the below content:
   ```bash
+  # Replace `<your-workspace-fqn>` with the FQN of the workspace where
+  # you want to deploy your code.
   name: sfy deploy
   on:
     push:
@@ -36,7 +38,7 @@ Make sure the following steps have been completed before moving ahead:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Deploy
-        run: sfy deploy
+        run: sfy deploy --workspace-fqn <your-workspace-fqn>
         env:
           SERVICE_FOUNDRY_API_KEY: ${{ secrets.SERVICE_FOUNDRY_API_KEY }}
   ```

@@ -38,25 +38,17 @@
   * Quick Start
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
     * [Concepts](deployment/concepts.md)
-    * [Deploy a service](deployment/quickstart/fastapi-quickstart.md)
     * [More examples](deployment/quickstart/more-examples.md)
-  * [Train and deploy model](deployment/train_and_deploy_model.md)
-  * Deploy from Jupyter Notebook
-    * [Deploy Code using Notebook](deployment/quickstart/notebook-quickstart.md)
-  * Create a new project with TrueFoundry
-    * [Deploy REST Service using CLI](deployment/new-project.md)
-  * Deploy your existing project with TrueFoundry
-    * [Deploy a Python application to TrueFoundry](./deployment/deploy-project/python.md)
-    * [Deploy a Docker application to TrueFoundry](./deployment/deploy-project/docker.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
+  * [Train and deploy model](deployment/train_and_deploy_model.md)
+  * [Deploy a Dockerized service](/deployment/docker.md)
   * [Adding GPUs to your service](deployment/advance_examples/adding-gpus.md)
   * [Monitoring your services](./deployment/monitoring.md)
   * [Cost Estimation](./deployment/costing/cost-estimation.md)
   * [Collaboration with team](deployment/collab.md)
   * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
-  * [servicefoundry.yaml Reference](deployment/servicefoundry.yaml.md)
 * [Getting Help](getting-help.md)
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)
