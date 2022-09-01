@@ -80,7 +80,7 @@ scikit-learn==1.1.2
 In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command. After deployment, the job will run immediately.
 
 
-#### Defining and deploying using our python API
+#### Deploying using our python API
 
 Here we are using the `Job` class to define the training job. We will use the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
 
@@ -137,7 +137,7 @@ You can deploy the job using,
 python train_deploy.py
 ```
 
-#### Defining and deploying using YAML definition file and CLI command
+#### Deploying using YAML definition file and CLI command
 
 ```
 .
