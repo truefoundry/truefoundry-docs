@@ -122,7 +122,7 @@ job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
 You can deploy the job using, 
-```console
+```shell
 python train_deploy.py
 ```
 
@@ -151,7 +151,7 @@ components:
 
 You can deploy the training job using the command below,
 
-```console
+```shell
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml
 ```
 Run the above command from the same directory containing the `train.py` and `train_requirements.txt` files.
@@ -246,7 +246,7 @@ deployment = service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
 You can deploy the API service using, 
-```console
+```shell
 python inference_api_deploy.py
 ```
 
@@ -280,7 +280,7 @@ components:
 ```
 
 You can deploy the inference API service using the command below,
-```console
+```shell
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file inference_api_deploy.yaml
 ```
 Run the above command from the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
