@@ -29,7 +29,11 @@ library installed and login using the `servicefoundry login` command. If you do 
 ### Writing model training code and requirements
 
 Create the `train.py` and `train_requirements.txt` files in a directory.
-
+```
+.
+├── train.py
+└── train_requirements.txt
+```
 **`train.py`**
 ```python
 import mlfoundry
@@ -82,6 +86,13 @@ Here we are using the `Job` class to define the training job. We will use the _F
 
 Create `train_deploy.py` file in the same directory containing the `train.py` and `train_requirements.txt` files.
 
+```
+.
+├── train.py
+├── train_requirements.txt
+└── train_deploy.py
+```
+
 **`train_deploy.py`**
 ```python
 # Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
@@ -128,6 +139,13 @@ python train_deploy.py
 
 #### Defining and deploying using YAML definition file and CLI command
 
+```
+.
+├── train.py
+├── train_requirements.txt
+└── train_deploy.yaml
+```
+
 **`train_deploy.yaml`**
 ```yaml
 # Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
@@ -163,6 +181,12 @@ In this section we will use the model saved in the training job. Keep the _run F
 ### Writing inference service code and requirements
 
 Create the `inference_api.py` and `inference_requirements.txt` files in a directory. 
+
+```
+.
+├── inference_api.py
+└── inference_requirements.txt
+```
 
 **`inference_api.py`**
 ```python
@@ -210,6 +234,13 @@ Here we are using the `Service` class to define the service that we will deploy.
 
 Create `inference_api_deploy.py` file in the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
 
+```
+.
+├── inference_api.py
+├── inference_requirements.txt
+└── inference_api_deploy.p
+```
+
 **`inference_api_deploy.py`**
 ```python
 # Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
@@ -253,6 +284,13 @@ python inference_api_deploy.py
 #### Defining and deploying using YAML definition file and CLI command
 
 Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
+
+```
+.
+├── inference_api.py
+├── inference_requirements.txt
+└── inference_api_deploy.yaml
+```
 
 **`inference_api_deploy.yaml`**
 ```yaml
