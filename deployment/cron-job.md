@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
 ### Deploying the script as cron job
 
-We will deploy the script we wrote as a cron job that will run every 5 minutes. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
+We will deploy the script we wrote as a cron job that will run every 12 hours. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
 #### Deploying using our python API
 
@@ -73,7 +73,7 @@ job = Job(
     image=Build(
         build_spec=PythonBuild(command="python main.py --upto 30"),
     ),
-    trigger=ScheduledTrigger(schedule="*/5 * * * *"),
+    trigger=ScheduledTrigger(schedule="0 */12 * * *"),
 )
 
 job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
@@ -84,7 +84,7 @@ You can deploy the cron job using,
 python deploy.py
 ```
 
-> **_NOTE:_** As defined by `schedule="*/5 * * * *"`, this job will run every 5 minutes. You can pass any custom cron expression.
+> **_NOTE:_** As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression.
 
 #### Deploying using YAML definition file and CLI command
 
@@ -109,7 +109,7 @@ components:
       command: python main.py --upto 30
   trigger:
     type: scheduled
-    schedule: "*/5 * * * *"
+    schedule: "0 */12 * * *"
 ```
 You can deploy the training job using the command below,
 
