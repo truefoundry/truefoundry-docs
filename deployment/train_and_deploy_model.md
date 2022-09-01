@@ -77,10 +77,10 @@ scikit-learn==1.1.2
 
 ### Deploying the training job
 
-In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
+In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command. After deployment, the job will run immediately.
 
 
-#### Defining and deploying using our python API
+#### Deploying using our python API
 
 Here we are using the `Job` class to define the training job. We will use the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
 
@@ -125,7 +125,7 @@ env = [
 ]
 
 job = Job(
-    name="my-training-job-4",
+    name="training-job",
     image=image,
     env=env,
 )
@@ -137,7 +137,7 @@ You can deploy the job using,
 python train_deploy.py
 ```
 
-#### Defining and deploying using YAML definition file and CLI command
+#### Deploying using YAML definition file and CLI command
 
 ```
 .
@@ -150,9 +150,9 @@ python train_deploy.py
 ```yaml
 # Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
 # with the actual values.
-name: my-training-job
+name: training-job
 components:
-- name: my-training-job
+- name: training-job
   type: job
   image:
     type: build
@@ -238,7 +238,7 @@ Create `inference_api_deploy.py` file in the same directory containing the `infe
 .
 ├── inference_api.py
 ├── inference_requirements.txt
-└── inference_api_deploy.p
+└── inference_api_deploy.py
 ```
 
 **`inference_api_deploy.py`**
@@ -268,7 +268,7 @@ env = [
     },
 ]
 service = Service(
-    name="my-inference-service",
+    name="inference-svc",
     image=image,
     ports=[{"port": 8000}],
     env=env,
@@ -296,9 +296,9 @@ Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actu
 ```yaml
 # Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
 # with the actual values.
-name: my-inference-service
+name: inference-svc
 components:
-- name: my-inference-service
+- name: inference-svc
   type: service
   image:
     type: build

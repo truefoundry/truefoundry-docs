@@ -62,5 +62,14 @@ components:
       - port: 8080
 ```
 
+After adding the above files the directory stucture should look like,
+```
+.
+├── main.py
+├── requirements.txt
+├── Dockerfile
+└── servicefoundry.yaml
+```
+
 Now simply run, `sfy deploy --workspace-fqn <your-workspace-fqn>` in this folder to deploy your service. Copy your workspace FQN from the [workspaces dashboard](https://app.truefoundry.com/workspace).
 You should be able to track the deployment and find the deployed application at the [TrueFoundry dashboard](https://app.truefoundry.com/applications).
