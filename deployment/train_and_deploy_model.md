@@ -238,7 +238,7 @@ Create `inference_api_deploy.py` file in the same directory containing the `infe
 .
 ├── inference_api.py
 ├── inference_requirements.txt
-└── inference_api_deploy.p
+└── inference_api_deploy.py
 ```
 
 **`inference_api_deploy.py`**
