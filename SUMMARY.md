@@ -40,7 +40,7 @@
     * [Concepts](deployment/concepts.md)
     * [More examples](deployment/quickstart/more-examples.md)
   * [Train and deploy model](deployment/train_and_deploy_model.md)
-  * [Deploy a Docker application to TrueFoundry](/deployment/deploy-project/docker.md)
+  * [Deploy a Dockerized service](/deployment/docker.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
