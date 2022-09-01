@@ -77,7 +77,7 @@ scikit-learn==1.1.2
 
 ### Deploying the training job
 
-In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
+In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command. After deployment, the job will run immediately.
 
 
 #### Defining and deploying using our python API
