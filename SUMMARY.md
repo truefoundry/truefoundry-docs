@@ -37,7 +37,6 @@
   * [Overview](deployment/README.md)
   * Quick Start
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
-    * [Concepts](deployment/concepts.md)
     * [More examples](deployment/quickstart/more-examples.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
