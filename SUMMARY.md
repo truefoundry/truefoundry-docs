@@ -42,6 +42,7 @@
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
   * [Train and deploy model](deployment/train_and_deploy_model.md)
+  * [Deploy a streamlit app](deployment/streamlit.md)
   * [Deploy a Dockerized service](/deployment/docker.md)
   * [Adding GPUs to your service](deployment/advance_examples/adding-gpus.md)
   * [Monitoring your services](./deployment/monitoring.md)
