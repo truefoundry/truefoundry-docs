@@ -16,7 +16,8 @@ Create `main.py` in a directory.
 
 ```
 .
-└── main.py
+├── main.py
+└── requirements.txt
 ```
 
 **`main.py`**
@@ -64,6 +65,12 @@ st.subheader("Map of all pickups at %s:00" % hour_to_filter)
 st.map(filtered_data)
 ```
 
+**`requirements.txt`**
+```
+streamlit==1.12.0
+pandas==1.4.3
+```
+
 > **_NOTE:_** In the above code, we are **downloading** the data and caching it when the app loads for the first time. You can choose to keep the data file `uber-raw-data-sep14.csv.gz` in the same directory and read from there.
 
 ### Deploying the streamlit app
@@ -78,6 +85,7 @@ Here we will use the `Service` class from servicefoundry library to deploy the s
 ```
 .
 ├── main.py
+├── requirements.txt
 └── deploy.py
 ```
 
@@ -113,6 +121,7 @@ python deploy.py
 ```
 .
 ├── main.py
+├── requirements.txt
 └── servicefoundry.yaml
 ```
 
