@@ -44,7 +44,7 @@ if __name__ == "__main__":
 We will deploy the script we wrote as a cron job that will run every 12 hours. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
 {% tabs %}
-{% tab title="Deploying using our python API" %}
+{% tab title="Deploying using python API" %}
 
 Here we will use the `Job` class from servicefoundry library to deploy.
 
