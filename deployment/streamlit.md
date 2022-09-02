@@ -71,7 +71,7 @@ st.map(filtered_data)
 We will deploy the streamlit app we wrote in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
 {% tabs %}
-{% tab title="Deploying using our python API" %}
+{% tab title="Deploying using python API" %}
 
 Here we will use the `Service` class from servicefoundry library to deploy the streamlit app.
 

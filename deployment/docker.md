@@ -44,7 +44,7 @@ You can deploy this dockerized application either using the python APIs or you c
 
 
 {% tabs %}
-{% tab title="Deploying using our python API" %}
+{% tab title="Deploying using python API" %}
 
 Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application.
 

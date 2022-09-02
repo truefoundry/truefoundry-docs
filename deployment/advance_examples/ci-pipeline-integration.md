@@ -6,7 +6,7 @@ Deployments using `servicefoundry` can be seamlessly integrated with any CI/CD p
 ## Before you start
 Make sure the following steps have been completed before moving ahead:
 - [Install servicefoundry and create a worksapce](https://docs.truefoundry.com/servicefoundry/quick-start#install-servicefoundry-client-library)
-- Create a Github repo with your service code including `servicefoundry.yaml`. If you are not familiar with creating a TrueFoundry service, check [this quick guide](../quickstart/fastapi-quickstart.md) out.
+- Create a Github repo with your service code including `servicefoundry.yaml`. If you are not familiar with creating a TrueFoundry service, check [this quick guide](../streamlit.md) out.
 
 
 ## Steps
