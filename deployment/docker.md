@@ -7,8 +7,14 @@ You can see all the project files of the example below on [Github](https://githu
 
 Consider a simple [Gradio](https://gradio.app/) application that's packaged using Docker:
 
-### main.py
+```
+.
+├── main.py
+├── requirements.txt
+└── Dockerfile
+```
 
+**`main.py`**
 ```python
 import gradio as gr
 
@@ -16,17 +22,14 @@ def greet(name):
     return "Hello " + name.capitalize() + "!"
 
 gr.Interface(fn=greet, inputs="text", outputs="text").launch(server_name='0.0.0.0', server_port=8080)
-
 ```
 
-### requirements.txt
-
-The `requirements.txt` for this file will look like:
+**`requirements.txt`**
 ```
 gradio
 ```
 
-### Dockerfile
+**`Dockerfile`**
 
 The Dockerfile contains instructions to build the image:
 ```dockerfile
@@ -37,32 +40,43 @@ COPY . ./app
 WORKDIR app
 ENTRYPOINT python main.py
 ```
+You can deploy this dockerized application either using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
-To deploy this Docker application using TrueFoundry, you will need to provide a TrueFoundry service definition in the form of `servicefoundry.yaml`
+#### Deploying using our python API
 
-### servicefoundry.yaml
+Here we will use the `DockerFileBuild` class from servicefoundry to identify that this is a dockerized application.
 
-```yaml
-name: gradio-app
-components:
-  - name: gradio-app
-    type: service
-    image:
-      type: build
-      build_source:
-        type: local
-      build_spec:
-        type: dockerfile
-    resources:
-      cpu_request: 50m
-      cpu_limit: 100m
-      memory_request: 128Mi
-      memorty_limit: 512Mi
-    ports:
-      - port: 8080
+```
+.
+├── main.py
+├── requirements.txt
+├── Dockerfile
+└── deploy.py
 ```
 
-After adding the above files the directory stucture should look like,
+**`deploy.py`**
+```python
+# Replace `YOUR_WORKSPACE_FQN`
+# with the actual value.
+import logging
+
+from servicefoundry import Build, Service, DockerFileBuild
+
+logging.basicConfig(level=logging.INFO)
+
+service = Service(
+    name="docker-svc",
+    image=Build(build_spec=DockerFileBuild()),
+    ports=[{"port": 8080}],
+)
+service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
+```
+You can deploy the app using, 
+```shell
+python deploy.py
+```
+
+#### Deploying using YAML definition file and CLI command
 ```
 .
 ├── main.py
@@ -71,5 +85,24 @@ After adding the above files the directory stucture should look like,
 └── servicefoundry.yaml
 ```
 
+**`servicefoundry.yaml`**
+```yaml
+name: docker-svc
+components:
+  - name: docker-svc
+    type: service
+    image:
+      type: build
+      build_source:
+        type: local
+      build_spec:
+        type: dockerfile
+    ports:
+      - port: 8080
+
+```
+
 Now simply run, `sfy deploy --workspace-fqn <your-workspace-fqn>` in this folder to deploy your service. Copy your workspace FQN from the [workspaces dashboard](https://app.truefoundry.com/workspace).
+
+
 You should be able to track the deployment and find the deployed application at the [TrueFoundry dashboard](https://app.truefoundry.com/applications).
