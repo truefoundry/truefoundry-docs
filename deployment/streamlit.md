@@ -17,7 +17,7 @@ Create `main.py` in a directory.
 ```
 .
 ├── main.py
-└── requirements.py
+└── requirements.txt
 ```
 
 **`main.py`**
@@ -85,7 +85,7 @@ Here we will use the `Service` class from servicefoundry library to deploy the s
 ```
 .
 ├── main.py
-├── requirements.py
+├── requirements.txt
 └── deploy.py
 ```
 
@@ -121,7 +121,7 @@ python deploy.py
 ```
 .
 ├── main.py
-├── requirements.py
+├── requirements.txt
 └── servicefoundry.yaml
 ```
 
