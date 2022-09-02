@@ -44,7 +44,7 @@ You can deploy this dockerized application either using the python APIs or you c
 
 #### Deploying using our python API
 
-Here we will use the `DockerFileBuild` class from servicefoundry to identify that this is a dockerized application.
+Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application.
 
 ```
 .
