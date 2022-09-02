@@ -1,6 +1,6 @@
 # Configuring resource (CPU/Memory) requirements
 
-You can customize resource (CPU/Memory) request and limit requirements of your service/job. Requests are what an instance of service/job is guaranteed to get. Limits ensure that the instance cannot consume more than the specified amount of resource. Request fields should always be lower or same has limit fields.
+You can customize resource (CPU/Memory) request and limit the requirements of your service/job. Requests are what an instance of service/job is guaranteed to get. Limits ensure that the instance cannot consume more than the specified amount of resources. Request fields should always be lower or the same as limit fields.
 
 We follow [kubernetes spec](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#resource-units-in-kubernetes) for [CPU](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu) and [Memory](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory) resource units.
 
