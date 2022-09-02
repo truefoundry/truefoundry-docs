@@ -26,7 +26,7 @@ service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 {% endtab %}
 {% tab title="YAML definition file and CLI command" %} 
 
-You can add environment variables to services by simply adding them in the `servicefoundry.yaml` file. 
+You can add environment variables to services by adding them in the `servicefoundry.yaml` file. 
 ```yaml
 name: my-service
 components:

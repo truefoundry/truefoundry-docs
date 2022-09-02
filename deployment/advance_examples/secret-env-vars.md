@@ -24,6 +24,8 @@ service = Service(
     ports=[{"port": 8501}],
     env=[
         {"name": "NODE_ENV", "value": "prod"},
+        # The value of tfy-secret://user:my-secret-group:my-secret
+        # will be mapped to the value of MY_SECRET environment variable.
         {"name": "MY_SECRET", "value": "tfy-secret://user:my-secret-group:my-secret"},
     ],
 )
@@ -33,7 +35,7 @@ service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 {% endtab %}
 {% tab title="YAML definition file and CLI command" %} 
 
-You can add environment variables to services by simply adding them in the `servicefoundry.yaml` file. 
+You can inject secrets as environment variables to services by adding them in the `servicefoundry.yaml` file. 
 ```yaml
 name: my-service
 components:
