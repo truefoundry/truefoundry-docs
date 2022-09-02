@@ -42,7 +42,9 @@ ENTRYPOINT python main.py
 ```
 You can deploy this dockerized application either using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
-#### Deploying using our python API
+
+{% tabs %}
+{% tab title="Deploying using our python API" %}
 
 Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application.
 
@@ -76,7 +78,9 @@ You can deploy the app using,
 python deploy.py
 ```
 
-#### Deploying using YAML definition file and CLI command
+{% endtab %}
+{% tab title="Deploying using YAML definition file and CLI command" %} 
+
 ```
 .
 ├── main.py
@@ -103,6 +107,9 @@ components:
 ```
 
 Now simply run, `sfy deploy --workspace-fqn <your-workspace-fqn>` in this folder to deploy your service. Copy your workspace FQN from the [workspaces dashboard](https://app.truefoundry.com/workspace).
+
+{% endtab %}
+{% endtabs %}
 
 
 You should be able to track the deployment and find the deployed application at the [TrueFoundry dashboard](https://app.truefoundry.com/applications).
