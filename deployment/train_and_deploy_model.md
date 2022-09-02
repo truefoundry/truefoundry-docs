@@ -80,7 +80,8 @@ scikit-learn==1.1.2
 In this section, we will deploy the model training code we defined in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command. After deployment, the job will run immediately.
 
 
-#### Deploying using our python API
+{% tabs %}
+{% tab title="Deploying using our python API" %}
 
 Here we are using the `Job` class to define the training job. We will use the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
 
@@ -137,7 +138,8 @@ You can deploy the job using,
 python train_deploy.py
 ```
 
-#### Deploying using YAML definition file and CLI command
+{% endtab %}
+{% tab title="Deploying using YAML definition file and CLI command" %} 
 
 ```
 .
@@ -173,6 +175,9 @@ You can deploy the training job using the command below,
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml
 ```
 Run the above command from the same directory containing the `train.py` and `train_requirements.txt` files.
+
+{% endtab %}
+{% endtabs %}
 
 ## Creating a REST API service
 
@@ -228,7 +233,8 @@ scikit-learn==1.1.2
 
  You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
-#### Defining and deploying using our python API
+{% tabs %}
+{% tab title="Deploying using our python API" %}
 
 Here we are using the `Service` class to define the service that we will deploy. Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
 
@@ -281,7 +287,8 @@ You can deploy the API service using,
 python inference_api_deploy.py
 ```
 
-#### Defining and deploying using YAML definition file and CLI command
+{% endtab %}
+{% tab title="Deploying using YAML definition file and CLI command" %} 
 
 Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
 
@@ -322,3 +329,5 @@ You can deploy the inference API service using the command below,
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file inference_api_deploy.yaml
 ```
 Run the above command from the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
+{% endtab %}
+{% endtabs %}
