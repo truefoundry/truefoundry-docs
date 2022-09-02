@@ -42,6 +42,7 @@
   * [Deploy a cron job](deployment/cron-job.md)
   * [Deploy a streamlit app](deployment/streamlit.md)
   * [Deploy a Dockerized service](/deployment/docker.md)
+  * [Configuring resource (CPU/Memory) requirements](/deployment/advance_examples/configuring-resources.md)
   * [Adding GPUs to your service](deployment/advance_examples/adding-gpus.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
