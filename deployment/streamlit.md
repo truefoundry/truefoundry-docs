@@ -70,7 +70,8 @@ st.map(filtered_data)
 
 We will deploy the streamlit app we wrote in the above section. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
-#### Deploying using our python API
+{% tabs %}
+{% tab title="Deploying using our python API" %}
 
 Here we will use the `Service` class from servicefoundry library to deploy the streamlit app.
 
@@ -106,7 +107,8 @@ You can deploy the app using,
 python deploy.py
 ```
 
-#### Deploying using YAML definition file and CLI command
+{% endtab %}
+{% tab title="Deploying using YAML definition file and CLI command" %} 
 
 ```
 .
@@ -135,3 +137,5 @@ You can deploy the training job using the command below,
 ```shell
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
 ```
+{% endtab %}
+{% endtabs %}

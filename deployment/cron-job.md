@@ -43,7 +43,8 @@ if __name__ == "__main__":
 
 We will deploy the script we wrote as a cron job that will run every 12 hours. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
-#### Deploying using our python API
+{% tabs %}
+{% tab title="Deploying using our python API" %}
 
 Here we will use the `Job` class from servicefoundry library to deploy.
 
@@ -84,9 +85,8 @@ You can deploy the cron job using,
 python deploy.py
 ```
 
-> **_NOTE:_** As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression.
-
-#### Deploying using YAML definition file and CLI command
+{% endtab %}
+{% tab title="Deploying using YAML definition file and CLI command" %} 
 
 ```
 .
@@ -116,3 +116,7 @@ You can deploy the training job using the command below,
 ```shell
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
 ```
+{% endtab %}
+{% endtabs %}
+
+> **_NOTE:_** As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression.
