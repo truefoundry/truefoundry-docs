@@ -33,24 +33,32 @@
     * Making Experiments Public (Coming Soon)
   * [Comparison with MlFlow](experiment-tracking/comparison-mlflow.md)
 
-* Deploy Model
+* Deploy
   * [Overview](deployment/README.md)
   * Quick Start
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
+    * [Train and deploy model](deployment/train_and_deploy_model.md)
     * [More examples](deployment/quickstart/more-examples.md)
-  * [Train and deploy model](deployment/train_and_deploy_model.md)
-  * [Deploy a cron job](deployment/cron-job.md)
-  * [Deploy a streamlit app](deployment/streamlit.md)
-  * [Deploy a Dockerized service](/deployment/docker.md)
-  * [Configuring resource (CPU/Memory) requirements](/deployment/advance_examples/configuring-resources.md)
-  * [Adding GPUs to your service](deployment/advance_examples/adding-gpus.md)
+  * Deploy a job
+    * [Job and usecases](deployment/job/definition.md)
+    * [Deploy a Job](deployment/job/deploy.md)
+    * [Deploy a CronJob](deployment/job/cron-job.md)
+    * [Advanced Options](deployment/job/advanced.md)
+    * [Monitor a Cron Job](deployment/job/monitoring.md)
+  * Deploy a service
+    * [Service and usecases](deployment/service/definition.md)
+    * [Deploy a Service](deploy/service/deploy.md)
+    * [Deploy FastAPI Service](deploy/service/fastapi.md)
+    * [Deploy Streamlit Service](deploy/service/streamlit.md)
+    * [Examples] (deploy/service/examples.md)
+    * [Advanced Options](deploy/job/advanced.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
-  * [Monitoring your services](./deployment/monitoring.md)
-  * [Cost Estimation](./deployment/costing/cost-estimation.md)
-  * [Collaboration with team](deployment/collab.md)
-  * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md)
+  <!-- * [Monitoring your services](./deployment/monitoring.md) -->
+  <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
+  <!-- * [Collaboration with team](deployment/collab.md) -->
+  <!-- * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md) -->
 * [Getting Help](getting-help.md)
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)

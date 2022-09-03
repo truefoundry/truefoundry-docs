@@ -1,6 +1,8 @@
-# Deploy cron job using servicefoundry
+# Deploy cron job
 
 In this guide, we will deploy a simple cron job using servicefoundry. A cron job runs the defined job on a repeating schedule. This is useful if you want to retrain your model periodically.
+
+// TODO: Refer to the code in the previous section and mention that we need to run it on a schedule. 
 
 Before we begin,
 1. You need to have the `servicefoundry`
