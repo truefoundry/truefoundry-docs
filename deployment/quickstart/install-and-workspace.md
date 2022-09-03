@@ -34,15 +34,15 @@ You are logged in as 'user' with email 'user@xxx.xxx'
 
 ## Create a workspace
 
-To deploy services using TrueFoundry, you need to first create a workspace. A workspace is simply a collection of services that have the same set of permissions on them.
+Workspaces are groups of applications that can be somewhat grouped together - either they are handled by the same team, 
+or belong to an environment like dev, staging, production. Each workspace can have multiple applications. 
 
-1. To create a workspace, go to the [workspaces page on the TrueFoundry dashboard](https://app.truefoundry.com/workspace) and click on `Create Workspace`.
+Workspace also serves as the minimum unit of permission and access control which means that we can add users to a workspace and they will
+have access to everything inside the workspace. 
 
-![Create Workspace](../../assets/create-workspace.png)
+> In the Kubernetes world, workspace maps to one namespace in the Kubernetes cluster. 
 
+In many cases, the devops / infra team might already assign a workspace to you. In that case just copy the FQN column value from the Workspaces page. 
 
-2. Give a name for your workspace and choose a tier. You can choose a tier based on your resource requirements out of the four options. If you're unsure, start with a free tier and you can later upgrade your workspace.
-
-![Workspace Tiers](../../assets/workspace-tiers.png)
 
 
