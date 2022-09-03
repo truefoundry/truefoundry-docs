@@ -37,7 +37,7 @@
   * [Overview](deployment/README.md)
   * Quick Start
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
-    * [Train and deploy model](deployment/train_and_deploy_model.md)
+    * [Train and deploy model](deployment/quickstart/train-and-deploy-model.md)
     * [More examples](deployment/quickstart/more-examples.md)
   * Deploy a job
     * [Job and usecases](deployment/job/definition.md)
@@ -45,6 +45,7 @@
     * [Deploy a CronJob](deployment/job/cron-job.md)
     * [Advanced Options](deployment/job/advanced.md)
     * [Monitor a Cron Job](deployment/job/monitoring.md)
+    * [Reference](autogen/job/Models/Job.md)
   * Deploy a service
     * [Service and usecases](deployment/service/definition.md)
     * [Deploy a Service](deploy/service/deploy.md)

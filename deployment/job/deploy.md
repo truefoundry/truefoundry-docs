@@ -97,10 +97,15 @@ Run the above command from the same directory containing the `train.py` and `tra
 {% endtab %}
 {% endtabs %}
 
+## Build Section
+
+// TODO: We should have a page to explain the Build part and refer to it from here. 
+
 ## Running the same job again
 
 TODO: // Fill up this section and add the UI part to retrigger the job also.
 
 You can also configure jobs to run on a fixed time schedule as described in the [next section](cron-job.md)
+
 
 

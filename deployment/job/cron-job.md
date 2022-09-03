@@ -2,48 +2,14 @@
 
 In this guide, we will deploy a simple cron job using servicefoundry. A cron job runs the defined job on a repeating schedule. This is useful if you want to retrain your model periodically.
 
-// TODO: Refer to the code in the previous section and mention that we need to run it on a schedule. 
+We will run the same job that we defined in [Job Definition](./definition.md) as a cron job that will run every 12 hours. 
 
-Before we begin,
-1. You need to have the `servicefoundry`
-library installed and login using the `servicefoundry login` command. If you do not have the library installed follow [the instructions here](quickstart/install-and-workspace.md).
+To do this, we install `servicefoundry`  and copy the workspace FQN as mentioned in [Installation](../quickstart/install-and-workspace.md). 
 
-2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. Keep the workspace _FQN_ handy. If you already have a workspace you can use that.
-
-> **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
-
-### Defining the job
-
-Here we will write a simple python script which prints numbers starting from `0` to a given end.
-
-```
-.
-└── main.py
-```
-
-**`main.py`**
-```python
-import argparse
-import time
-
-
-def print_numbers(upto: int):
-    for i in range(1, upto + 1):
-        print(i)
-        time.sleep(1)
-
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--upto", type=int)
-    args = parser.parse_args()
-
-    print_numbers(args.upto)
-```
 
 ### Deploying the script as cron job
 
-We will deploy the script we wrote as a cron job that will run every 12 hours. You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
+You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
 {% tabs %}
 {% tab title="Deploying using python API" %}
@@ -121,4 +87,42 @@ servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
 {% endtab %}
 {% endtabs %}
 
-> **_NOTE:_** As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression.
+> **_NOTE:_** As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression. The cron format is explained below. 
+
+### Understanding the cron format
+
+The job schedule is a cron expression. It consists of five fields representing the time at which to execute a specified command.
+```
+* * * * *
+| | | | |
+| | | | |___ day of week (0-6) (Sunday is 0)
+| | | |_____ month (1-12)
+| | |_______ day of month (1-31)
+| |_________ hour (0-23)
+|___________ minute (0-59)
+```
+
+If you want to see how to set the right cron format, you can use the UI to set the cron which shows the human-readable format of what the schedule means. 
+
+// TODO: paste UI Screenshot
+
+### Concurrency for Cron Jobs
+
+For cron-jobs, its possible that the previous run of the job hasn't completed while its already time for the job to run again because of the scheduled time. This can happen if we schedule a job to run every 10 mins, and for some reason one instance of the job takes more than 10 mins. At this point, we have three options:
+
+1. Start the new instance of the job even if the previous one is running
+2. Do not start the new instance of the job and skip this job run since the previous job is running. 
+3. Terminate the current running job and start the new one. 
+
+The desired behavior depends on the exact use-case, but you can achieve all the three scenarios using the `concurrency_policy` setting. The possible options are:
+
+1. **Allow**: Allow jobs to run concurrently (#1 option)
+2. **Forbid**: Do not allow conurrent runs (#2 option)
+3. **Replace**: Replace the current job with the new one (#3 option)
+
+Concurrency doesn't apply to manually triggered jobs. In that case, it always creates a new job run.
+
+You can pass the concurrency policy to the spec as follows:
+
+// TODO: Add code to pass the concurrency policy
+

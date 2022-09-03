@@ -40,6 +40,8 @@ or belong to an environment like dev, staging, production. Each workspace can ha
 Workspace also serves as the minimum unit of permission and access control which means that we can add users to a workspace and they will
 have access to everything inside the workspace. 
 
+> **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
+
 > In the Kubernetes world, workspace maps to one namespace in the Kubernetes cluster. 
 
 In many cases, the devops / infra team might already assign a workspace to you. In that case just copy the FQN column value from the Workspaces page. 

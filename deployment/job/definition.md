@@ -4,7 +4,7 @@ A job basically executes the code once and if it completed successfully, the job
 
 Jobs can be triggered in multiple ways:
 
-1. **Manual**: This is good fo adhoc use cases and can be triggered manually. An example can be a model training job which can be run when needed. 
+1. **Manual**: This is good for adhoc use cases and can be triggered manually. An example can be a model training job which can be run when needed. 
 2. **Schedule**: A job can be triggered on a schedule like daily, weekly, or at 9AM every Monday. An example of this can be a batch inference job running every morning at 8 AM on the previous day's incoming data. 
 
 
