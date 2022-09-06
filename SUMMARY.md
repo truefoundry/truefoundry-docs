@@ -48,9 +48,9 @@
     * [Reference](autogen/job/Models/Job.md)
   * Deploy a service
     * [Service and usecases](deployment/service/definition.md)
-    * [Deploy a Service](deploy/service/deploy.md)
-    * [Deploy FastAPI Service](deploy/service/fastapi.md)
-    * [Deploy Streamlit Service](deploy/service/streamlit.md)
+    * [Deploy a Service](deployment/service/deploy.md)
+    * [Deploy FastAPI Service](deployment/service/fastapi.md)
+    * [Deploy Streamlit Service](deployment/service/streamlit.md)
     * [Examples] (deploy/service/examples.md)
     * [Advanced Options](deploy/job/advanced.md)
   * Environment Variables and Secrets
