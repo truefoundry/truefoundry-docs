@@ -32,7 +32,7 @@ from servicefoundry import (
     Build,
     Job,
     PythonBuild,
-    ScheduledTrigger,
+    Schedule,
 )
 
 logging.basicConfig(level=logging.INFO)
@@ -42,7 +42,7 @@ job = Job(
     image=Build(
         build_spec=PythonBuild(command="python main.py --upto 30"),
     ),
-    trigger=ScheduledTrigger(schedule="0 */12 * * *"),
+    trigger=Schedule(schedule="0 */12 * * *"),
 )
 
 job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
