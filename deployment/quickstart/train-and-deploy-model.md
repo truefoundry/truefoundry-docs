@@ -117,13 +117,11 @@ image = Build(
         requirements_path="train_requirements.txt",
     )
 )
-env = [
-    {
-        "name": "MLF_API_KEY",
-        # NOTE:- We will automatically map the secret value to the environment variable.
-        "value": "tfy-secret://YOUR_SECRET_FQN",
-    }
-]
+env = {
+    # NOTE:- We will automatically map the secret value to the environment variable.
+    "MLF_API_KEY": "tfy-secret://YOUR_SECRET_FQN",
+}
+
 
 job = Job(
     name="training-job",
@@ -165,8 +163,7 @@ components:
       command: python train.py
       requirements_path: train_requirements.txt
   env:
-  - name: MLF_API_KEY
-    value: tfy-secret://YOUR_SECRET_FQN
+    MLF_API_KEY: tfy-secret://YOUR_SECRET_FQN
 ```
 
 You can deploy the training job using the command below,
@@ -263,16 +260,11 @@ image = Build(
         requirements_path="inference_requirements.txt",
     ),
 )
-env = [
-    {
-        "name": "MLF_API_KEY",
-        "value": "tfy-secret://YOUR_SECRET_FQN",
-    },
-    {
-        "name": "MLF_RUN_FQN",
-        "value": "YOUR_RUN_FQN",
-    },
-]
+env = {
+    "MLF_API_KEY": "tfy-secret://YOUR_SECRET_FQN",
+    "MLF_RUN_FQN": "YOUR_RUN_FQN",
+}
+
 service = Service(
     name="inference-svc",
     image=image,
@@ -318,10 +310,8 @@ components:
   ports:
     - port: 8000
   env:
-  - name: MLF_API_KEY
-    value: tfy-secret://YOUR_SECRET_FQN
-  - name: MLF_RUN_FQN
-    value: YOUR_RUN_FQN
+    MLF_API_KEY: tfy-secret://YOUR_SECRET_FQN
+    MLF_RUN_FQN: YOUR_RUN_FQN
 ```
 
 You can deploy the inference API service using the command below,

@@ -15,10 +15,10 @@ service = Service(
     name="my-service",
     image=Build(build_spec=DockerFileBuild()),
     ports=[{"port": 8501}],
-    env=[
-        {"name": "NODE_ENV", "value": "prod"},
-        {"name": "S3_BUCKET_NAME", "value": "my-s3-bucket"},
-    ],
+    env={
+      "NODE_ENV": "prod",
+      "S3_BUCKET_NAME": "my-s3-bucket",
+    },
 )
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
@@ -41,10 +41,8 @@ components:
     ports:
      - port: 8501
     env:
-    - name: NODE_ENV
-      value: prod
-    - name: S3_BUCKET_NAME
-      value: my-s3-bucket
+      NODE_ENV: prod
+      S3_BUCKET_NAME: my-s3-bucket
 ```
 {% endtab %}
 {% endtabs %}

@@ -22,12 +22,12 @@ service = Service(
     name="my-service",
     image=Build(build_spec=DockerFileBuild()),
     ports=[{"port": 8501}],
-    env=[
-        {"name": "NODE_ENV", "value": "prod"},
+    env={
+      "NODE_ENV": "prod",
         # The value of tfy-secret://user:my-secret-group:my-secret
         # will be mapped to the value of MY_SECRET environment variable.
-        {"name": "MY_SECRET", "value": "tfy-secret://user:my-secret-group:my-secret"},
-    ],
+      "MY_SECRET": "tfy-secret://user:my-secret-group:my-secret",
+    },
 )
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
@@ -50,10 +50,8 @@ components:
     ports:
      - port: 8501
     env:
-    - name: NODE_ENV
-      value: prod
-    - name: MY_SECRET
-      value: tfy-secret://user:my-secret-group:my-secret
+      NODE_ENV: prod
+      MY_SECRET: tfy-secret://user:my-secret-group:my-secret
 ```
 {% endtab %}
 {% endtabs %}
