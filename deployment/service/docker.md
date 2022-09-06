@@ -1,6 +1,14 @@
-# Deploy your exisiting Docker application with TrueFoundry
+# Deploy your exisiting Dockerized service with TrueFoundry
 
-You can deploy any of your existing Docker applications with TrueFoundry. Before moving ahead, make sure you have installed the `servicefoundry` library and created a workspace. If not, see how [here](./install-and-workspace.md).
+You can deploy any of your existing Dockerized service with TrueFoundry. 
+
+Before we begin,
+1. You need to have the `servicefoundry`
+library installed and login using the `servicefoundry login` command. If you do not have the library installed follow [the instructions here](quickstart/install-and-workspace.md).
+
+2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. Keep the workspace _FQN_ handy. If you already have a workspace you can use that.
+
+> **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
 
 You can see all the project files of the example below on [Github](https://github.com/truefoundry/truefoundry-examples/tree/main/docker-service-deployment).
 

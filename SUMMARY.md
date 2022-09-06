@@ -51,6 +51,7 @@
     * [Deploy a Service](deployment/service/deploy.md)
     * [Deploy FastAPI Service](deployment/service/fastapi.md)
     * [Deploy Streamlit Service](deployment/service/streamlit.md)
+    * [Deploy Dockerized Service](deployment/service/docker.md)
     * [Examples] (deploy/service/examples.md)
     * [Advanced Options](deploy/job/advanced.md)
   * Environment Variables and Secrets
