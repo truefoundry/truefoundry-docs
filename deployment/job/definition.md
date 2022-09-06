@@ -1,6 +1,6 @@
 # <img height="25px" src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/bolt.svg" width="50" height="50"> Job
 
-A job basically executes the code once and if it completed successfully, the job is marked as Succeeded. If it fails, the job can be configured to attempt a certain number of retries. If the code doesn't end even after the configured number of retries, the job is marked as failed. The compute and memory resources are released once the job is completed and hence we don't incur any cost once the job completes.
+A job basically executes the code once and if it complets successfully, the job is marked as Succeeded. If it fails, the job can be configured to attempt a certain number of retries. If the code doesn't end even after the configured number of retries, the job is marked as failed. The compute and memory resources are released once the job is completed and hence we don't incur any cost once the job completes.
 
 Jobs can be triggered in multiple ways:
 
