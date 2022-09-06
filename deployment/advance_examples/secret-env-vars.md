@@ -24,8 +24,8 @@ service = Service(
     ports=[{"port": 8501}],
     env={
       "NODE_ENV": "prod",
-        # The value of tfy-secret://user:my-secret-group:my-secret
-        # will be mapped to the value of MY_SECRET environment variable.
+      # The value of tfy-secret://user:my-secret-group:my-secret
+      # will be mapped to the value of MY_SECRET environment variable.
       "MY_SECRET": "tfy-secret://user:my-secret-group:my-secret",
     },
 )
