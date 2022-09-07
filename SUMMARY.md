@@ -51,6 +51,7 @@
     * [Deploy a Service](deployment/service/deploy.md)
     * [Deploy FastAPI Service](deployment/service/fastapi.md)
     * [Deploy Streamlit Service](deployment/service/streamlit.md)
+    * [Deploy Gradio Service](deployment/service/gradio.md)
     * [Deploy Dockerized Service](deployment/service/docker.md)
     * [Advanced Options](deployment/service/advanced.md)
   * Environment Variables and Secrets
