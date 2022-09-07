@@ -13,7 +13,7 @@ A service will usually expose certain APIs at some port. This port can be mapped
 
 Its usually a good idea to have the API documentation while building a service since it makes it quite easy for the consumers
 of your service to understand API inputs and outputs. 
-If you are writing your service in FastAPI, the swagger UI is automatically rendered in the /docs link. 
+If you are writing your service in FastAPI, the swagger UI is automatically rendered in the `/docs` link. 
 
 The code below shows a sample service code in Flask
 
