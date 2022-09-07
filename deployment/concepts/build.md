@@ -165,3 +165,65 @@ docker build -f dockerfile_path build_context_path
 
 
 ### Python build
+If you do not have a _Dockerfile_ you can use the _Python build_ to build a container image with a specific python version and pip packages installed.
+
+{% tabs %}
+{% tab title="Python API" %}
+
+We will use the `PythonBuild` class here.
+```python
+from servicefoundry import Service, Build, PythonBuild
+
+service = Service(
+    name="fastapi",
+    image=Build(
+        build_spec=PythonBuild(
+            python_version="3.9",
+            build_context_path="./",
+            requirements_path="my-requirements.txt",
+            pip_packages=["fastapi==0.82.0", "uvicorn"],
+            command="uvicorn main:app --port 8000 --host 0.0.0.0"
+        ),
+    ),
+    ...
+)
+```
+
+{% endtab %}
+
+{% tab title="YAML definition file" %} 
+The `type: tfy-python-buildpack` identifies it as a _Python build_. 
+
+```yaml
+name: fastapi
+components:
+  - name: fastapi
+    type: service
+    image:
+      type: build
+      build_source:
+        type: local
+      build_spec:
+        type: tfy-python-buildpack
+        python_version: 3.9
+        build_context_path: "./"
+        requirements_path: my-requirements.txt
+        pip_packages:
+          - fastapi==0.82.0
+          - uvicorn
+        command: uvicorn main:app --port 8000 --host 0.0.0.0
+```
+
+{% endtab %}
+{% endtabs %}
+
+#### Parameters
+| Name | Type | Default value | Description |
+|-|-|-|-|
+python_version| string, regex: `^\d+(\.\d+){1,2}$` | "3.9" | Python version to run your code. We use this to choose the base image.
+build_context_path| string | "./" (project/build source root path) | Build context path for the Dockerfile relative to project/build source root path.
+requirements_path| string, nullable | `None` | Path to the `requirements.txt` file relative to project/build source root path. If there is file with the name `requirements.txt` under project root, we will automatically use that as the `requirements_path`.
+pip_packages| List or array of strings | `None` | An array of pip package requirements.
+command | string or array of strings | | Command to run the code. This is a required argument.
+
+> **NOTE:** If you pass both `requirements_path` and `pip_packages` then we will install the union of the packages defined. IE: if you have `fastapi` defined in `requirements.txt` and pass `["numpy"]` in `pip_packages`, we will install both `numpy` and `fastapi`.
