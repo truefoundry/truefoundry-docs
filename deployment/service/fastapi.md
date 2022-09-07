@@ -39,7 +39,6 @@ async def infer(input_text: str):
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 tokenizer = AutoTokenizer.from_pretrained("t5-small")
-
 model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
 
 
