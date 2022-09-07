@@ -12,6 +12,8 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 ### Writing our FastAPI service
 
+**File Structure:**
+
 ```
 .
 ├── main.py

@@ -12,7 +12,7 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 ### Writing our streamlit app
 
-Create `main.py` in a directory.
+**File Structure:**
 
 ```
 .

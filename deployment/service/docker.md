@@ -16,6 +16,8 @@ You can see all the project files of the example below on [Github](https://githu
 
 Consider a simple [Gradio](https://gradio.app/) application that's packaged using Docker:
 
+**File Structure:**
+
 ```
 .
 ├── main.py
