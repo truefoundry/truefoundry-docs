@@ -1,6 +1,6 @@
 # Deploy a FastAPI service using servicefoundry
 
-In this guide, we will deploy a [FastAPI service](https://fastapi.tiangolo.com/) using servicefoundry. FastAPI is modern, intuitive web framework for building web APIs in python.
+In this guide, we will deploy a [FastAPI service](https://fastapi.tiangolo.com/) using servicefoundry. FastAPI is modern, intuitive web framework for building web APIs in python. We will use FastAPI to create a web API and deploy the [T5 Small](https://huggingface.co/t5-small) model.
 
 Before we begin,
 1. You need to have the `servicefoundry`
@@ -12,11 +12,10 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 ### Writing our FastAPI service
 
-Create `main.py` in a directory.
-
 ```
 .
 ├── main.py
+├── inference.py
 └── requirements.txt
 ```
 
@@ -24,18 +23,38 @@ Create `main.py` in a directory.
 ```python
 from fastapi import FastAPI
 
-app = FastAPI()
+from inference import t5_model_inference
+
+app = FastAPI(docs_url="/")
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
+@app.get("/infer")
+async def infer(input_text: str):
+    output_text = t5_model_inference(input_text=input_text)
+    return {"output": output_text}
+```
+
+**`inference.py`**
+```python
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+tokenizer = AutoTokenizer.from_pretrained("t5-small")
+
+model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
+
+
+def t5_model_inference(input_text: str) -> str:
+    input_ids = tokenizer(input_text, return_tensors="pt").input_ids
+    outputs = model.generate(input_ids)
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
 ```
 
 **`requirements.txt`**
 ```
 fastapi==0.81.0
 uvicorn==0.18.3
+transformers==4.17.0
+torch==1.12.1
 ```
 
 ### Deploying the FastAPI service
@@ -43,11 +62,12 @@ uvicorn==0.18.3
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Here we will use the `Service` class from servicefoundry library to deploy the streamlit app. Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
+Here we will use the `Service` class from servicefoundry library to deploy the service. Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
 
 ```
 .
 ├── main.py
+├── inference.py
 ├── requirements.txt
 └── deploy.py
 ```
@@ -86,6 +106,7 @@ Note that we need to set the host to `0.0.0.0` so that  it can accept connection
 ```
 .
 ├── main.py
+├── inference.py
 ├── requirements.txt
 └── servicefoundry.yaml
 ```
