@@ -81,7 +81,7 @@ Here we will use the `Service` class from servicefoundry library to deploy the s
 # with the actual value.
 import logging
 
-from servicefoundry import Build, PythonBuild, Service
+from servicefoundry import Build, PythonBuild, Service, Resources
 
 logging.basicConfig(level=logging.INFO)
 service = Service(
@@ -92,8 +92,9 @@ service = Service(
         ),
     ),
     ports=[{"port": 8000}],
+    resources=Resources(memory_limit="1.5Gi", memory_request="1Gi"),
 )
-deployment = service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
+service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
 
 You can deploy the app using, 
@@ -131,6 +132,9 @@ components:
         command: uvicorn main:app --port 8000 --host 0.0.0.0
     ports:
       - port: 8000
+    resources:
+      memory_limit: 1.5Gi
+      memory_request: 1Gi
 ```
 You can deploy the service using the command below,
 
