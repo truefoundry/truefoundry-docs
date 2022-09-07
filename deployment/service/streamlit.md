@@ -12,7 +12,7 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 ### Writing our streamlit app
 
-Create `main.py` in a directory.
+**File Structure:**
 
 ```
 .
@@ -82,6 +82,8 @@ We will deploy the streamlit app we wrote in the above section. You can either d
 
 Here we will use the `Service` class from servicefoundry library to deploy the streamlit app.
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -117,6 +119,8 @@ python deploy.py
 
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
+
+**File Structure:**
 
 ```
 .

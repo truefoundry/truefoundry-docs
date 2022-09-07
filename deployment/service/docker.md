@@ -16,6 +16,8 @@ You can see all the project files of the example below on [Github](https://githu
 
 Consider a simple [Gradio](https://gradio.app/) application that's packaged using Docker:
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -57,6 +59,8 @@ You can deploy this dockerized application either using the python APIs or you c
 
 Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application.
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -89,6 +93,8 @@ python deploy.py
 
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
+
+**File Structure:**
 
 ```
 .

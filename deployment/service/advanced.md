@@ -1,4 +1,4 @@
-# Service Configuration
+# Advanced service configurations
 
 ## Configuring resource (CPU/Memory) requirements
 
@@ -65,8 +65,6 @@ We set the following defaults if you do not configure any resources field.
 
 
 ## Configuring GPU requirements
-
-# Adding GPUs to your ServiceFoundry service
 
 > :warning: This is an experimental feature.
 

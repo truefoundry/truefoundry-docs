@@ -12,6 +12,8 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 ### Writing our FastAPI service
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -39,7 +41,6 @@ async def infer(input_text: str):
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 tokenizer = AutoTokenizer.from_pretrained("t5-small")
-
 model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
 
 
@@ -63,6 +64,8 @@ torch==1.12.1
 {% tab title="Deploying using python API" %}
 
 Here we will use the `Service` class from servicefoundry library to deploy the service. Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
+
+**File Structure:**
 
 ```
 .
@@ -103,6 +106,8 @@ python deploy.py
 
 Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -127,7 +132,7 @@ components:
     ports:
       - port: 8000
 ```
-You can deploy the training job using the command below,
+You can deploy the service using the command below,
 
 ```shell
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
