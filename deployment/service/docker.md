@@ -59,6 +59,8 @@ You can deploy this dockerized application either using the python APIs or you c
 
 Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application.
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -91,6 +93,8 @@ python deploy.py
 
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
+
+**File Structure:**
 
 ```
 .

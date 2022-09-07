@@ -65,6 +65,8 @@ torch==1.12.1
 
 Here we will use the `Service` class from servicefoundry library to deploy the service. Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -104,6 +106,8 @@ python deploy.py
 
 Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
 
+**File Structure:**
+
 ```
 .
 ├── main.py
@@ -128,7 +132,7 @@ components:
     ports:
       - port: 8000
 ```
-You can deploy the training job using the command below,
+You can deploy the service using the command below,
 
 ```shell
 servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
