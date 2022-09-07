@@ -70,17 +70,18 @@ torch==1.12.1
 To run this on your local machine,
 
 1. Install the requirements first,
-```shell
-python3 -m venv ~/.venv
-source ~/.venv/bin/activate
-pip install -r requirements.txt
-```
 
+    ```shell
+    python3 -m venv ~/.venv
+    source ~/.venv/bin/activate
+    pip install -r requirements.txt
+    ```
 
 2. Run using gunicorn.
-```shell
-gunicorn -b 0.0.0.0:8000 main:app
-```
+
+    ```shell
+    gunicorn -b 0.0.0.0:8000 main:app
+    ```
 
 
 In the [next section](./deploy.md), we will learn how to deploy this service via Truefoundry. 
