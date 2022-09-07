@@ -15,6 +15,8 @@ Its usually a good idea to have the API documentation while building a service s
 of your service to understand API inputs and outputs. 
 If you are writing your service in FastAPI, the swagger UI is automatically rendered in the /docs link. 
 
+### Deploying a model using Flask
+
 Let us see an example of deploying a model using [Flask](https://flask.palletsprojects.com/). We will use Flask to create a web API and deploy the [T5 Small](https://huggingface.co/t5-small) model.
 
 **File Structure:**
