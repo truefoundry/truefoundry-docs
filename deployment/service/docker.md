@@ -1,4 +1,5 @@
-# Deploy your exisiting Dockerized service with TrueFoundry
+# Deploy your exisiting Docker service with TrueFoundry
+
 
 You can deploy any of your existing Dockerized service with TrueFoundry. 
 
