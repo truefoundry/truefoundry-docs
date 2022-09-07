@@ -104,6 +104,64 @@ If you do not pass anything as the value of `project_root_path`, it defaults to 
 
 ## Build Spec
 
+Our build servers use the _build spec_ to build a container image from the source code defined using _build source_.
+
 ### Dockerfile build
+
+Use _dockerfile build_ if you have already written a _Dockerfile_.
+
+{% tabs %}
+{% tab title="Python API" %}
+
+We will use the `DockerFileBuild` class here.
+```python
+from servicefoundry import Service, Build, DockerFileBuild
+
+service = Service(
+    name="fastapi",
+    image=Build(
+        build_spec=DockerFileBuild(
+            dockerfile_path="Dockerfile"
+            build_context_path="./"
+        ),
+    ),
+    ...
+)
+```
+
+{% endtab %}
+
+{% tab title="YAML definition file" %} 
+The `type: dockerfile` identifies it as a _Dockerfile build_. 
+
+```yaml
+name: fastapi
+components:
+  - name: fastapi
+    type: service
+    image:
+      type: build
+      build_source:
+        type: local
+      build_spec:
+        type: dockerfile
+        dockerfile_path: Dockerfile
+        build_context_path: "./"
+```
+
+{% endtab %}
+{% endtabs %}
+
+#### Parameters
+| Name | Type | Default value | Description |
+|-|-|-|-|
+dockerfile_path| string| "./Dockerfile" | The file path of the Dockerfile relative to project/build source root path.
+build_context_path| string | "./" (project/build source root path) | Build context path for the Dockerfile relative to project/build source root path.
+
+Our build server uses this spec to build the container image using a command equivalent to,
+```shell
+docker build -f dockerfile_path build_context_path
+```
+
 
 ### Python build
