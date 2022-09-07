@@ -75,10 +75,12 @@ python3 -m venv ~/.venv
 source ~/.venv/bin/activate
 pip install -r requirements.txt
 ```
+
+
 2. Run using gunicorn.
 ```shell
 gunicorn -b 0.0.0.0:8000 main:app
 ```
 
 
-In the next section, we will learn how to deploy this service via Truefoundry. 
+In the [next section](./deploy.md), we will learn how to deploy this service via Truefoundry. 
