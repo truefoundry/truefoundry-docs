@@ -28,29 +28,49 @@ Consider a simple [Gradio](https://gradio.app/) application that's packaged usin
 **`main.py`**
 ```python
 import gradio as gr
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
-def greet(name):
-    return "Hello " + name.capitalize() + "!"
+tokenizer = AutoTokenizer.from_pretrained("t5-small")
+model = AutoModelForSeq2SeqLM.from_pretrained("t5-small")
 
-gr.Interface(fn=greet, inputs="text", outputs="text").launch(server_name='0.0.0.0', server_port=8080)
+
+def t5_model_inference(input_text: str) -> str:
+    input_ids = tokenizer(input_text, return_tensors="pt").input_ids
+    outputs = model.generate(input_ids)
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+
+gr.Interface(
+    fn=t5_model_inference,
+    inputs="text",
+    outputs="textbox",
+    allow_flagging="never",
+).launch(server_name="0.0.0.0", server_port=8080)
+# NOTE: we need to set `server_name` to `0.0.0.0` so that this process
+# can accept requests coming from outside the container.
 ```
 
 **`requirements.txt`**
 ```
-gradio
+gradio==3.2
+transformers==4.17.0
+torch==1.12.1
 ```
 
 **`Dockerfile`**
 
-The Dockerfile contains instructions to build the image:
+The Dockerfile contains instructions to build the image.
 ```dockerfile
-FROM python:3.7
+FROM python:3.9
 COPY ./requirements.txt /tmp/
-RUN pip install -r /tmp/requirements.txt
+RUN pip install -U pip && pip install -r /tmp/requirements.txt
 COPY . ./app
 WORKDIR app
 ENTRYPOINT python main.py
 ```
+
+### Deploying the Gradio interface
+
 You can deploy this dockerized application either using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
 
@@ -75,7 +95,7 @@ Here we will use the `DockerFileBuild` class from servicefoundry to indicate tha
 # with the actual value.
 import logging
 
-from servicefoundry import Build, Service, DockerFileBuild
+from servicefoundry import Build, Service, DockerFileBuild, Resources
 
 logging.basicConfig(level=logging.INFO)
 
@@ -83,6 +103,7 @@ service = Service(
     name="docker-svc",
     image=Build(build_spec=DockerFileBuild()),
     ports=[{"port": 8080}],
+    resources=Resources(memory_limit="1.5Gi", memory_request="1Gi"),
 )
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
@@ -118,10 +139,16 @@ components:
         type: dockerfile
     ports:
       - port: 8080
-
+    resources:
+      memory_limit: 1.5Gi
+      memory_request: 1Gi
 ```
 
-Now simply run, `sfy deploy --workspace-fqn <your-workspace-fqn>` in this folder to deploy your service. Copy your workspace FQN from the [workspaces dashboard](https://app.truefoundry.com/workspace).
+You can deploy the service using the command below,
+
+```shell
+servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
+```
 
 {% endtab %}
 {% endtabs %}
