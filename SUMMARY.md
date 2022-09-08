@@ -59,13 +59,13 @@
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
   * [Build](deployment/concepts/build.md)
   * Reference
-    * [Command Line Interface](reference/cli/README.md)
-      * [sfy use](reference/cli/sfy-use/README.md)
-        * [sfy use server](reference/cli/sfy-use/sfy-use-server.md)
-      * [sfy build](reference/cli/sfy-build.md)
-      * [sfy deploy](reference/cli/sfy-deploy.md)
-      * [sfy login](reference/cli/sfy-login.md)
-      * [sfy logout](reference/cli/sfy-logout.md)
+    * [Command Line Interface](deployment/reference/cli/README.md)
+      * [sfy use](deployment/reference/cli/sfy-use/README.md)
+        * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
+      * [sfy build](deployment/reference/cli/sfy-build.md)
+      * [sfy deploy](deployment/reference/cli/sfy-deploy.md)
+      * [sfy login](deployment/reference/cli/sfy-login.md)
+      * [sfy logout](deployment/reference/cli/sfy-logout.md)
   <!-- * [Monitoring your services](./deployment/monitoring.md) -->
   <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
   <!-- * [Collaboration with team](deployment/collab.md) -->
