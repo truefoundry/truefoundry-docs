@@ -102,6 +102,57 @@ If you do not pass anything as the value of `project_root_path`, it defaults to 
 
 ### Github build source
 
+You can also use a public github repository as _build source_.
+
+{% tabs %}
+{% tab title="Python API" %}
+
+We will use the `GithubSource` class here.
+```python
+from servicefoundry import Service, Build, GithubSource
+
+service = Service(
+    name="fastapi",
+    image=Build(
+        build_source=GithubSource(
+            repo_url="https://github.com/srihari-tf/tfy-demo",
+            ref="main",
+        ), 
+        build_spec=...,
+    ),
+    ...
+)
+```
+
+{% endtab %}
+
+{% tab title="YAML definition file" %} 
+The `type: github` identifies it as a _github build source_. 
+
+```yaml
+name: fastapi
+components:
+  - name: fastapi
+    type: service
+    image:
+      type: build
+      build_source:
+        type: github
+        repo_url: "https://github.com/srihari-tf/tfy-demo"
+        ref: main
+      build_spec:
+        ...
+```
+
+{% endtab %}
+{% endtabs %}
+
+#### Parameters
+| Name | Type | Default value | Description |
+|-|-|-|-|
+| repo_url | string | | The public github repository link. We will clone this repo in our build servers to build the container image. This is a required parameter.
+| ref | string | | The commit sha, branch name or the tag to be used to build the image. This is a required parameter.
+
 ## Build Spec
 
 Our build servers use the _build spec_ to build a container image from the source code defined using _build source_.
