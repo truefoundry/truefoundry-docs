@@ -11,10 +11,7 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 > **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
 
-You can see all the project files of the example below on [Github](https://github.com/truefoundry/truefoundry-examples/tree/main/docker-service-deployment).
-
-
-Consider a simple [Gradio](https://gradio.app/) application that's packaged using Docker:
+Consider a [Gradio](https://gradio.app/) application that's packaged using Docker:
 
 **File Structure:**
 
