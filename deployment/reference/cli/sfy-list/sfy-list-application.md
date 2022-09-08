@@ -1,16 +1,17 @@
-# sfy login
+# sfy list application
 
 **Usage**
 
-`sfy login [OPTIONS]`
+`sfy list application [OPTIONS]`
 
 **Summary**
 
-Login to servicefoundry
+List Applications
 
 **Options**
 
 | **Option** | **Description** |
 | :--- | :--- |
+| -w, --workspace | workspace fqn |
 | -h, --help | Show this message and exit. |
 

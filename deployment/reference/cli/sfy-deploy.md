@@ -15,3 +15,4 @@ Deploy servicefoundry Service
 | -f, --file | path to servicefoundry file |
 | -w, --workspace-fqn | workspace to deploy to |
 | -h, --help | Show this message and exit. |
+

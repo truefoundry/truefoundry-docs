@@ -25,6 +25,7 @@ Once logged in, start a new service with `sfy init`
 | :--- | :--- |
 | build | Build servicefoundry Service |
 | deploy | Deploy servicefoundry Service |
+| list | Servicefoundry list resources |
 | login | Login to servicefoundry |
 | logout | Logout current servicefoundry session |
 | use | Set defaults |

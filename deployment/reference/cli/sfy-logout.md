@@ -13,3 +13,4 @@ Logout current servicefoundry session
 | **Option** | **Description** |
 | :--- | :--- |
 | -h, --help | Show this message and exit. |
+

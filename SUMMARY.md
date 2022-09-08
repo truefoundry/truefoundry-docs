@@ -60,6 +60,8 @@
   * [Build](deployment/concepts/build.md)
   * Reference
     * [Command Line Interface](deployment/reference/cli/README.md)
+      * [sfy list](deployment/reference/cli/sfy-list/README.md)
+        * [sfy list application](deployment/reference/cli/sfy-list/sfy-list-application.md)
       * [sfy use](deployment/reference/cli/sfy-use/README.md)
         * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
       * [sfy build](deployment/reference/cli/sfy-build.md)

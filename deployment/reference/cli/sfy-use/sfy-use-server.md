@@ -13,3 +13,4 @@ Set truefoundry server
 | **Option** | **Description** |
 | :--- | :--- |
 | -h, --help | Show this message and exit. |
+
