@@ -142,6 +142,140 @@ HealthChecks can be configured using the the following parameters:
 - **success_threshold** - Minimum consecutive successes for the probe to be considered successful after having failed (Defaults to 1)
 - **failure_threshold** - Number of consecutive failures required to determine the container is not alive for liveness probe or not ready for readiness probe (Defaults to 3)
 
+### Example
+
+**File Structure:**
+```
+.
+└── main.py
+```
+
+**`main.py`**
+```python
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/livez")
+def liveness():
+    return True
+
+
+@app.get("/readyz")
+def readyness():
+    return True
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+```
+
+{% tabs %}
+{% tab title="Deploying using python API" %}
+
+Here we will use the `HttpProbe` and `HealthProbe` classes from servicefoundry to define the health check configurations.
+
+**File Structure:**
+
+```
+.
+├── main.py
+└── deploy.py
+```
+
+**`deploy.py`**
+```python
+# Replace `YOUR_WORKSPACE_FQN`
+# with the actual value.
+import logging
+
+from servicefoundry import (
+    Build,
+    PythonBuild,
+    Service,
+    HttpProbe,
+    HealthProbe,
+)
+
+logging.basicConfig(level=logging.INFO)
+service = Service(
+    name="svc-health",
+    image=Build(
+        build_spec=PythonBuild(
+            command="uvicorn main:app --port 8000 --host 0.0.0.0",
+            pip_packages=["fastapi==0.81.0", "uvicorn==0.18.3"],
+        ),
+    ),
+    ports=[{"port": 8000}],
+    liveness_probe=HealthProbe(
+        config=HttpProbe(path="/livez", port=8000),
+        initial_delay_seconds=0,
+        period_seconds=10,
+        timeout_seconds=1,
+        success_threshold=1,
+        failure_threshold=3,
+    ),
+    readiness_probe=HealthProbe(
+        config=HttpProbe(path="/readyz", port=8000),
+        period_seconds=5,
+    ),
+)
+service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
+```
+
+{% endtab %}
+{% tab title="Deploying using YAML definition file and CLI command" %} 
+
+**File Structure:**
+
+```
+.
+├── main.py
+└── servicefoundry.yaml
+```
+
+**`servicefoundry.yaml`**
+```yaml
+name: svc-health
+components:
+  - name: svc-health
+    type: service
+    image:
+      type: build
+      build_source:
+        type: local
+      build_spec:
+        type: tfy-python-buildpack
+        command: uvicorn main:app --port 8000 --host 0.0.0.0
+        pip_packages:
+          - fastapi==0.81.0
+          - uvicorn==0.18.3
+    ports:
+      - port: 8000
+    liveness_probe:
+      config:
+        type: http
+        path: /livez
+        port: 8000
+      initial_delay_seconds: 0
+      period_seconds: 10
+      timeout_seconds: 1
+      success_threshold: 1
+      failure_threshold: 3
+    readiness_probe:
+      config:
+        type: http
+        path: /readyz
+        port: 8000
+      period_seconds: 5
+```
+
+{% endtab %}
+{% endtabs %}
+
 ## Autoscaling
 
 ## Environment Variables
