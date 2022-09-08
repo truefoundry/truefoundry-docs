@@ -276,6 +276,13 @@ components:
 {% endtab %}
 {% endtabs %}
 
+## Environment Variables
+
+You can inject environemt variables to a service by changing the deployment python script or the YAML file.
+
+* [Injecting environment variables to a service](../advance_examples/adding-env-vars.md)
+* [Injecting secrets as environment variables to a service](../advance_examples/secret-env-vars.md)
+
 ## Autoscaling
 
-## Environment Variables
+Coming soon!
