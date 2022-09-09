@@ -100,7 +100,7 @@ service = Service(
     name="docker-svc",
     image=Build(build_spec=DockerFileBuild()),
     ports=[{"port": 8080}],
-    resources=Resources(memory_limit="1.5Gi", memory_request="1Gi"),
+    resources=Resources(memory_limit=1500, memory_request=1000),
 )
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 ```
@@ -137,8 +137,8 @@ components:
     ports:
       - port: 8080
     resources:
-      memory_limit: 1.5Gi
-      memory_request: 1Gi
+      memory_limit: 1500
+      memory_request: 1000
 ```
 
 You can deploy the service using the command below,
