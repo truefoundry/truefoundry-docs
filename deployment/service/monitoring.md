@@ -1,6 +1,6 @@
 # Monitoring the Deployed Services and Metrics
 
-Truefoundry enabled you to monitor your deployed services and view the `metrics` on a `grafana dashboard`.
+Truefoundry enables you to monitor your deployed services and view the `metrics` on a `grafana dashboard`.
 
 You can find the link to the dashboard from the truefoundry dashboard on deployments page.
 
