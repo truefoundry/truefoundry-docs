@@ -20,10 +20,11 @@ You can monitor the following metrics in the dashboard:
 * **Response Size**: This represents size of response for different percentiles of total requests like P50, P90, P95 and P99. 
 * **Bytes Received**: The volume of data received by the service.
 * **Bytes Sent**: The volume of data sent by the service.
-[//]: # (Unit of cpu usage)
 * **CPU**: CPU usage by the service
 * **Memory**: Memory consumed by the service in MiB
 * **Network**: Volume of data transmitted and received by the service.
-[//]: # (add section for network error)
 * **Disk Usage**: Rate of read and write by the service on disk
 * **Logs**: View Logs of the service.
+
+[//]: # (Unit of cpu usage)
+[//]: # (add section for network error)
