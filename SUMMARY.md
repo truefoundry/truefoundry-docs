@@ -34,7 +34,7 @@
   * [Comparison with MlFlow](experiment-tracking/comparison-mlflow.md)
 
 * Deploy
-  * [Overview](deployment/README.md)
+  * [Overview](deployment/overview.md)
   * Quick Start
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
     * [Train and deploy model](deployment/quickstart/train-and-deploy-model.md)
