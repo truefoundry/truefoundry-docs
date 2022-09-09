@@ -15,10 +15,11 @@ You can monitor the following metrics in the dashboard:
 * **Failed runs**
 * **Average Duration** 
 * **Minimum Duration** 
-* **Maximum Duration** 
-[//]: # (Unit of cpu usage)
+* **Maximum Duration**
 * **CPU**: CPU usage by the job
 * **Memory**: Memory consumed by the job in MiB
 * **Network**: Volume of data transmitted and received by the service.
 * **Disk Usage**: Rate of read and write by the job on disk
 * **Logs**: View Logs of the jobs for different runs
+
+[//]: # (Unit of cpu usage)
