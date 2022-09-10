@@ -53,6 +53,7 @@
     * [Deploy Streamlit Service](deployment/service/streamlit.md)
     * [Deploy Gradio Service](deployment/service/gradio.md)
     * [Deploy Dockerized Service](deployment/service/docker.md)
+    * [Monitor a Service](deployment/service/monitoring.md)
     * [Advanced Options](deployment/service/advanced.md)
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
