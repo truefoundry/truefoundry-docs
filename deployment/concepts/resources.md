@@ -20,9 +20,14 @@ application cannot interfere and reduce the resources available to the other app
 
 `cpu_limit` has to be always greater than or equal to `cpu_request`.
 
-How do you set `cpu_request` and `cpu_limit` ? 
+**How do you set `cpu_request` and `cpu_limit` ? **
+
+If your application is taking, let's say 0.5 CPU in steady state and during peak times goes to 0.8 CPU, then request should be 0.5 and limit can be 0.9 (just to be safe). In general, cpu_request should be somewhere around the steady state usage and limit can account for the peak usage.
+
 
 ### Memory
+
+
 
 ### Disk size (Coming soon)
 
