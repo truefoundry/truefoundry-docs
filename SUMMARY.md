@@ -39,6 +39,12 @@
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
     * [Train and deploy model](deployment/quickstart/train-and-deploy-model.md)
     * [More examples](deployment/quickstart/more-examples.md)
+  * Concepts
+    * [Workspace](deployment/concepts/workspace.md)
+    * [Build](deployment/concepts/build.md)
+    * [Command](deployment/concepts/command.md)
+    * [Environment Variables](deployment/concepts/env-variables.md)
+    * [Resources](deployment/concepts/resources.md)
   * Deploy a job
     * [Job and usecases](deployment/job/definition.md)
     * [Deploy a Job](deployment/job/deploy.md)
@@ -58,8 +64,7 @@
   * Environment Variables and Secrets
     * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
     * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
-  * [Build](deployment/concepts/build.md)
-  * Reference
+  * Servicefoundry CLI
     * [Command Line Interface](deployment/reference/cli/README.md)
       * [sfy list](deployment/reference/cli/sfy-list/README.md)
         * [sfy list application](deployment/reference/cli/sfy-list/sfy-list-application.md)

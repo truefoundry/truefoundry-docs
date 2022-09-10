@@ -34,17 +34,7 @@ You are logged in as 'user' with email 'user@xxx.xxx'
 
 ## Create a workspace
 
-Workspaces are groups of applications that can be somewhat grouped together - either they are handled by the same team, 
-or belong to an environment like dev, staging, production. Each workspace can have multiple applications. 
-
-Workspace also serves as the minimum unit of permission and access control which means that we can add users to a workspace and they will
-have access to everything inside the workspace. 
-
-> **_NOTE:_** A workspace is a resource (CPU, Memory) bound environment where we deploy jobs, services.
-
-> In the Kubernetes world, workspace maps to one namespace in the Kubernetes cluster. 
-
-In many cases, the devops / infra team might already assign a workspace to you. In that case just copy the FQN column value from the Workspaces page. 
+We will need to have a workspace to get started with deployment. This will either be provisioned by your Devops / Infra teams or you can create one. You can read about Cluster and Workspace [here](../concepts/workspace.md).
 
 
 
