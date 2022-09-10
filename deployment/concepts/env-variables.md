@@ -14,7 +14,7 @@ The way to achieve this will be to arrange our code as follows:
 
 ## How to inject environment variables in Truefoundry
 
-In this guide we will learn how can we inject environment variables in our deployments.
+In this guide we will learn how can we inject environment variables in our deployments in Truefoundry.
 
 {% tabs %}
 {% tab title="Python API" %}
