@@ -1,3 +1,11 @@
+# Secrets
+
+## What are secrets?
+
+// TODO: What are secrets and why do we need them?
+
+// How to use secrets in Truefoundry?
+
 # Using Secrets as Environment Variables
 In case you want to add secrets, like private keys or passwords, to your service environment, you can do it using SecretsFoundry. First, you need to add your secret to SecretsFoundry.
 
@@ -57,3 +65,4 @@ components:
 {% endtabs %}
 
 After this, you can deploy your application by running servicefoundry deploy and **the value of the secret** will be available in your service environment against the environment variable `MY_SECRET`
+

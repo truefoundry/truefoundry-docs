@@ -40,10 +40,11 @@
     * [Train and deploy model](deployment/quickstart/train-and-deploy-model.md)
     * [More examples](deployment/quickstart/more-examples.md)
   * Concepts
-    * [Workspace](deployment/concepts/workspace.md)
+    * [Cluster and Workspace](deployment/concepts/workspace.md)
     * [Build](deployment/concepts/build.md)
     * [Command](deployment/concepts/command.md)
     * [Environment Variables](deployment/concepts/env-variables.md)
+    * [Secrets](deployment/concepts/secrets.md)
     * [Resources](deployment/concepts/resources.md)
   * Deploy a job
     * [Job and usecases](deployment/job/definition.md)
@@ -61,19 +62,15 @@
     * [Deploy Dockerized Service](deployment/service/docker.md)
     * [Monitor a Service](deployment/service/monitoring.md)
     * [Advanced Options](deployment/service/advanced.md)
-  * Environment Variables and Secrets
-    * [Adding environment variables](deployment/advance_examples/adding-env-vars.md)
-    * [Using secrets in your application](deployment/advance_examples/secret-env-vars.md)
-  * Servicefoundry CLI
-    * [Command Line Interface](deployment/reference/cli/README.md)
-      * [sfy list](deployment/reference/cli/sfy-list/README.md)
-        * [sfy list application](deployment/reference/cli/sfy-list/sfy-list-application.md)
-      * [sfy use](deployment/reference/cli/sfy-use/README.md)
-        * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
-      * [sfy build](deployment/reference/cli/sfy-build.md)
-      * [sfy deploy](deployment/reference/cli/sfy-deploy.md)
-      * [sfy login](deployment/reference/cli/sfy-login.md)
-      * [sfy logout](deployment/reference/cli/sfy-logout.md)
+  * [Servicefoundry CLI](deployment/reference/cli/README.md)
+    * [sfy list](deployment/reference/cli/sfy-list/README.md)
+      * [sfy list application](deployment/reference/cli/sfy-list/sfy-list-application.md)
+    * [sfy use](deployment/reference/cli/sfy-use/README.md)
+      * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
+    * [sfy build](deployment/reference/cli/sfy-build.md)
+    * [sfy deploy](deployment/reference/cli/sfy-deploy.md)
+    * [sfy login](deployment/reference/cli/sfy-login.md)
+    * [sfy logout](deployment/reference/cli/sfy-logout.md)
   <!-- * [Monitoring your services](./deployment/monitoring.md) -->
   <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
   <!-- * [Collaboration with team](deployment/collab.md) -->
