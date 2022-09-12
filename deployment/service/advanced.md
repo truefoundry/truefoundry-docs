@@ -59,10 +59,10 @@ We set the following defaults if you do not configure any resources field.
 
 | Field          | Default value |
 |----------------|---------------|
-| cpu_request    | 200          |
-| cpu_limit      | 200          |
-| memory_request | 256          |
-| memory_limit   | 256          |
+| cpu_request    | 0.2          |
+| cpu_limit      | 0.5          |
+| memory_request | 200          |
+| memory_limit   | 500          |
 
 
 ## Health Checks
