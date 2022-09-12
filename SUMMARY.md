@@ -50,6 +50,7 @@
     * [Job and usecases](deployment/job/definition.md)
     * [Deploy a Job](deployment/job/deploy.md)
     * [Deploy a CronJob](deployment/job/cron-job.md)
+    * [Deploy a Job using Dockerfile or Image](deployment/job/docker.md)
     * [Advanced Options](deployment/job/advanced.md)
     * [Monitor Jobs](deployment/job/monitoring.md)
   * Deploy a service
@@ -71,10 +72,10 @@
     * [sfy login](deployment/reference/cli/sfy-login.md)
     * [sfy logout](deployment/reference/cli/sfy-logout.md)
     * [sfy logs](deployment/reference/cli/sfy-logs.md)
-  <!-- * [Monitoring your services](./deployment/monitoring.md) -->
-  <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
-  <!-- * [Collaboration with team](deployment/collab.md) -->
-  <!-- * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md) -->
+    <!-- * [Monitoring your services](./deployment/monitoring.md) -->
+    <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
+    <!-- * [Collaboration with team](deployment/collab.md) -->
+    <!-- * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md) -->
 * [Getting Help](getting-help.md)
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)

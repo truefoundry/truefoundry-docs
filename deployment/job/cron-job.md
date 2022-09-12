@@ -1,12 +1,12 @@
-# Deploy cron job
+# Deploy Cron Job
 
 In this guide, we will deploy a cron job. A cron job runs the defined job on a repeating schedule. This can be  useful to retrain a model periodically, generate reports and more.
 
-We will use the same setup and code that we defined in the [last guide](./deploy.md) . We will modify our deployment config to schedule it as a cron job that will run every 12 hours. 
+We will use the same setup and code that we defined in the [Deploy Job guide](./deploy.md) . We will modify our deployment config to schedule it as a cron job that will run every 12 hours. 
 
 **You can find the complete code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/cron)**
 
-Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deploy.md#code-and-dependencies) setup from the [last guide](./deploy.md). We have replicated the code here for completeness.
+Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deploy.md#code-and-dependencies) setup from the [Deploy Job guide](./deploy.md). We have replicated the code here for completeness.
 
 ```
 .
@@ -66,8 +66,6 @@ Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deplo
   )
   print(f"Logged model: {model_version.fqn}")
   ```
-</details>
-
 </details>
 
 
