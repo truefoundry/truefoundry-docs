@@ -2,18 +2,21 @@
 
 ## What are secrets?
 
-// TODO: What are secrets and why do we need them?
+We should not store confidential information like API keys, secret keys for encryption, database passwords, etc., in plain text format in the application code or configuration files in a version control system.
 
-// How to use secrets in Truefoundry?
+Instead, use Truefoundry to securely store and control access to them. Truefoundry also helps you seamlessly mount these secrets as environment variables.
 
-# Using Secrets as Environment Variables
-In case you want to add secrets, like private keys or passwords, to your service environment, you can do it using SecretsFoundry. First, you need to add your secret to SecretsFoundry.
+## How to store secrets in Truefoundry?
+To store secrets in Truefoundry, follow the steps below:
 
-1. Go to [SecretsFoundry dashboard](https://app.truefoundry.com/secrets)
+1. Go to [SecretsFoundry dashboard](https://app.truefoundry.com/secrets).
 
-2. Create a new Secret Group and add your Secret to the Secret Group
+2. Create a new Secret Group and add your Secret to the Secret Group.
+    > **Note:** Suppose your backend service needs to load a database password and an API key for an external service. You can create a secret group for that backend service and add the database password and the API key as secrets under that secret group.
 
-3. Copy the FQN of the Secret you just created
+3. Copy the _FQN_ of the Secret you just created. We use the _FQN_ to inject secrets in applications.
+
+## Injecting Secrets as Environment Variables in application
 
 Now you can use the Secret in your service by setting the value of the environment variable to `tfy-secret://<FQN-of-your-secret>`. Say your Secret FQN is `user:my-secret-group:my-secret`, then set the value to `tfy-secret://user:my-secret-group:my-secret`
 
