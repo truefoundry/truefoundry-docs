@@ -50,7 +50,7 @@
     * [Job and usecases](deployment/job/definition.md)
     * [Deploy a Job](deployment/job/deploy.md)
     * [Deploy a CronJob](deployment/job/cron-job.md)
-    * [Deploy a Job using Dockerfile or Image](deployment/job/docker.md)
+    * [Deploy a Job from Dockerfile / Image](deployment/job/docker.md)
     * [Advanced Options](deployment/job/advanced.md)
     * [Monitor Jobs](deployment/job/monitoring.md)
   * Deploy a service

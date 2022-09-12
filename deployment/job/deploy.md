@@ -1,4 +1,4 @@
-# Deploy Job
+# Deploy a Job
 
 You can deploy jobs on Truefoundry using our Python SDK, or via a YAML file or using our UI. 
 

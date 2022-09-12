@@ -1,4 +1,4 @@
-# Deploy Cron Job
+# Deploy a CronJob
 
 In this guide, we will deploy a cron job. A cron job runs the defined job on a repeating schedule. This can be  useful to retrain a model periodically, generate reports and more.
 

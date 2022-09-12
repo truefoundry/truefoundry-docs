@@ -1,4 +1,4 @@
-# Deploy Job from Custom Dockerfile
+# Deploy a Job using Dockerfile
 
 We can also customize our image for the job using `Dockerfile` as building instructions.
 
@@ -209,8 +209,8 @@ We'll start with the same code from the above example
 To push to [`hub.docker.com`](https://hub.docker.com/) sign up and replace your username below.
 
 ```shell
-docker build . -t <YOUR_DOCKERHUB_USERNAME>/tf-job-docker-image:latest
 docker login  # This will prompt for credentials
+docker build . -t <YOUR_DOCKERHUB_USERNAME>/tf-job-docker-image:latest
 docker push <YOUR_DOCKERHUB_USERNAME>/tf-job-docker-image:latest
 ```
 
