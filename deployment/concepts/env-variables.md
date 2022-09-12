@@ -21,7 +21,9 @@ client = mlf.get_client()
 # NOTE: `MODEL_FQN` variable will now contain the value
 # of environment variable `MODEL_FQN`
 MODEL_FQN = os.getenv("MODEL_FQN")
-model = client.get_model(MODEL_FQN).load()
+MODEL = client.get_model(MODEL_FQN).load()
+
+S3_BUCKET = os.getenv("S3_BUCKET_NAME")
 
 app = FastAPI()
 
@@ -34,7 +36,7 @@ def infer(...):
 You can then run this service and inject the environment variable value like below,
 
 ```shell
-MODEL_FQN="YOUR MODEL FQN" uvicorn main:app --port 8000 --host 0.0.0.0
+MODEL_FQN="YOUR MODEL FQN" S3_BUCKET_NAME="my-s3-bucket" uvicorn main:app --port 8000 --host 0.0.0.0
 ```
 
 You can also use a `.env` file on your local dev environment and use [python-dotenv](https://pypi.org/project/python-dotenv/).
@@ -42,6 +44,7 @@ You can also use a `.env` file on your local dev environment and use [python-dot
 **`.env`**
 ```
 MODEL_FQN="YOUR MODEL FQN FOR LOCAL RUN"
+S3_BUCKET_NAME="S3 bucket for local development"
 ```
 
 
