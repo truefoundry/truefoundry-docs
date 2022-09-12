@@ -38,11 +38,11 @@
   * Quick Start
     * [Installation and setup](deployment/quickstart/install-and-workspace.md)
     * [Train and deploy model](deployment/quickstart/train-and-deploy-model.md)
-    * [More examples](deployment/quickstart/more-examples.md)
+    <!--* [More examples](deployment/quickstart/more-examples.md) -->
   * Concepts
     * [Cluster and Workspace](deployment/concepts/workspace.md)
     * [Build](deployment/concepts/build.md)
-    * [Command](deployment/concepts/command.md)
+    <!-- * [Command](deployment/concepts/command.md) -->
     * [Environment Variables](deployment/concepts/env-variables.md)
     * [Secrets](deployment/concepts/secrets.md)
     * [Resources](deployment/concepts/resources.md)
