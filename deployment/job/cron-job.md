@@ -15,20 +15,20 @@ Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deplo
 ```
 
 <details>
-  <summary>**`requirements.txt`**</summary>
+  <summary>requirements.txt</summary>
 
   ```
   pandas==1.4.4
   numpy==1.22.4
   scikit-learn==1.1.2
   mlfoundry>=0.4.2,<0.5
-  servicefoundry>=0.1.91,<0.2.0
+  servicefoundry>=0.1.96,<0.2.0
   ```
 
 </details>
 
 <details>
-  <summary>**`train.py`**</summary>
+  <summary>train.py</summary>
 
   ```python
   import mlfoundry
@@ -67,50 +67,59 @@ Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deplo
   print(f"Logged model: {model_version.fqn}")
   ```
 
+</details>
+
+
 ## Deploying as cron job
 
-You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
+We can either deploy using the python APIs or we can deploy using a YAML file and the `servicefoundry deploy` command.
 
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Here we will use the `Job` class from servicefoundry library to deploy.
+Add a `deploy.py` file, here we will use the `Job` class from `servicefoundry` library to deploy.
 
 ```
 .
-├── main.py
+├── train.py
+├── requirements.txt
 └── deploy.py
 ```
 
 **`deploy.py`**
 ```python
-# Replace `YOUR_WORKSPACE_FQN`
-# with the actual value.
+# Replace `<YOUR_SECRET_FQN>` with the actual value.
 import logging
+import argparse
+from servicefoundry import Build, Job, PythonBuild, Schedule
 
-from servicefoundry import (
-    Build,
-    Job,
-    PythonBuild,
-    Schedule,
-)
-
+parser = argparse.ArgumentParser()
+parser.add_argument("--workspace_fqn", type=str, required=True, help="fqn of the workspace to deploy to")
+args = parser.parse_args()
 logging.basicConfig(level=logging.INFO)
 
+# First we define how to build our code into a Docker image
+image = Build(
+    build_spec=PythonBuild(
+        command="python train.py",
+        requirements_path="requirements.txt",
+    )
+)
 job = Job(
-    name="cron-job",
-    image=Build(
-        build_spec=PythonBuild(command="python main.py --upto 30"),
-    ),
+    name="iris-train-cron-job",
+    image=image,
+    env={"MLF_API_KEY": "tfy-secret://<YOUR_SECRET_FQN>"},
     trigger=Schedule(schedule="0 */12 * * *"),
 )
-
-job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
+job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
-You can deploy the cron job using, 
+> :information_source: Notice the only difference is adding `trigger=Schedule(schedule="0 */12 * * *")` to the `Job` instance!
+
+We can now deploy the cron job using
+
 ```shell
-python deploy.py
+python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 ```
 
 {% endtab %}
@@ -118,15 +127,17 @@ python deploy.py
 
 ```
 .
-├── main.py
+├── train.py
+├── requirements.txt
 └── servicefoundry.yaml
 ```
 
 **`servicefoundry.yaml`**
 ```yaml
-name: cron-job
+# Replace `<YOUR_SECRET_FQN>`, with the actual values.
+name: iris-train-cron-job
 components:
-- name: cron-job
+- name: iris-train-cron-job
   type: job
   image:
     type: build
@@ -134,22 +145,38 @@ components:
       type: local
     build_spec:
       type: tfy-python-buildpack
-      command: python main.py --upto 30
+      command: python train.py
+      requirements_path: requirements.txt
+  env:
+  - name: MLF_API_KEY
+    value: tfy-secret://<YOUR_SECRET_FQN>
   trigger:
     type: scheduled
     schedule: "0 */12 * * *"
 ```
+>  :information_source: Notice the only difference is adding
+>
+> ```yaml
+>   trigger:
+>     type: scheduled
+>     schedule: "0 */12 * * *"
+> ```
+>
+> to the job component 
+
 You can deploy the training job using the command below,
 
 ```shell
-servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
+servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
 ```
+> :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
+
 {% endtab %}
 {% endtabs %}
 
-> **_NOTE:_** As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression. The cron format is explained below. 
+As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression. The cron format is explained below. 
 
-### Understanding the cron format
+## Understanding the cron format
 
 The job schedule is a cron expression. It consists of five fields representing the time at which to execute a specified command.
 ```
@@ -162,11 +189,9 @@ The job schedule is a cron expression. It consists of five fields representing t
 |___________ minute (0-59)
 ```
 
-If you want to see how to set the right cron format, you can use the UI to set the cron which shows the human-readable format of what the schedule means. 
+We can use a site like https://crontab.guru/ to get human-readable description of the cron expression.
 
-// TODO: paste UI Screenshot
-
-### Concurrency for Cron Jobs
+## Concurrency for Cron Jobs
 
 For cron-jobs, its possible that the previous run of the job hasn't completed while its already time for the job to run again because of the scheduled time. This can happen if we schedule a job to run every 10 mins, and for some reason one instance of the job takes more than 10 mins. At this point, we have three options:
 
@@ -176,13 +201,13 @@ For cron-jobs, its possible that the previous run of the job hasn't completed wh
 
 The desired behavior depends on the exact use-case, but you can achieve all the three scenarios using the `concurrency_policy` setting. The possible options are:
 
-1. **Allow**: Allow jobs to run concurrently (#1 option)
-2. **Forbid**: Do not allow conurrent runs (#2 option)
-3. **Replace**: Replace the current job with the new one (#3 option)
+1. **`Allow`**: Allow jobs to run concurrently
+2. **`Forbid`**: Do not allow conurrent runs
+3. **`Replace`**: Replace the current job with the new one
 
 Concurrency doesn't apply to manually triggered jobs. In that case, it always creates a new job run.
 
 You can pass the concurrency policy to the spec as follows:
 
-// TODO: Add code to pass the concurrency policy
+
 

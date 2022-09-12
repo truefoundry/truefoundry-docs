@@ -44,7 +44,7 @@ scikit-learn==1.1.2
 mlfoundry>=0.4.2,<0.5
 
 # for deploying our job deployments
-servicefoundry>=0.1.91,<0.2.0
+servicefoundry>=0.1.96,<0.2.0
 ```
 
 **`train.py`**
@@ -88,6 +88,8 @@ print(f"Logged model: {model_version.fqn}")
 ```
 
 ## Deploying as a Job
+
+We can either deploy using the python APIs or we can deploy using a YAML file and the `servicefoundry deploy` command.
 
 {% tabs %}
 {% tab title="Deploying using python API" %}
@@ -141,15 +143,16 @@ python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 
 We will use the FQN of the Secret containing the Truefoundry API Key and the Workspace FQN here. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
 
-Create a `deploy.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files.
+Create a `servicefoundry.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files.
 ```
 .
 ├── train.py
 ├── requirements.txt
-└── deploy.yaml
+└── servicefoundry.yaml
 ```
 
-**`deploy.yaml`**
+**`servicefoundry.yaml`**
+
 ```yaml
 # Replace `<YOUR_SECRET_FQN>`, with the actual values.
 name: iris-train-job
@@ -172,7 +175,7 @@ components:
 We can now deploy the training job using the command below
 
 ```shell
-servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN> --file deploy.yaml
+servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
 ```
 > :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
 
