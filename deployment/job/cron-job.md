@@ -6,7 +6,7 @@ We will use the same setup and code that we defined [in last guide](./deploy.md)
 
 **You can find the complete code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/cron)**
 
-Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deploy.md#code-and-dependencies) setup from [the last guide](./deploy.md). 
+Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deploy.md#code-and-dependencies) setup from [the last guide](./deploy.md). We have replicated the code here for completeness.
 
 ```
 .
@@ -115,16 +115,22 @@ job = Job(
 job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
-> :information_source: Notice the only difference is adding `trigger=Schedule(schedule="0 */12 * * *")` to the `Job` instance!
-
 We can now deploy the cron job using
 
 ```shell
 python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 ```
 
+
+
+> :information_source: Notice the only difference from manually scheduled job is adding `trigger=Schedule(schedule="0 */12 * * *")` to the `Job` instance!
+
+
+
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
+
+Add a `servicefoundry.yaml` file like follows:
 
 ```
 .
@@ -134,6 +140,7 @@ python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 ```
 
 **`servicefoundry.yaml`**
+
 ```yaml
 # Replace `<YOUR_SECRET_FQN>`, with the actual values.
 name: iris-train-cron-job
@@ -155,7 +162,15 @@ components:
     type: scheduled
     schedule: "0 */12 * * *"
 ```
->  :information_source: Notice the only difference is adding
+
+You can deploy the training job using the command below,
+
+```shell
+servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
+```
+> :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
+
+>  :information_source: Notice the only difference from manually scheduled job is adding the trigger section
 >
 > ```yaml
 >   trigger:
@@ -164,13 +179,6 @@ components:
 > ```
 >
 > to the job component 
-
-You can deploy the training job using the command below,
-
-```shell
-servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
-```
-> :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
 
 {% endtab %}
 {% endtabs %}
@@ -202,13 +210,50 @@ For cron-jobs, its possible that the previous run of the job hasn't completed wh
 
 The desired behavior depends on the exact use-case, but you can achieve all the three scenarios using the `concurrency_policy` setting. The possible options are:
 
-1. **`Allow`**: Allow jobs to run concurrently
-2. **`Forbid`**: Do not allow conurrent runs
-3. **`Replace`**: Replace the current job with the new one
+1. **`Forbid`**: *This is the default*. Do not allow conurrent runs.
+2. **`Allow`**: Allow jobs to run concurrently.
+3. **`Replace`**: Replace the current job with the new one.
 
 Concurrency doesn't apply to manually triggered jobs. In that case, it always creates a new job run.
 
 You can pass the concurrency policy to the spec as follows:
 
+{% tabs %}
+{% tab title="Python API" %}
 
+```python
+job = Job(
+    name="iris-train-cron-job",
+    image=image,
+    ...
+    trigger=Schedule(
+      schedule="0 */12 * * *",
+      concurrency_policy="Forbid" # Any one of ["Forbid", "Allow", "Replace"]
+    ),
+)
+```
 
+{% endtab %}
+{% tab title="YAML definition file" %} 
+
+```yaml
+name: iris-train-cron-job
+components:
+- name: iris-train-cron-job
+  type: job
+  image:
+    ...
+  trigger:
+    type: scheduled
+    schedule: "0 */12 * * *"
+    # Any one of ["Forbid", "Allow", "Replace"]
+    concurrency_policy: "Forbid"
+```
+
+{% endtab %}
+{% endtabs %}
+
+## See Also
+- [Checking Runs History and Monitoring Progress of a Job Run](./monitoring.md)
+- [Deploying a Manually Triggered Job](./deploy.md)
+- [Configuring Advanced Options for a Job](./advanced.md)

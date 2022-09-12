@@ -48,7 +48,7 @@ pipe = Pipeline([("scaler", StandardScaler()), ("svc", SVC())])
 pipe.fit(X_train, y_train)
 print(classification_report(y_true=y_test, y_pred=pipe.predict(X_test)))
 ```
-If we do `python train.py`, the code will run and then end. In the next section, we will see how we deploy this job to run in the cloud so that we can use more resources than what we have locally in our machines and also let it run for a much longer time without interruption. 
+If we do `python train.py`, the code will run and then end. In the [next section](./deploy.md), we will see how we deploy this job to run in the cloud so that we can use more resources than what we have locally in our machines and also let it run for a much longer time without interruption. 
 
 
-   
+

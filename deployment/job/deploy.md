@@ -182,16 +182,58 @@ servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
 {% endtab %}
 {% endtabs %}
 
-On successful deployment, the Job will be created and run immediately. 
-> :information_source: We can configure a job to not run immediately. See [here](TODO link) for instructions.
+On successful deployment, the Job will be created and run immediately.  
 
-We can now visit our [Applications page](https://app.truefoundry.com/applications) to check Build status, Build Logs, Runs History and monitor progress of runs.
+We can now visit our [Applications page](https://app.truefoundry.com/applications) to check Build status, Build Logs, Runs History and monitor progress of runs. See [Monitoring and Debugging](./monitoring.md) guide for more details.
 
-TODO: Add screenshots of Dashboard and Grafana
+## Configuring a Job to not run immediately
+
+By default a job will run immediately after delpoyment. We can also configure a Job to not run immediately once it is depolyed.
+
+{% tabs %}
+{% tab title="Python API" %}
+
+We set `Manual(run=False)` as the trigger for our Job
+
+```python
+from servicefoundry import Job, Schedule, Manual
+
+job = Job(
+    name="iris-train-cron-job",
+    image=image,
+    ...
+    trigger=Manual(run=False)
+)
+```
+
+{% endtab %}
+{% tab title="YAML definition file" %} 
+
+We set `type: manual` and `run: False` as the trigger for our Job
+
+```yaml
+name: iris-train-job
+components:
+- name: iris-train-job
+  type: job
+  image:
+    ...
+  trigger:
+    type: manual
+    run: False
+```
+
+{% endtab %}
+{% endtabs %}
+
+## Re-Running a Job manually
+
+We can re-trigger a job manually by Clicking the Trigger Job button from the Job Details UI.
+
+TODO: Add screenshot
 
 ## See Also
-- [Checking Runs History and Monitoring Progress of a Job Run](TODO link)
-- [Running a Job periodically](TODO link)
-- [Re-Running a Job manually](TODO link)
-- [Configuring Advanced Options for a Job](TODO link)
+- [Checking Runs History and Monitoring Progress of a Job Run](./monitoring.md)
+- [Running a Job periodically](./cron-job.md)
+- [Configuring Advanced Options for a Job](./advanced.md)
 
