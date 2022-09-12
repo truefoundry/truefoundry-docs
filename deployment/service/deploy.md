@@ -11,9 +11,14 @@ library installed and login using the `servicefoundry login` command. If you do 
 2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. If you already have a workspace you can use that. Keep the [workspace _FQN_](../faq/get-workspace-fqn.md) handy. we will use it for the deployment.
 
 {% tabs %}
+
 {% tab title="Deploying using python API" %}
 
-Here we will use the `Service` class from servicefoundry library to deploy the service. Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
+* Here we will use the `Service` class from servicefoundry library to define and deploy the service.
+
+* Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
+
+* We are also using the `PythonBuild` class to define that we need a python environement. Learn more about our [build process here](../concepts/build.md).
 
 **File Structure:**
 
@@ -57,7 +62,11 @@ python deploy.py
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
 
-Note that we need to set the host to `0.0.0.0` so that  it can accept connections from outside the container.
+* The `type: service` indicates that we are defining a service component.
+
+* Here, the `build_spec: type: tfy-python-buildpack` indicates that we need an python environment for this service. Learn more about our [build process here](../concepts/build.md).
+
+* We need to set the host to `0.0.0.0` so that  it can accept connections from outside the container. In gunicorn we set it using the `-b` argument.
 
 **File Structure:**
 ```
@@ -95,12 +104,4 @@ servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
 ```
 {% endtab %}
 {% endtabs %}
-
-
-## Build Section
-
-// TODO: We should have a page to explain the Build part and refer to it from here. 
-
-
-
 

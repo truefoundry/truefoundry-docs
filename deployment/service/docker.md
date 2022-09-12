@@ -74,7 +74,11 @@ You can deploy this dockerized application either using the python APIs or you c
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application.
+* Here we will use the `Service` class from servicefoundry library to define and deploy the service.
+
+* Here we will use the `DockerFileBuild` class from servicefoundry to indicate that this is a dockerized application. Learn more about our [build process here](../concepts/build.md).
+
+* We need to expose the port `8080`.
 
 **File Structure:**
 
@@ -111,6 +115,12 @@ python deploy.py
 
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
+
+* The `type: service` indicates that we are defining a service component.
+
+* Here, the `build_spec: type: dockerfile` indicates that we have already written a `Dockerfile` for this service. Learn more about our [build process here](../concepts/build.md).
+
+* We need to expose the port `8080`.
 
 **File Structure:**
 

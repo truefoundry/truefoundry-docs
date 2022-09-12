@@ -55,7 +55,10 @@ torch==1.12.1
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Here we will use the `Service` class from servicefoundry library to deploy the service.
+
+* Here we will use the `Service` class from servicefoundry library to define and deploy the service.
+
+* We are also using the `PythonBuild` class to define that we need a python environement. Learn more about our [build process here](../concepts/build.md).
 
 **File Structure:**
 
@@ -96,6 +99,9 @@ python deploy.py
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
 
+* The `type: service` indicates that we are defining a service component.
+
+* Here, the `build_spec: type: tfy-python-buildpack` indicates that we need an python environment for this service. Learn more about our [build process here](../concepts/build.md).
 
 **File Structure:**
 
@@ -132,3 +138,5 @@ servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
 ```
 {% endtab %}
 {% endtabs %}
+
+Note that, we are using a _Python Buildpack_ to automatically generate a _Dockerfile_. Learn more about our [build process here](../concepts/build.md).
