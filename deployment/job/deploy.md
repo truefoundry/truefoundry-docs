@@ -2,77 +2,146 @@
 
 You can deploy jobs on Truefoundry using our Python SDK, or via a YAML file or using our UI. 
 
-Let's consider the training job code we wrote in the [last section](../job/definition.md). For deploying we will need the workspace FQN 
-which you can copy from the workspaces page ([detailed guide here](../faq/get-workspace-fqn.md))
+In this guide, we will deploy a training job where we train a classifier for sklearn iris dataset and log it using Truefoundry's [Model Registry](TODO: link to model registry here)
 
-// TODO: Replace with training code and remove the secrets part here
-{% tabs %}
-{% tab title="Deploying using python API" %}
+**You can find the code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/iris_train)**
 
-Here we are using the `Job` class to define the training job. We will use the _FQN_ of the secret containing the mlfoundry API Key and the workspace _FQN_ here. Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`  with the actual values.
+Before we start, we will need:
 
-Create `train_deploy.py` file in the same directory containing the `train.py` and `train_requirements.txt` files.
+1. Our Deployments SDK - `servicefoundry`. You can follow [the instructions here](quickstart/install-and-workspace.md) to install and set it up.
+
+1. A [Workspace](deployment/concepts/workspace) FQN - Go to [the workspace page](/documentation/deploy/concepts/workspace#copy-workspace-fqn-fully-qualified-name) and create a Workspace. Note down the workspace FQN. If you already have a Workspace you can use that.
+
+We will continue working with the example we introduced in [Job Introduction](./definition.md). We start with a `requirements.txt` with our dependencies and a `train.py` containing our training code:
 
 ```
 .
-├── main.py
+├── train.py
+└── requirements.txt
+```
+
+**`requirements.txt`**
+```
+pandas==1.4.4
+numpy==1.22.4
+scikit-learn==1.1.2
+
+# for experiment tracking and model registry
+mlfoundry>=0.4.2,<0.5
+
+# for deploying our job deployments
+servicefoundry>=0.1.91,<0.2.0
+```
+
+**`train.py`**
+
+This file fetches the data, trains the model and pushes it to model registry.
+```python
+import mlfoundry
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.metrics import classification_report
+
+X, y = load_iris(as_frame=True, return_X_y=True)
+X = X.rename(columns={
+        "sepal length (cm)": "sepal_length",
+        "sepal width (cm)": "sepal_width",
+        "petal length (cm)": "petal_length",
+        "petal width (cm)": "petal_width",
+})
+
+# NOTE:- You can pass these configurations via command line
+# arguments, config file, environment variables.
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+pipe = Pipeline([("scaler", StandardScaler()), ("svc", SVC())])
+pipe.fit(X_train, y_train)
+print(classification_report(y_true=y_test, y_pred=pipe.predict(X_test)))
+
+# You can push model to any storage, here we are using Truefoundry's Model Registry
+run = mlfoundry.get_client().create_run(project_name="iris-classification")
+model_version = run.log_model(
+    name="iris-classifier",
+    model=model,
+    framework="sklearn",
+    description="SVC model trained on initial data",
+)
+print(f"Logged model: {model_version.fqn}")
+```
+
+
+Since we are pushing our model to [Truefoundry Model Registry](TODO link to Model Registry) we will need to add our Truefoundry API Key as a [Secret](TODO link to secrete as a concept). Once you have configured it ([detailed guide here](TODO link according to gitbook url link to guide to getting API key and adding it as a secret)) note down the Secret FQN. 
+
+
+{% tabs %}
+{% tab title="Deploying using python API" %}
+
+Here we are using the `Job` class to define the training job. We will use the FQN of the Secret containing the Truefoundry API Key and the Workspace FQN here. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
+
+Create `train_deploy.py` file in the same directory containing the `train.py` and `requirements.txt` files.
+
+```
+.
+├── train.py
 ├── requirements.txt
-└── deploy.py
+└── train_deploy.py
 ```
 
 **`train_deploy.py`**
 ```python
-# Replace `YOUR_SECRET_FQN`, `YOUR_WORKSPACE_FQN`
-# with the actual values.
+# Replace `<YOUR_SECRET_FQN>` with the actual value.
 import logging
+import argparse
+from servicefoundry import Build, Job, PythonBuild
 
-from servicefoundry import (
-    Build,
-    Job,
-    PythonBuild,
-)
-
+parser = argparse.ArgumentParser()
+parser.add_argument("--workspace_fqn", type=str, required=True, help="fqn of the workspace to deploy to")
+args = parser.parse_args()
 logging.basicConfig(level=logging.INFO)
 
-# NOTE: Here we are defining the image build specification.
-# servicefoundry uses this specification to automatically create
-# a Dockerfile and build an image,
+# First we define how to build our code into a Docker image
 image = Build(
     build_spec=PythonBuild(
-        command="python main.py",
-        requirements_path="train_requirements.txt",
+        command="python train.py",
+        requirements_path="requirements.txt",
     )
 )
-
 job = Job(
-    name="training-job",
+    name="iris-train-job",
     image=image,
+    env={"MLF_API_KEY": "tfy-secret://<YOUR_SECRET_FQN>"}
 )
-job.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
+job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
-You can deploy the job using, 
+We can now deploy the job by running `train_deploy.py` and providing the workspace FQN, 
 ```shell
-python train_deploy.py
+python train_deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 ```
 
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
 
+We will use the FQN of the Secret containing the Truefoundry API Key and the Workspace FQN here. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
+
+Create a `train_deploy.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files.
 ```
 .
 ├── train.py
-├── train_requirements.txt
+├── requirements.txt
 └── train_deploy.yaml
 ```
 
 **`train_deploy.yaml`**
 ```yaml
-# Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
-# with the actual values.
-name: training-job
+# Replace `<YOUR_SECRET_FQN>`, with the actual values.
+name: iris-train-job
 components:
-- name: training-job
+- name: iris-train-job
   type: job
   image:
     type: build
@@ -81,31 +150,33 @@ components:
     build_spec:
       type: tfy-python-buildpack
       command: python train.py
-      requirements_path: train_requirements.txt
+      requirements_path: requirements.txt
   env:
   - name: MLF_API_KEY
-    value: tfy-secret://YOUR_SECRET_FQN
+    value: tfy-secret://<YOUR_SECRET_FQN>
 ```
 
-You can deploy the training job using the command below,
+We can now deploy the training job using the command below
 
 ```shell
-servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --file train_deploy.yaml
+servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN> --file train_deploy.yaml
 ```
-Run the above command from the same directory containing the `train.py` and `train_requirements.txt` files.
+> :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
 
 {% endtab %}
 {% endtabs %}
 
-## Build Section
+On successful deployment, the Job will be created and run immediately. 
+> :information_source: We can configure a job to not run immediately. See [here](TODO link) for instructions.
 
-// TODO: We should have a page to explain the Build part and refer to it from here. 
+We can now visit our [Applications page](https://app.truefoundry.com/applications) to check Build status, Build Logs, Runs History and monitor progress of runs.
 
-## Running the same job again
+TODO: Add screenshots of Dashboard and Grafana
 
-TODO: // Fill up this section and add the UI part to retrigger the job also.
-
-You can also configure jobs to run on a fixed time schedule as described in the [next section](cron-job.md)
-
+## See Also
+- [Checking Runs History and Monitoring Progress of a Job Run](TODO link)
+- [Running a Job periodically](TODO link)
+- [Re-Running a Job manually](TODO link)
+- [Configuring Advanced Options for a Job](TODO link)
 
 
