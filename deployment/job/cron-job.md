@@ -66,6 +66,7 @@ Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deplo
   )
   print(f"Logged model: {model_version.fqn}")
   ```
+</details>
 
 ## Deploying as cron job
 
