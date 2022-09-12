@@ -230,8 +230,8 @@ components:
 
 You can inject environemt variables to a service by changing the deployment python script or the YAML file.
 
-* [Injecting environment variables to a service](../advance_examples/adding-env-vars.md)
-* [Injecting secrets as environment variables to a service](../advance_examples/secret-env-vars.md)
+* [Injecting environment variables to a service](../concepts/env-variables.md)
+* [Injecting secrets as environment variables to a service](../concepts/secrets.md)
 
 ## Autoscaling
 
