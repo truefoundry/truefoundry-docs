@@ -52,7 +52,6 @@
     * [Deploy a CronJob](deployment/job/cron-job.md)
     * [Advanced Options](deployment/job/advanced.md)
     * [Monitor Jobs](deployment/job/monitoring.md)
-    * [Reference](autogen/job/Models/Job.md)
   * Deploy a service
     * [Service and usecases](deployment/service/definition.md)
     * [Deploy a Service](deployment/service/deploy.md)
