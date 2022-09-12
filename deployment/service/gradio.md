@@ -6,7 +6,7 @@ Before we begin,
 1. You need to have the `servicefoundry`
 library installed and login using the `servicefoundry login` command. If you do not have the library installed follow [the instructions here](quickstart/install-and-workspace.md).
 
-2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. If you already have a workspace you can use that. Keep the [workspace _FQN_](../faq/get-workspace-fqn.md) handy. we will use it for the deployment.
+2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. If you already have a workspace you can use that. Keep the [workspace _FQN_](../concepts/workspace.md) handy. we will use it for the deployment.
 
 ### Writing our Gradio interface
 
