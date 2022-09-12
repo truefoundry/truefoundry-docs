@@ -18,6 +18,8 @@ from fastapi import FastAPI
 import mlfoundry as mlf
 client = mlf.get_client()
 
+# NOTE: `MODEL_FQN` variable will now contain the value
+# of environment variable `MODEL_FQN`
 MODEL_FQN = os.getenv("MODEL_FQN")
 model = client.get_model(MODEL_FQN).load()
 
@@ -36,6 +38,7 @@ MODEL_FQN="YOUR MODEL FQN" uvicorn main:app --port 8000 --host 0.0.0.0
 ```
 
 You can also use a `.env` file on your local dev environment and use [python-dotenv](https://pypi.org/project/python-dotenv/).
+
 **`.env`**
 ```
 MODEL_FQN="YOUR MODEL FQN FOR LOCAL RUN"
