@@ -18,4 +18,4 @@ Servicefoundry list resources
 
 | **Command** | **Description** |
 | :--- | :--- |
-| application | List Applications |
+| deployment | List Deployments |

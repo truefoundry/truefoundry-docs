@@ -64,13 +64,14 @@
     * [Advanced Options](deployment/service/advanced.md)
   * [Servicefoundry CLI](deployment/reference/cli/README.md)
     * [sfy list](deployment/reference/cli/sfy-list/README.md)
-      * [sfy list application](deployment/reference/cli/sfy-list/sfy-list-application.md)
+    * [sfy list deployment](deployment/reference/cli/sfy-list/sfy-list-deployment.md)
     * [sfy use](deployment/reference/cli/sfy-use/README.md)
       * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
     * [sfy build](deployment/reference/cli/sfy-build.md)
     * [sfy deploy](deployment/reference/cli/sfy-deploy.md)
     * [sfy login](deployment/reference/cli/sfy-login.md)
     * [sfy logout](deployment/reference/cli/sfy-logout.md)
+    * [sfy logs](deployment/reference/cli/sfy-logs.md)
   <!-- * [Monitoring your services](./deployment/monitoring.md) -->
   <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
   <!-- * [Collaboration with team](deployment/collab.md) -->

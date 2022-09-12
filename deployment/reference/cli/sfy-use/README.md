@@ -10,8 +10,6 @@ Set defaults
 
 Supported resources:
 - server
-- workspace
-- cluster
 
 **Options**
 

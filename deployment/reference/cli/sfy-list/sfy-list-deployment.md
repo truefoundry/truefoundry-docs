@@ -1,12 +1,12 @@
-# sfy list application
+# sfy list deployment
 
 **Usage**
 
-`sfy list application [OPTIONS]`
+`sfy list deployment [OPTIONS]`
 
 **Summary**
 
-List Applications
+List Deployments
 
 **Options**
 
