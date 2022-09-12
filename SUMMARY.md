@@ -42,7 +42,7 @@
   * Concepts
     * [Cluster and Workspace](deployment/concepts/workspace.md)
     * [Build](deployment/concepts/build.md)
-    * [Command](deployment/concepts/command.md)
+    <!-- * [Command](deployment/concepts/command.md) -->
     * [Environment Variables](deployment/concepts/env-variables.md)
     * [Secrets](deployment/concepts/secrets.md)
     * [Resources](deployment/concepts/resources.md)
