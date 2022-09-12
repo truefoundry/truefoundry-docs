@@ -94,9 +94,7 @@ We can either deploy using the python APIs or we can deploy using a YAML file an
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Here we are using the `Job` class to define the training job. We will use the FQN of the Secret containing the Truefoundry API Key and the Workspace FQN here. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
-
-Create `train_deploy.py` file in the same directory containing the `train.py` and `requirements.txt` files.
+Create `deploy.py` file in the same directory containing the `train.py` and `requirements.txt` files. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
 
 ```
 .
@@ -104,6 +102,8 @@ Create `train_deploy.py` file in the same directory containing the `train.py` an
 ├── requirements.txt
 └── deploy.py
 ```
+
+---
 
 **`deploy.py`**
 
@@ -133,7 +133,10 @@ job = Job(
 job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
+---
+
 We can now deploy the job by running `deploy.py` and providing the workspace FQN, 
+
 ```shell
 python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 ```
@@ -141,15 +144,16 @@ python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
 
-We will use the FQN of the Secret containing the Truefoundry API Key and the Workspace FQN here. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
+Create a `servicefoundry.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
 
-Create a `servicefoundry.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files.
 ```
 .
 ├── train.py
 ├── requirements.txt
 └── servicefoundry.yaml
 ```
+
+---
 
 **`servicefoundry.yaml`**
 
@@ -171,6 +175,8 @@ components:
   - name: MLF_API_KEY
     value: tfy-secret://<YOUR_SECRET_FQN>
 ```
+
+---
 
 We can now deploy the training job using the command below
 

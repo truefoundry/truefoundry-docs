@@ -78,7 +78,7 @@ We can either deploy using the python APIs or we can deploy using a YAML file an
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Add a `deploy.py` file, here we will use the `Job` class from `servicefoundry` library to deploy.
+Add a `deploy.py` file, here we will use the `Job` class from `servicefoundry` library to deploy. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
 
 ```
 .
@@ -87,7 +87,10 @@ Add a `deploy.py` file, here we will use the `Job` class from `servicefoundry` l
 └── deploy.py
 ```
 
+---
+
 **`deploy.py`**
+
 ```python
 # Replace `<YOUR_SECRET_FQN>` with the actual value.
 import logging
@@ -115,6 +118,8 @@ job = Job(
 job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
+---
+
 We can now deploy the cron job using
 
 ```shell
@@ -123,14 +128,14 @@ python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 
 
 
-> :information_source: Notice the only difference from manually scheduled job is adding `trigger=Schedule(schedule="0 */12 * * *")` to the `Job` instance!
+> :detective: Notice the only difference from manually scheduled job is adding `trigger=Schedule(schedule="0 */12 * * *")` to the `Job` instance!
 
 
 
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
 
-Add a `servicefoundry.yaml` file like follows:
+Create a `servicefoundry.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
 
 ```
 .
@@ -138,6 +143,8 @@ Add a `servicefoundry.yaml` file like follows:
 ├── requirements.txt
 └── servicefoundry.yaml
 ```
+
+---
 
 **`servicefoundry.yaml`**
 
@@ -163,14 +170,16 @@ components:
     schedule: "0 */12 * * *"
 ```
 
-You can deploy the training job using the command below,
+---
+
+We can now deploy the cron job using the command below,
 
 ```shell
 servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
 ```
 > :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
 
->  :information_source: Notice the only difference from manually scheduled job is adding the trigger section
+>  :detective: Notice the only difference from manually scheduled job is adding the trigger section
 >
 > ```yaml
 >   trigger:
