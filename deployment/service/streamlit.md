@@ -158,7 +158,7 @@ components:
 You can deploy the training job using the command below,
 
 ```shell
-servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN
+servicefoundry deploy --workspace-fqn YOUR_WORKSPACE_FQN --wait
 ```
 {% endtab %}
 {% endtabs %}
