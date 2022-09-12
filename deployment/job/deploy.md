@@ -234,9 +234,13 @@ components:
 
 ## Re-Running a Job manually
 
+We can find the link to the Job Details from the Truefoundry dashboard on [Deployments](https://app.truefoundry.com/applications) page. 
+
+![Jobs List](../../assets/job-list.png)
+
 We can re-trigger a job manually by Clicking the Trigger Job button from the Job Details UI.
 
-TODO: Add screenshot
+![Job Details](../../assets/job-retrigger.png)
 
 ## See Also
 - [Checking Runs History and Monitoring Progress of a Job Run](./monitoring.md)

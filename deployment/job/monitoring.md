@@ -1,10 +1,21 @@
 # Monitor and Debug Job Runs
 
-Truefoundry enables you to monitor your deployed jobs and view the `metrics` on a `grafana dashboard`.
+## Runs History
 
-You can find the link to the dashboard from the truefoundry dashboard on deployments page. 
+We can check the past and ongoing runs of a Job from the Job Details UI.
 
-[//]: # (shall we add image of deployments page here)
+You can find the link to the Job Details from the Truefoundry dashboard on [Deployments](https://app.truefoundry.com/applications) page. 
+
+![job-runs-history](/Users/chiragjn/Pictures/job-runs-history.png)
+
+## Metrics and Logs
+
+Truefoundry enables you to monitor your deployed jobs and view the Metrics and Logs on a [Grafana](https://grafana.com/oss/grafana/) dashboard.
+
+You can find the link to the Job Details from the Truefoundry dashboard on [Deployments](https://app.truefoundry.com/applications) page. 
+
+![Link to Grafana Metrics and Logs](../../assets/job-list.png)
+
 Here is a dashboard of a deployed job.
 
 ![Monitoring a Job](../../assets/monitor-job.png)
@@ -16,10 +27,9 @@ You can monitor the following metrics in the dashboard:
 * **Average Duration** 
 * **Minimum Duration** 
 * **Maximum Duration**
-* **CPU**: CPU usage by the job
-* **Memory**: Memory consumed by the job in MiB
+* **CPU**: CPU utilization by the job
+* **Memory**: Memory consumed by the Job in MiB
 * **Network**: Volume of data transmitted and received by the service.
 * **Disk Usage**: Rate of read and write by the job on disk
 * **Logs**: View Logs of the jobs for different runs
 
-[//]: # (Unit of cpu usage)
