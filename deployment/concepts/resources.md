@@ -44,7 +44,7 @@ If the memory usage of your application increases during peak or because of some
 {% tabs %}
 {% tab title="Python API" %}
 
-* `Service` and `Job`, both has a `resource` argument where you can either pass an instance of the `Resources` class or a `dict`.
+* `Service` and `Job`, both have a `resource` argument where you can either pass an instance of the `Resources` class or a `dict`.
 
 ```python
 import logging
