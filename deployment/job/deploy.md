@@ -2,15 +2,29 @@
 
 You can deploy jobs on Truefoundry using our Python SDK, or via a YAML file or using our UI. 
 
-In this guide, we will deploy a training job where we train a classifier for sklearn iris dataset and log it using Truefoundry's [Model Registry](TODO: link to model registry here)
+In this guide, we will deploy a training job where we train a classifier for sklearn iris dataset and log it using Truefoundry's Model Registry.
 
-**You can find the code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/iris_train)**
+**You can find the complete code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/iris_train)**
+
+## Prerequisites
 
 Before we start, we will need:
 
 1. Our Deployments SDK - `servicefoundry`. You can follow [the instructions here](quickstart/install-and-workspace.md) to install and set it up.
 
 1. A [Workspace](deployment/concepts/workspace) FQN - Go to [the workspace page](/documentation/deploy/concepts/workspace#copy-workspace-fqn-fully-qualified-name) and create a Workspace. Note down the workspace FQN. If you already have a Workspace you can use that.
+
+1. Since we are pushing our model to Truefoundry Model Registry we will need to add our Truefoundry API Key as a [Secret](../concepts/secrets.md#using-secrets-as-environment-variables). 
+   1. Create and copy an API Key from the [Settings](https://app.devtest.truefoundry.tech/settings) page.
+
+   1.  Visit [Secrets dashboard](https://app.truefoundry.com/secrets) and Create a new Secret Group.  
+
+   1. Create a new Secret in this Secret group and Paste your API Key from Step 1.
+
+   1. Once saved, note down the Secret FQN by clicking the Copy button beside the value. It would look like following: `<username>:<secret-group-name>:<secret-name>` (E.g. `user:iris-train-job:MLF_API_KEY`)
+
+
+## Code and Dependencies
 
 We will continue working with the example we introduced in [Job Introduction](./definition.md). We start with a `requirements.txt` with our dependencies and a `train.py` containing our training code:
 
@@ -62,7 +76,7 @@ pipe = Pipeline([("scaler", StandardScaler()), ("svc", SVC())])
 pipe.fit(X_train, y_train)
 print(classification_report(y_true=y_test, y_pred=pipe.predict(X_test)))
 
-# You can push model to any storage, here we are using Truefoundry's Model Registry
+# Here we are using Truefoundry's Model Registry, you can push model to any storage 
 run = mlfoundry.get_client().create_run(project_name="iris-classification")
 model_version = run.log_model(
     name="iris-classifier",
@@ -73,9 +87,7 @@ model_version = run.log_model(
 print(f"Logged model: {model_version.fqn}")
 ```
 
-
-Since we are pushing our model to [Truefoundry Model Registry](TODO link to Model Registry) we will need to add our Truefoundry API Key as a [Secret](TODO link to secrete as a concept). Once you have configured it ([detailed guide here](TODO link according to gitbook url link to guide to getting API key and adding it as a secret)) note down the Secret FQN. 
-
+## Deploying as a Job
 
 {% tabs %}
 {% tab title="Deploying using python API" %}
@@ -88,10 +100,11 @@ Create `train_deploy.py` file in the same directory containing the `train.py` an
 .
 ├── train.py
 ├── requirements.txt
-└── train_deploy.py
+└── deploy.py
 ```
 
-**`train_deploy.py`**
+**`deploy.py`**
+
 ```python
 # Replace `<YOUR_SECRET_FQN>` with the actual value.
 import logging
@@ -118,9 +131,9 @@ job = Job(
 job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
-We can now deploy the job by running `train_deploy.py` and providing the workspace FQN, 
+We can now deploy the job by running `deploy.py` and providing the workspace FQN, 
 ```shell
-python train_deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
+python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 ```
 
 {% endtab %}
@@ -128,15 +141,15 @@ python train_deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 
 We will use the FQN of the Secret containing the Truefoundry API Key and the Workspace FQN here. Replace `<YOUR_SECRET_FQN>`, `<YOUR_WORKSPACE_FQN>`  with the actual values.
 
-Create a `train_deploy.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files.
+Create a `deploy.yaml` file  in the same directory containing the `train.py` and `requirements.txt` files.
 ```
 .
 ├── train.py
 ├── requirements.txt
-└── train_deploy.yaml
+└── deploy.yaml
 ```
 
-**`train_deploy.yaml`**
+**`deploy.yaml`**
 ```yaml
 # Replace `<YOUR_SECRET_FQN>`, with the actual values.
 name: iris-train-job
@@ -159,7 +172,7 @@ components:
 We can now deploy the training job using the command below
 
 ```shell
-servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN> --file train_deploy.yaml
+servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN> --file deploy.yaml
 ```
 > :information_source: Run the above command from the same directory containing the `train.py` and `requirements.txt` files.
 
@@ -178,5 +191,4 @@ TODO: Add screenshots of Dashboard and Grafana
 - [Running a Job periodically](TODO link)
 - [Re-Running a Job manually](TODO link)
 - [Configuring Advanced Options for a Job](TODO link)
-
 

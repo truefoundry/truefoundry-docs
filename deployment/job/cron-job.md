@@ -1,13 +1,73 @@
 # Deploy cron job
 
-In this guide, we will deploy a simple cron job using servicefoundry. A cron job runs the defined job on a repeating schedule. This is useful if you want to retrain your model periodically.
+In this guide, we will deploy a cron job. A cron job runs the defined job on a repeating schedule. This can be  useful to retrain a model periodically, generate reports and more.
 
-We will run the same job that we defined in [Job Definition](./definition.md) as a cron job that will run every 12 hours. 
+We will use the same setup and code that we defined [in last guide](./deploy.md) . We will modify our deployment config to schedule it as a cron job that will run every 12 hours. 
 
-To do this, we install `servicefoundry`  and copy the workspace FQN as mentioned in [Installation](../quickstart/install-and-workspace.md). 
+**You can find the complete code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/cron)**
 
+Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deploy.md#code-and-dependencies) setup from [the last guide](./deploy.md). 
 
-### Deploying the script as cron job
+```
+.
+├── train.py
+└── requirements.txt
+```
+
+<details>
+  <summary>**`requirements.txt`**</summary>
+
+  ```
+  pandas==1.4.4
+  numpy==1.22.4
+  scikit-learn==1.1.2
+  mlfoundry>=0.4.2,<0.5
+  servicefoundry>=0.1.91,<0.2.0
+  ```
+
+</details>
+
+<details>
+  <summary>**`train.py`**</summary>
+
+  ```python
+  import mlfoundry
+  from sklearn.datasets import load_iris
+  from sklearn.model_selection import train_test_split
+  from sklearn.pipeline import Pipeline
+  from sklearn.preprocessing import StandardScaler
+  from sklearn.svm import SVC
+  from sklearn.metrics import classification_report
+
+  X, y = load_iris(as_frame=True, return_X_y=True)
+  X = X.rename(columns={
+          "sepal length (cm)": "sepal_length",
+          "sepal width (cm)": "sepal_width",
+          "petal length (cm)": "petal_length",
+          "petal width (cm)": "petal_width",
+  })
+
+  # NOTE:- You can pass these configurations via command line
+  # arguments, config file, environment variables.
+  X_train, X_test, y_train, y_test = train_test_split(
+      X, y, test_size=0.2, random_state=42, stratify=y
+  )
+  pipe = Pipeline([("scaler", StandardScaler()), ("svc", SVC())])
+  pipe.fit(X_train, y_train)
+  print(classification_report(y_true=y_test, y_pred=pipe.predict(X_test)))
+
+  # Here we are using Truefoundry's Model Registry, you can push model to any storage 
+  run = mlfoundry.get_client().create_run(project_name="iris-classification")
+  model_version = run.log_model(
+      name="iris-classifier",
+      model=model,
+      framework="sklearn",
+      description="SVC model trained on initial data",
+  )
+  print(f"Logged model: {model_version.fqn}")
+  ```
+
+## Deploying as cron job
 
 You can either deploy using the python APIs or you can deploy using a YAML file and the `servicefoundry deploy` command.
 
