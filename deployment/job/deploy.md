@@ -2,17 +2,17 @@
 
 You can deploy jobs on Truefoundry using our Python SDK, or via a YAML file or using our UI. 
 
-In this guide, we will deploy a simple training job where we train a simple classifier for sklearn iris dataset and log it using Truefoundry's [Model Registry](TODO: link to model registry here)
+In this guide, we will deploy a training job where we train a classifier for sklearn iris dataset and log it using Truefoundry's [Model Registry](TODO: link to model registry here)
 
-**You can find the code in this example [here](TODO: link to github here)**
+**You can find the code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/iris_train)**
 
 Before we start, we will need:
 
 1. Our Deployments SDK - `servicefoundry`. You can follow [the instructions here](quickstart/install-and-workspace.md) to install and set it up.
 
-1. A [Workspace](TODO: link to workspace concept page, TODO link according to gitbook url ../faq/get-workspace-fqn.md) FQN - Go to [the workspace page](https://app.truefoundry.com/workspace) and create a Workspace. Note down the workspace FQN. If you already have a Workspace you can use that.
+1. A [Workspace](deployment/concepts/workspace) FQN - Go to [the workspace page](/documentation/deploy/concepts/workspace#copy-workspace-fqn-fully-qualified-name) and create a Workspace. Note down the workspace FQN. If you already have a Workspace you can use that.
 
-We start with a `requirements.txt` with our dependencies and a `train.py` containing our training code:
+We will continue working with the example we introduced in [Job Introduction](./definition.md). We start with a `requirements.txt` with our dependencies and a `train.py` containing our training code:
 
 ```
 .
@@ -34,6 +34,8 @@ servicefoundry>=0.1.91,<0.2.0
 ```
 
 **`train.py`**
+
+This file fetches the data, trains the model and pushes it to model registry.
 ```python
 import mlfoundry
 from sklearn.datasets import load_iris
@@ -101,16 +103,18 @@ parser.add_argument("--workspace_fqn", type=str, required=True, help="fqn of the
 args = parser.parse_args()
 logging.basicConfig(level=logging.INFO)
 
-
 # First we define how to build our code into a Docker image
 image = Build(
     build_spec=PythonBuild(
         command="python train.py",
         requirements_path="requirements.txt",
-        env={"MLF_API_KEY": "tfy-secret://<YOUR_SECRET_FQN>"}
     )
 )
-job = Job(name="iris-train-job", image=image)
+job = Job(
+    name="iris-train-job",
+    image=image,
+    env={"MLF_API_KEY": "tfy-secret://<YOUR_SECRET_FQN>"}
+)
 job.deploy(workspace_fqn=args.workspace_fqn)
 ```
 
@@ -135,9 +139,9 @@ Create a `train_deploy.yaml` file  in the same directory containing the `train.p
 **`train_deploy.yaml`**
 ```yaml
 # Replace `<YOUR_SECRET_FQN>`, with the actual values.
-name: training-job
+name: iris-train-job
 components:
-- name: training-job
+- name: iris-train-job
   type: job
   image:
     type: build
