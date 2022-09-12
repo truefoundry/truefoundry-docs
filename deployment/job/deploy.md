@@ -15,7 +15,7 @@ Before we start, we will need:
 1. A [Workspace](../concepts/workspace.md) FQN - We can use an existing workspace or create one from the [Workspaces page](https://app.truefoundry.com/workspaces). If you already have a Workspace you can use that. [Copy and note down the workspace FQN](../concepts/workspace.md#copy-workspace-fqn-fully-qualified-name).
 
 1. Since we are pushing our model to Truefoundry Model Registry we will need to add our Truefoundry API Key as a [Secret](../concepts/secrets.md#using-secrets-as-environment-variables). 
-   1. Create and copy an API Key from the [Settings](https://app.devtest.truefoundry.tech/settings) page.
+   1. Create and copy an API Key from the [Settings](https://app.truefoundry.com/settings) page.
 
    1.  Visit [Secrets dashboard](https://app.truefoundry.com/secrets) and Create a new Secret Group.  
 
