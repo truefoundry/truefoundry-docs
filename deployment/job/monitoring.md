@@ -1,4 +1,4 @@
-# Monitoring Job Runs and Metrics
+# Monitor and Debug Job Runs
 
 Truefoundry enables you to monitor your deployed jobs and view the `metrics` on a `grafana dashboard`.
 
