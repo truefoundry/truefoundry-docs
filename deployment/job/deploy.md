@@ -12,7 +12,7 @@ Before we start, we will need:
 
 1. Our Deployments SDK - `servicefoundry`. You can follow [the instructions here](../quickstart/install-and-workspace.md) to install and set it up.
 
-1. A [Workspace](../concepts/workspace.md) FQN - We can use an existing workspace or create one from the [Workspaces page](https://app.devtest.truefoundry.tech/workspaces). If you already have a Workspace you can use that. [Copy and note down the workspace FQN](../concepts/workspace.md#copy-workspace-fqn-fully-qualified-name).
+1. A [Workspace](../concepts/workspace.md) FQN - We can use an existing workspace or create one from the [Workspaces page](https://app.truefoundry.com/workspaces). If you already have a Workspace you can use that. [Copy and note down the workspace FQN](../concepts/workspace.md#copy-workspace-fqn-fully-qualified-name).
 
 1. Since we are pushing our model to Truefoundry Model Registry we will need to add our Truefoundry API Key as a [Secret](../concepts/secrets.md#using-secrets-as-environment-variables). 
    1. Create and copy an API Key from the [Settings](https://app.devtest.truefoundry.tech/settings) page.
