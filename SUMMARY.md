@@ -64,7 +64,7 @@
     * [Advanced Options](deployment/service/advanced.md)
   * [Servicefoundry CLI](deployment/reference/cli/README.md)
     * [sfy list](deployment/reference/cli/sfy-list/README.md)
-    * [sfy list deployment](deployment/reference/cli/sfy-list/sfy-list-deployment.md)
+      * [sfy list deployment](deployment/reference/cli/sfy-list/sfy-list-deployment.md)
     * [sfy use](deployment/reference/cli/sfy-use/README.md)
       * [sfy use server](deployment/reference/cli/sfy-use/sfy-use-server.md)
     * [sfy build](deployment/reference/cli/sfy-build.md)
