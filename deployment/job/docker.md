@@ -169,8 +169,7 @@ components:
     build_spec:
       type: dockerfile
   env:
-  - name: MLF_API_KEY
-    value: tfy-secret://<YOUR_SECRET_FQN>
+    MLF_API_KEY: "tfy-secret://<YOUR_SECRET_FQN>"
 ```
 
 ---
@@ -295,8 +294,7 @@ components:
     type: image
     image_uri: "<YOUR_DOCKERHUB_USERNAME>/tf-job-docker-image:latest"
   env:
-  - name: MLF_API_KEY
-    value: tfy-secret://<YOUR_SECRET_FQN>
+    MLF_API_KEY: "tfy-secret://<YOUR_SECRET_FQN>"
 ```
 
 ---

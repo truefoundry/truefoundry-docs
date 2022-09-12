@@ -172,8 +172,7 @@ components:
       command: python train.py
       requirements_path: requirements.txt
   env:
-  - name: MLF_API_KEY
-    value: tfy-secret://<YOUR_SECRET_FQN>
+    MLF_API_KEY: "tfy-secret://<YOUR_SECRET_FQN>"
 ```
 
 ---
