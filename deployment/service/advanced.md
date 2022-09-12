@@ -10,6 +10,8 @@ For memory, we expect positive integer values and we use **megabytes** as our un
 {% tabs %}
 {% tab title="Python API" %}
 
+* `Service` and `Job`, both has a `resource` argument where you can either pass an instance of the `Resources` class or a `dict`.
+
 ```python
 import logging
 
@@ -32,6 +34,8 @@ service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 
 {% endtab %}
 {% tab title="YAML definition file and CLI command" %} 
+
+* You can defined the resource fields as a key-value pair under the `resources` field.
 
 ```yaml
 name: service

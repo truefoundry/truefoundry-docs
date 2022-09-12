@@ -41,4 +41,63 @@ If the memory usage of your application increases during peak or because of some
 
 ### Setting resources for truefoundry applications
 
-// TODO:
+{% tabs %}
+{% tab title="Python API" %}
+
+* `Service` and `Job`, both has a `resource` argument where you can either pass an instance of the `Resources` class or a `dict`.
+
+```python
+import logging
+
+from servicefoundry import Build, Service, DockerFileBuild, Resources
+
+logging.basicConfig(level=logging.INFO)
+service = Service(
+    name="service",
+    image=Build(build_spec=DockerFileBuild()),
+    ports=[{"port": 8501}],
+    resource=Resources( # You can use this argument in `Job` too.
+        cpu_request=0.2,
+        cpu_limit=0.5,
+        memory_request=128,
+        memorty_limit=512,
+    ),
+)
+service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
+```
+
+{% endtab %}
+{% tab title="YAML definition file and CLI command" %} 
+
+* You can defined the resource fields as a key-value pair under the `resources` field.
+
+```yaml
+name: service
+components:
+  - name: service
+    type: service
+    image:
+      type: build
+      build_source:
+        type: local
+      build_spec:
+        type: dockerfile
+    ports:
+     - port: 8501
+    resources: # You can use this block in `job` too.
+      cpu_request: 0.2
+      cpu_limit: 0.5
+      memory_request: 128
+      memorty_limit: 512
+```
+{% endtab %}
+{% endtabs %}
+
+We set the following defaults if you do not configure any resources field.
+
+| Field          | Default value |
+|----------------|---------------|
+| cpu_request    | 0.2          |
+| cpu_limit      | 0.5          |
+| memory_request | 200          |
+| memory_limit   | 500          |
