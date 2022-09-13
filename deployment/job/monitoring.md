@@ -6,7 +6,7 @@ We can check the past and ongoing runs of a Job from the Job Details UI.
 
 You can find the link to the Job Details from the Truefoundry dashboard on [Deployments](https://app.truefoundry.com/applications) page. 
 
-![job-runs-history](/Users/chiragjn/Pictures/job-runs-history.png)
+![job-runs-history](../../assets/job-runs-history.png)
 
 ## Metrics and Logs
 
