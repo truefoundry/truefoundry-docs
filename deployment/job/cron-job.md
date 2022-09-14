@@ -22,7 +22,7 @@ Make sure you have [Prerequisites](./deploy.md#prerequisites) and [Code](./deplo
   numpy==1.22.4
   scikit-learn==1.1.2
   mlfoundry>=0.4.2,<0.5
-  servicefoundry>=0.1.96,<0.2.0
+  servicefoundry>=0.1.97,<0.2.0
   ```
 
 </details>
