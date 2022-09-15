@@ -2,7 +2,7 @@
 
 In this guide, we will deploy a cron job. A cron job runs the defined job on a repeating schedule. This can be  useful to retrain a model periodically, generate reports and more.
 
-We will use the same setup and code that we defined in the [Deploy Job guide](./deploy.md) . We will modify our deployment config to schedule it as a cron job that will run every 12 hours. 
+We will use the same setup and code that we defined in the [Deploy Job guide](./deploy.md) . We will modify our deployment config to schedule it as a cron job that will run at 8 AM on 1st day of every month (`0 8 1 * *`). 
 
 **You can find the complete code in this example [here](https://github.com/truefoundry/truefoundry-examples/tree/main/deployment/job/cron)**
 
@@ -111,7 +111,7 @@ job = Job(
     name="iris-train-cron-job",
     image=image,
     env={"MLF_API_KEY": "tfy-secret://<YOUR_SECRET_FQN>"},
-    trigger=Schedule(schedule="0 */12 * * *"),
+    trigger=Schedule(schedule="0 8 1 * *"),
 )
 job.deploy(workspace_fqn=args.workspace_fqn)
 ```
@@ -126,7 +126,7 @@ python deploy.py --workspace_fqn <YOUR_WORKSPACE_FQN>
 
 
 
-> :detective: Notice the only difference from manually scheduled job is adding `trigger=Schedule(schedule="0 */12 * * *")` to the `Job` instance!
+> :detective: Notice the only difference from manually scheduled job is adding `trigger=Schedule(schedule="0 8 1 * *")` to the `Job` instance!
 
 
 
@@ -164,7 +164,7 @@ components:
     MLF_API_KEY: "tfy-secret://<YOUR_SECRET_FQN>"
   trigger:
     type: scheduled
-    schedule: "0 */12 * * *"
+    schedule: "0 8 1 * *"
 ```
 
 ---
@@ -181,7 +181,7 @@ servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
 > ```yaml
 >   trigger:
 >     type: scheduled
->     schedule: "0 */12 * * *"
+>     schedule: "0 8 1 * *"
 > ```
 >
 > to the job component 
@@ -189,7 +189,7 @@ servicefoundry deploy --workspace-fqn <YOUR_WORKSPACE_FQN>
 {% endtab %}
 {% endtabs %}
 
-As defined by `schedule="0 */12 * * *"`, this job will run every 12 hours. You can pass any custom cron expression. The cron format is explained below. 
+As defined by `schedule="0 8 1 * *"`, this job will run at 8 AM on 1st day of every month. You can pass any custom cron expression. The cron format is explained below. 
 
 ## Understanding the cron format
 
@@ -233,7 +233,7 @@ job = Job(
     image=image,
     ...
     trigger=Schedule(
-      schedule="0 */12 * * *",
+      schedule="0 8 1 * *",
       concurrency_policy="Forbid" # Any one of ["Forbid", "Allow", "Replace"]
     ),
 )
@@ -251,7 +251,7 @@ components:
     ...
   trigger:
     type: scheduled
-    schedule: "0 */12 * * *"
+    schedule: "0 8 1 * *"
     # Any one of ["Forbid", "Allow", "Replace"]
     concurrency_policy: "Forbid"
 ```

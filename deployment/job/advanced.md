@@ -165,7 +165,7 @@ job = Job(
         cpu_request=0.2,
         cpu_limit=0.5,
         memory_request=128,
-        memorty_limit=512,
+        memory_limit=512,
     ),
 )
 ```
@@ -190,7 +190,7 @@ components:
     cpu_request: 0.2
     cpu_limit: 0.5
     memory_request: 128
-    memorty_limit: 512
+    memory_limit: 512
 ```
 
 {% endtab %}

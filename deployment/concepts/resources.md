@@ -60,7 +60,7 @@ service = Service(
         cpu_request=0.2,
         cpu_limit=0.5,
         memory_request=128,
-        memorty_limit=512,
+        memory_limit=512,
     ),
 )
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
@@ -88,7 +88,7 @@ components:
       cpu_request: 0.2
       cpu_limit: 0.5
       memory_request: 128
-      memorty_limit: 512
+      memory_limit: 512
 ```
 {% endtab %}
 {% endtabs %}
