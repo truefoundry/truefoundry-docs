@@ -62,6 +62,10 @@
     * [Deploy Dockerized Service](deployment/service/docker.md)
     * [Monitor a Service](deployment/service/monitoring.md)
     * [Advanced Options](deployment/service/advanced.md)
+  * Deploy function and class
+    * [Deploy function](deployment/function/function_deploy.md)
+    * [Deploy instance of a class](deployment/function/class_deploy.md)
+    * [Advanced Options](deployment/function/advanced.md)
   * [Servicefoundry CLI](deployment/reference/cli/README.md)
     * [sfy list](deployment/reference/cli/sfy-list/README.md)
       * [sfy list deployment](deployment/reference/cli/sfy-list/sfy-list-deployment.md)
