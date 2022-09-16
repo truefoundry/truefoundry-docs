@@ -37,7 +37,7 @@ def uniform(low: float, high: float, size: List[int]):
 numpy==1.23.2
 ```
 
-### Deploying the functions as service.
+### Deploying the functions as service
 
 * Here we will use the `FunctionService` class from servicefoundry library to define and deploy the service.
 * We can use the `register_function` method to register the functions we want to deploy.

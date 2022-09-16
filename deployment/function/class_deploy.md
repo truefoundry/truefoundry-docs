@@ -8,7 +8,7 @@ library installed and login using the `servicefoundry login` command. If you do 
 
 2. Select a workspace on the [the workspace page](https://app.truefoundry.com/workspace). Copy the [workspace _FQN_](../concepts/workspace.md). We will use the workspace _FQN_ to deploy the service in that workspace.
 
-### Writing the functions we will deploy
+### Writing the class that we will deploy
 
 **File Structure:**
 ```
@@ -40,7 +40,7 @@ transformers==4.17.0
 torch==1.12.1
 ```
 
-### Deploying
+### Deployment
 
 * Here we will use the `FunctionService` class from servicefoundry library to define and deploy the service.
 * We can use the `register_class` method to deploy the instance of the class.
