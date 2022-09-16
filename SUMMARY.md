@@ -85,52 +85,6 @@
   * [Bootstrap Servicefoundry](deploy-on-own-cloud/servicefoundry-bootstrap.md)
   * [Client Setup](deploy-on-own-cloud/client-setup.md)
   * [Adding Users](deploy-on-own-cloud/add-users.md)
-* Coming Soon
-  * Deploy Model
-    * Deploy your existing project with TrueFoundry
-    * Deploying Models
-      * Deploy a simple predict function
-      * Deploy model as fastapi service
-      * Deploy mlfoundry model in one click
-      * Deploy model using TensorFlowServe
-      * Deploy model using PytorchServe
-      * Deploy model using BentoML
-      * Deploy model as a serverless function
-      * Deploy multiple models in a single service
-      * Deploy multiple models with dynamic loading
-      * Deploy pretrained models
-      * Deploy models on GPU
-      * Not sure of best way to deploy? Read our guide.
-    * Deploy From UI
-    * Deploy your training code
-    * Deploy pipelines
-    * Deploy Applications
-      * JupyterHub
-    * Cost Optimization
-      * Sleep services
-      * Sleep workspace
-  * Demo Your Model
-    * Create using Streamlit
-    * Create using Gradio
-    * Deploy on TrueFoundry and Share
-  * Monitoring
-    * Introduction
-    * Service Health
-      * Metrics
-      * Logs 
-      * Add custom metrics
-    * Pipeline Health
-    * Model Health
-    * Feature Health
-    * Data Health
-  * End to End Examples
-    * Iris Model
-    * Image Segmentation Model / Object Detection Model
-    * Question Answering Model
-    * Ranking Model
-    * Churn Prediction Model
-  * Model Traffic Shaping
-    * Canary Rollout
-    * Shadow Test your new model
-    * A/B Test your new model
-  * Need something custom?
+* [Roadmap](roadmap.md)
+* [Truefoundry vs ...](products.md)
+
