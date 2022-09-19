@@ -80,3 +80,61 @@ python deploy.py
 ```
 
 > **NOTE:** The above command will only upload the contents of the **current** directory. Therefore, when you import the function/module for registration, ensure that the import statement is relative to the directory from where you are deploying.
+
+After you deploy the service, you will get an output like below,
+
+```console
+deployment/function/simple-function-deployment on  main [?] via 🐍 v3.9.13 (venv) took 10s
+❯ python deploy.py
+INFO:servicefoundry:Function 'normal' from module 'module' will be deployed on path 'POST /normal'.
+INFO:servicefoundry:Function 'uniform' from module 'module' will be deployed on path 'POST /uniform'.
+INFO:servicefoundry:Deploying application 'func-service' to 'v1:local:my-ws-2'
+INFO:servicefoundry:Uploading code for service 'func-service'
+INFO:servicefoundry:Uploading contents of '/Users/debajyotichatterjee/work/truefoundry-examples/deployment/function/simple-function-deployment'
+INFO:servicefoundry:.sfyignore not file found! We recommend you to create .sfyignore file and add file patterns to ignore
+INFO:servicefoundry:Deployment started for application 'func-service'. Deployment FQN is 'v1:local:my-ws-2:func-service:v3'
+INFO:servicefoundry:Service 'func-service' will be available at
+'https://func-service-my-ws-2.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech'
+after successful deployment
+INFO:servicefoundry:You can find the application on the dashboard:- 'https://app.devtest.truefoundry.tech/applications/cl84s4md500921qruhysegp5x?tab=deployments'
+```
+
+You can find the host of the deployed service in the following section in the above logs.
+```console
+INFO:servicefoundry:Service 'func-service' will be available at
+'https://func-service-my-ws-2.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech'
+after successful deployment
+```
+
+You can send requests to the deployed service by using the code snippet below. Pass the host using the `--host` command line argument.
+
+**File Structure:**
+
+```
+.
+├── module.py
+├── requirements.txt
+├── deploy.py
+└── send_request.py
+```
+**`send_request.py`**
+```python
+import argparse
+from urllib.parse import urljoin
+
+import requests
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--host", required=True, type=str)
+args = parser.parse_args()
+
+response = requests.post(
+    urljoin(args.host, "/normal"), json={"loc": 0, "scale": 1, "size": [12, 1]}
+)
+print(response.json())
+
+response = requests.post(
+    urljoin(args.host, "/uniform"), json={"low": 0, "high": 1, "size": [12, 1]}
+)
+print(response.json())
+```
