@@ -65,7 +65,7 @@ pipe.fit(train_x, train_y)
 run = mlfoundry.get_client().create_run(project_name="iris-classification")
 # NOTE:- We are saving the model using mlfoundry.
 # You can use any other model registry or blob storage.
-run.log_model(pipe, framework="sklearn")
+run.log_model(name="iris-model", model=pipe, framework="sklearn")
 run.log_metrics({"accuracy": pipe.score(test_x, test_y)})
 ```
 
@@ -148,7 +148,7 @@ python train_deploy.py
 
 **`train_deploy.yaml`**
 ```yaml
-# Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
+# Replace `YOUR_SECRET_FQN`
 # with the actual values.
 name: training-job
 components:
@@ -178,7 +178,7 @@ Run the above command from the same directory containing the `train.py` and `tra
 
 ## Creating a REST API service
 
-In this section we will use the model saved in the training job. Keep the _run FQN_ of the training job handy. You can find the _run FQN_ from the training job logs.
+In this section we will use the model saved in the training job. Keep the _model FQN_ of the training job handy. You can find the _model FQN_ from the training job logs.
 
 ### Writing inference service code and requirements
 
@@ -198,8 +198,8 @@ import mlfoundry
 import pandas as pd
 from fastapi import FastAPI
 
-RUN_FQN = os.getenv("MLF_RUN_FQN")
-run = mlfoundry.get_client().get_run(RUN_FQN)
+MODEL_FQN = os.getenv("MLF_MODEL_FQN")
+run = mlfoundry.get_client().get_model(MODEL_FQN)
 model = run.get_model()
 
 app = FastAPI()
@@ -233,7 +233,7 @@ scikit-learn==1.1.2
 {% tabs %}
 {% tab title="Deploying using python API" %}
 
-Here we are using the `Service` class to define the service that we will deploy. Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
+Here we are using the `Service` class to define the service that we will deploy. Replace `YOUR_SECRET_FQN`, `YOUR_MODEL_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
 
 Create `inference_api_deploy.py` file in the same directory containing the `inference_api.py` and `inference_requirements.txt` files.
 
@@ -262,7 +262,7 @@ image = Build(
 )
 env = {
     "MLF_API_KEY": "tfy-secret://YOUR_SECRET_FQN",
-    "MLF_RUN_FQN": "YOUR_RUN_FQN",
+    "MLF_MODEL_FQN": "YOUR_MODEL_FQN",
 }
 
 service = Service(
@@ -282,7 +282,7 @@ python inference_api_deploy.py
 {% endtab %}
 {% tab title="Deploying using YAML definition file and CLI command" %} 
 
-Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
+Replace `YOUR_SECRET_FQN`, `YOUR_MODEL_FQN` and `YOUR_WORKSPACE_FQN` with the actual values.
 
 ```
 .
@@ -293,7 +293,7 @@ Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN` and `YOUR_WORKSPACE_FQN` with the actu
 
 **`inference_api_deploy.yaml`**
 ```yaml
-# Replace `YOUR_SECRET_FQN`, `YOUR_RUN_FQN`
+# Replace `YOUR_SECRET_FQN`, `YOUR_MODEL_FQN`
 # with the actual values.
 name: inference-svc
 components:
@@ -311,7 +311,7 @@ components:
     - port: 8000
   env:
     MLF_API_KEY: tfy-secret://YOUR_SECRET_FQN
-    MLF_RUN_FQN: YOUR_RUN_FQN
+    MLF_MODEL_FQN: YOUR_MODEL_FQN
 ```
 
 You can deploy the inference API service using the command below,
