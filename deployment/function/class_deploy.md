@@ -75,7 +75,7 @@ service = FunctionService(
     resources=Resources(memory_request=1000, memory_limit=1500),
 )
 
-service.register_class(Model, init_kwargs={"model_fqn": "t5-small"})
+service.register_class(Model, init_kwargs={"model_fqn": "t5-small"}, name="t5-small")
 
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 # NOTE:- You can run the service locally using the code snippet below,
@@ -88,3 +88,55 @@ python deploy.py
 ```
 
 > **NOTE:** The above command will only upload the contents of the **current** directory. Therefore, when you import the class/module for registration, ensure that the import statement is relative to the directory from where you are deploying.
+
+
+After you deploy the service, you will get an output like below,
+
+```console
+INFO:servicefoundry:Method 'infer' from `Model:t5-small` will be deployed on path 'POST /t5-small/infer'.
+INFO:servicefoundry:Deploying application 't5-small' to 'v1:local:my-ws-2'
+INFO:servicefoundry:Uploading code for service 't5-small'
+INFO:servicefoundry:Uploading contents of '/Users/debajyotichatterjee/work/truefoundry-examples/deployment/function/hf_inference_function_deployment'
+INFO:servicefoundry:.sfyignore not file found! We recommend you to create .sfyignore file and add file patterns to ignore
+INFO:servicefoundry:Deployment started for application 't5-small'. Deployment FQN is 'v1:local:my-ws-2:t5-small:v5'
+INFO:servicefoundry:Service 't5-small' will be available at
+'https://t5-small-my-ws-2.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech'
+after successful deployment
+INFO:servicefoundry:You can find the application on the dashboard:- 'https://app.devtest.truefoundry.tech/applications/cl84s4a9z008x1qrubflzflg8?tab=deployments'
+```
+
+You can find the host of the deployed service in the following section in the above logs.
+```console
+INFO:servicefoundry:Service 't5-small' will be available at
+'https://t5-small-my-ws-2.tfy-ctl-euwe1-devtest.devtest.truefoundry.tech'
+after successful deployment
+```
+
+You can send requests to the deployed service by using the code snippet below. Pass the host using the `--host` command line argument.
+
+**File Structure:**
+
+```
+.
+├── inference.py
+├── requirements.txt
+├── deploy.py
+└── send_request.py
+```
+**`send_request.py`**
+```python
+import argparse
+from urllib.parse import urljoin
+
+import requests
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--host", required=True, type=str)
+args = parser.parse_args()
+
+response = requests.post(
+    urljoin(args.host, "/t5-small/infer"),
+    json={"input_text": "translate English to German: Hello world."},
+)
+print(response.json())
+```
