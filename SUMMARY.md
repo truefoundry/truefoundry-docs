@@ -80,7 +80,6 @@
     <!-- * [Cost Estimation](./deployment/costing/cost-estimation.md) -->
     <!-- * [Collaboration with team](deployment/collab.md) -->
     <!-- * [CI/CD](./deployment/advance_examples/ci-pipeline-integration.md) -->
-* [Getting Help](getting-help.md)
 * Deploying on your own cloud
   * [Overview](deploy-on-own-cloud/overview.md)
   * [Requirements](deploy-on-own-cloud/requirements.md)
@@ -89,6 +88,7 @@
   * [Bootstrap Servicefoundry](deploy-on-own-cloud/servicefoundry-bootstrap.md)
   * [Client Setup](deploy-on-own-cloud/client-setup.md)
   * [Adding Users](deploy-on-own-cloud/add-users.md)
+* [Getting Help](getting-help.md)
 * [Roadmap](roadmap.md)
 * [Truefoundry vs ...](products.md)
 
