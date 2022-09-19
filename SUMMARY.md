@@ -90,5 +90,5 @@
   * [Adding Users](deploy-on-own-cloud/add-users.md)
 * [Getting Help](getting-help.md)
 * [Roadmap](roadmap.md)
-* [Truefoundry vs ...](products.md)
+<!-- * [Truefoundry vs ...](products.md) -->
 
