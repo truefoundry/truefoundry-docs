@@ -63,7 +63,7 @@ torch==1.12.1
 # with the actual value.
 import logging
 
-from servicefoundry.function_service import FunctionService, remote
+from servicefoundry.function_service import FunctionService
 from servicefoundry import Resources
 
 from inference import Model
@@ -75,9 +75,7 @@ service = FunctionService(
     resources=Resources(memory_request=1000, memory_limit=1500),
 )
 
-# NOTE:- This will not initialize the class.
-deployble_model_class = remote(Model, init_kwargs={"model_fqn": "t5-small"})
-service.register_class(deployble_model_class)
+service.register_class(Model, init_kwargs={"model_fqn": "t5-small"})
 
 service.deploy(workspace_fqn="YOUR_WORKSPACE_FQN")
 # NOTE:- You can run the service locally using the code snippet below,
