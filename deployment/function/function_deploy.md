@@ -106,6 +106,8 @@ INFO:servicefoundry:Service 'func-service' will be available at
 after successful deployment
 ```
 
+> **NOTE:** Swagger API documentation will be available on the root path. Click on the host link to open the docs.
+
 You can send requests to the deployed service by using the code snippet below. Pass the host using the `--host` command line argument.
 
 **File Structure:**
