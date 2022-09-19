@@ -14,11 +14,9 @@ To store secrets in Truefoundry, follow the steps below:
 2. Create a new Secret Group and add your Secret to the Secret Group.
     > **Note:** Suppose your backend service needs to load a database password and an API key for an external service. You can create a secret group for that backend service and add the database password and the API key as secrets under that secret group.
 
-3. Copy the _FQN_ of the Secret you just created. We use the _FQN_ to inject secrets in applications.
+3. Copy the _FQN_ of the Secret you just created. We use the _FQN_ to inject secrets in applications. The Secret FQN will always start with `tfy-secret://`.
 
 ## Injecting Secrets as Environment Variables in application
-
-Now you can use the Secret in your service by setting the value of the environment variable to `tfy-secret://<FQN-of-your-secret>`. Say your Secret FQN is `user:my-secret-group:my-secret`, then set the value to `tfy-secret://user:my-secret-group:my-secret`
 
 {% tabs %}
 {% tab title="Python API" %}

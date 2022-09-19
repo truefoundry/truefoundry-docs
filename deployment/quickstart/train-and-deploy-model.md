@@ -261,7 +261,7 @@ image = Build(
     ),
 )
 env = {
-    "MLF_API_KEY": "tfy-secret://YOUR_SECRET_FQN",
+    "MLF_API_KEY": "YOUR_SECRET_FQN",
     "MLF_MODEL_FQN": "YOUR_MODEL_FQN",
 }
 
@@ -310,7 +310,7 @@ components:
   ports:
     - port: 8000
   env:
-    MLF_API_KEY: tfy-secret://YOUR_SECRET_FQN
+    MLF_API_KEY: YOUR_SECRET_FQN
     MLF_MODEL_FQN: YOUR_MODEL_FQN
 ```
 
