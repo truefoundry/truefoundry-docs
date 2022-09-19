@@ -34,7 +34,8 @@ deployment system, we want to be able to deploy the code to different systems wi
 easily migrated from one deployment system to another. 
 
 ## Model Monitoring
-
-## Cost Estimation and Optimization
+Monitoring models in production is one of the key factors to deriving impact from ML in a sustainable way. We want to know when the models have drifted away, or their accuracy
+has gone down, understand the reasons behind them and then resolve the issues by either fixing a bug or retraining the model. We want to make it very easy for data scientists
+to log the model inference data and do advanced analysis on the logged data to figure out data, feature and prediction drifts. 
   
   
