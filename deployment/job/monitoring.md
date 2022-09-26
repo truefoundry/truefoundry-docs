@@ -21,12 +21,12 @@ Here is a dashboard of a deployed job.
 ![Monitoring a Job](../../assets/monitor-job.png)
 
 You can monitor the following metrics in the dashboard:
-* **Total number of Jobs**
-* **Successful runs**
-* **Failed runs**
-* **Average Duration** 
-* **Minimum Duration** 
-* **Maximum Duration**
+* **Total number of Jobs**: Total number of runs for a job
+* **Successful runs**: Count of the successful runs
+* **Failed runs**: Count of the failed runs
+* **Average Duration**: Average Duration of run for the job
+* **Minimum Duration** : Minimum Duration of a run for the job
+* **Maximum Duration**: Maximum Duration of a run for the job
 * **CPU**: CPU utilization by the job
 * **Memory**: Memory consumed by the Job in MiB
 * **Network**: Volume of data transmitted and received by the service.

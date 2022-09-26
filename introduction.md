@@ -14,7 +14,7 @@ TrueFoundry provides a single platform to log and track your experiments and mod
 
 2. **Deploy Your models**: TrueFoundry's deployment library is called `servicefoundry` and [makes it super easy](./deployment/README.md) to deploy models on managed Kubernetes clusters. Since we build on top of Kubernetes, it provides complete flexibilty to add any integrations that come with Kubernetes. 
 
-3. **Monitor your models (COMING SOON)**: TrueFoundry can also generate a lot of model monitoring metrics automatically like feature drift, prediction drift, etc. Data scientists can also add custom metrics and create alerts on their models.
+3. **Monitor your models**: With TrueFoundry, you can generate dashboards with various model monitoring metrics automatically like feature value distributions, model performance statistics, drifts etc just by adding a few log lines into your code. Data scientists can also add custom metrics and create alerts on their models.
 
 4. **Demo your models (COMING SOON)**: Data scientists are often required to demo models to product managers or early users to collect feedback. Building a frontend app requires learning frontend frameworks like React/Vue/Angular. However we make it very easy to demo models by writing only simple Python code.
 
