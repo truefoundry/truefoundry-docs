@@ -46,6 +46,7 @@
     * [Environment Variables](deployment/concepts/env-variables.md)
     * [Secrets](deployment/concepts/secrets.md)
     * [Resources](deployment/concepts/resources.md)
+    * [Ignoring files - `.sfyignore`](deployment/concepts/syfignore.md)
   * Deploy a job
     * [Job and usecases](deployment/job/definition.md)
     * [Deploy a Job](deployment/job/deploy.md)
