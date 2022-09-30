@@ -12,7 +12,7 @@ We will use the _Iris_ dataset and the _sklearn_ library to create the model for
 
 Before we begin,
 1. You need to have the `servicefoundry`
-library installed and login using the `servicefoundry login` command. If you do not have the library installed follow [the instructions here](quickstart/install-and-workspace.md).
+library installed and login using the `servicefoundry login` command. If you do not have the library installed follow [the instructions here](install-and-workspace.md).
 
 2. Go to [the workspace page](https://app.truefoundry.com/workspace) and create a workspace. Keep the [workspace _FQN_](../concepts/workspace.md) handy. If you already have a workspace you can use that.
 
