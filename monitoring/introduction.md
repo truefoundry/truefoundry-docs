@@ -27,7 +27,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 clf = svm.SVC(gamma='scale', kernel='rbf', probability=True)
 clf.fit(X, y)
 
-prediction_probabilities = list(clf.predict_proba(X))[0]
+prediction_probabilities = list(clf.predict_proba(X))
 prediction = list(clf.predict(X))
 ```
 
