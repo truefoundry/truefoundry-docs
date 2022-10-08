@@ -58,14 +58,19 @@ Follow these steps to create the bitbucket app and integrate it with truefoundry
     - Name : custom
     - Callback URL : https:// + $TFY_HOSTNAME + /api/svc/v1/vcs/bitbucket/callback
     - URL : https:// + $TFY_HOSTNAME
+
     ![Settings](../assets/vcs-integration-bitbucket-settings-1.png)
+
     - Permissions: 
         - Account : email, read
         - Repositories : read, write
         - Workspace membership : read
         - Pull requests : read, write
+
     ![Settings](../assets/vcs-integration-bitbucket-settings-2.png)
+
 - Once the consumer is created, click on the consumer and store the key and secret.
+
 ![Settings](../assets/vcs-integration-bitbucket-settings-3.png)
 
 Now, for allowing deployment of public bitbucket repositories, which do not even have the consumer added, we authorize using the App password, which need to be generated following way:
@@ -76,9 +81,13 @@ Now, for allowing deployment of public bitbucket repositories, which do not even
     - Label : custom
     - Permissions : 
         - Account : email
+
 ![Settings](../assets/vcs-integration-bitbucket-settings-4.png)
+
 - Create the password and store it.
+
 ![Settings](../assets/vcs-integration-bitbucket-settings-5.png)
+
 - Now, base 64 encode `${username}:${password}` and store it as app_password
 - Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploy/concepts/env-variables) :
     - BITBUCKET_CLIENT_ID=${key}
