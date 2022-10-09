@@ -12,36 +12,54 @@ Follow these steps to create the github app and integrate it with truefoundry:
 - On the sidebar, select Github apps.
 - Click the New Github App button and add the following settings:
     - GitHub App name : Custom
-    - Homepage URL : https:// + $TFY_HOSTNAME
-    ![Settings](../assets/vcs-integration-github-settings-1.png)
+    - Homepage URL : https:// + $TFY_HOSTNAME 
+    
+    ![Github app settings](../assets/vcs-integration-github-settings-1.png)
+
     - Identifying and authorizing users 
         - Callback URL : https:// + $TFY_HOSTNAME + /api/svc/v1/vcs/github/callback
         - Check : Expire user authorization tokens
         - Check : Request user authorization (OAuth) during installation
-    ![Settings](../assets/vcs-integration-github-settings-2.png)
+
+    ![Github app settings](../assets/vcs-integration-github-settings-2.png)
+
     - Post installation
         - Check : Redirect on update
     - Webhook
         - Check : Active
         - Webhook URL : https:// + $TFY_HOSTNAME + /api/svc/v1/vcs/github/webhook-callback
-    ![Settings](../assets/vcs-integration-github-settings-3.png)
+
+    ![Github app settings](../assets/vcs-integration-github-settings-3.png)
+
     - Permissions
         - Repository Permissions:
             - Administration: read and write
-    ![Settings](../assets/vcs-integration-github-settings-4.png)
+
+            ![Github app permissions](../assets/vcs-integration-github-settings-4.png)
+
             - Commit statuses : read and write
             - Contents : read and write
-    ![Settings](../assets/vcs-integration-github-settings-5.png)
+
+            ![Github app permissions](../assets/vcs-integration-github-settings-5.png)
+
             - Metadata : read-only
             - Pull request: read and write
             - Webhooks: rad and write
-    ![Settings](../assets/vcs-integration-github-settings-6.png)
+
+            ![Github app permissions](../assets/vcs-integration-github-settings-6.png)
+
     - Where can this GitHub App be installed? : Any account
-    ![Settings](../assets/vcs-integration-github-settings-7.png)
+
+    ![Github app settings](../assets/vcs-integration-github-settings-7.png)
+
 - Once the app is created, store the GitHub App name and App id.
-![Settings](../assets/vcs-integration-github-settings-8.png)
+
+![Github app properties](../assets/vcs-integration-github-settings-8.png)
+
 - Navigate to Private Keys section and generate a private key. A PEM file containing private key will be downloaded.
-![Settings](../assets/vcs-integration-github-settings-9.png)
+
+![Github app private key](../assets/vcs-integration-github-settings-9.png)
+
 - Base 64 encode the entire content of the file. Please make sure to omit any whitelines before or after the text. Store it as private_key.
 - Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploy/concepts/env-variables) :
     - GITHUB_INSTALLATION_URL=https://github.com/apps/${app_name}/installations/new
@@ -59,7 +77,7 @@ Follow these steps to create the bitbucket app and integrate it with truefoundry
     - Callback URL : https:// + $TFY_HOSTNAME + /api/svc/v1/vcs/bitbucket/callback
     - URL : https:// + $TFY_HOSTNAME
 
-    ![Settings](../assets/vcs-integration-bitbucket-settings-1.png)
+    ![Bitbucket app settings](../assets/vcs-integration-bitbucket-settings-1.png)
 
     - Permissions: 
         - Account : email, read
@@ -67,11 +85,11 @@ Follow these steps to create the bitbucket app and integrate it with truefoundry
         - Workspace membership : read
         - Pull requests : read, write
 
-    ![Settings](../assets/vcs-integration-bitbucket-settings-2.png)
+    ![Bitbucket app permissions](../assets/vcs-integration-bitbucket-settings-2.png)
 
 - Once the consumer is created, click on the consumer and store the key and secret.
 
-![Settings](../assets/vcs-integration-bitbucket-settings-3.png)
+![Bitbucket app properties](../assets/vcs-integration-bitbucket-settings-3.png)
 
 Now, for allowing deployment of public bitbucket repositories, which do not even have the consumer added, we authorize using the App password, which need to be generated following way:
 - Select your avatar (Your profile and settings) from the navigation bar at the top of the screen.
@@ -82,11 +100,11 @@ Now, for allowing deployment of public bitbucket repositories, which do not even
     - Permissions : 
         - Account : email
 
-![Settings](../assets/vcs-integration-bitbucket-settings-4.png)
+![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-4.png)
 
 - Create the password and store it.
 
-![Settings](../assets/vcs-integration-bitbucket-settings-5.png)
+![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-5.png)
 
 - Now, base 64 encode `${username}:${password}` and store it as app_password. Here username is the bitbucket account's username, and password is the app-password generated above.
 - Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploy/concepts/env-variables) :
