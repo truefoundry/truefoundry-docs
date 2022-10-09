@@ -90,6 +90,7 @@
   * [Bootstrap Servicefoundry](deploy-on-own-cloud/servicefoundry-bootstrap.md)
   * [Client Setup](deploy-on-own-cloud/client-setup.md)
   * [Adding Users](deploy-on-own-cloud/add-users.md)
+  * [Adding Git Repositories](deploy-on-own-cloud/add-version-control-integration.md)
 * Monitor your Models
   * [Quick Start](monitoring/introduction.md)
   * [Concepts](monitoring/concepts.md)
