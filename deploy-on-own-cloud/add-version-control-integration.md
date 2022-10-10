@@ -104,8 +104,11 @@ Now, for allowing deployment of public Bitbucket repositories, which do not even
 - On the sidebar, select App passwords.
 - Select Create app password. Add following settings:
     - Label : my_app_password
-    - Permissions : 
-        - Account : email
+    - Permissions: 
+        - Account : email, read
+        - Repositories : read, write
+        - Workspace membership : read
+        - Pull requests : read, write
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-4.png)
 
