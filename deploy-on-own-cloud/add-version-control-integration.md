@@ -71,15 +71,17 @@ Please make sure to omit any whitelines before or after the text in the file. St
     - GITHUB_APP_ID=${app_id}
 
 ## Bitbucket
-To enable Bitbucket integration in your app, you need to create a Bitbucket consumer using your bitbucket account. This consumer can then be added to the users's account through our platform.
-Follow these steps to create the bitbucket app and integrate it with truefoundry:
+
+### Adding Oauth Consumer
+To enable Bitbucket integration in your app, you need to create a Bitbucket consumer using your Bitbucket account. This consumer can then be added to the users's account through our platform.
+Follow these steps to create the Bitbucket app and integrate it with truefoundry:
 - In Bitbucket, Select your avatar (Your profile and settings) from the navigation bar at the top of the screen. Under Recent workspaces, select a workspace.
 - On the sidebar, select Settings to open the Workspace settings.
 - On the sidebar, under Apps and features, select OAuth consumers.
 - Click the Add consumer button. Add following settings:
-    - Name : custom
-    - Callback URL : https:// + $TFY_HOSTNAME + /api/svc/v1/vcs/bitbucket/callback
-    - URL : https:// + $TFY_HOSTNAME
+    - Name : my_oauth_consumer
+    - Callback URL : https://app.example-org.truefoundry.com/api/svc/v1/vcs/bitbucket/callback
+    - URL : https://app.example-org.truefoundry.com
 
     ![Bitbucket app settings](../assets/vcs-integration-bitbucket-settings-1.png)
 
@@ -91,16 +93,17 @@ Follow these steps to create the bitbucket app and integrate it with truefoundry
 
     ![Bitbucket app permissions](../assets/vcs-integration-bitbucket-settings-2.png)
 
-- Once the consumer is created, click on the consumer and store the key and secret.
+- Once the consumer is created, click on the consumer and store the key and secret for later use.
 
 ![Bitbucket app properties](../assets/vcs-integration-bitbucket-settings-3.png)
 
-Now, for allowing deployment of public bitbucket repositories, which do not even have the consumer added, we authorize using the App password, which need to be generated following way:
+### Adding App Password
+Now, for allowing deployment of public Bitbucket repositories, which do not even have the consumer added, we authorize using the `App password`, which need to be generated following way:
 - Select your avatar (Your profile and settings) from the navigation bar at the top of the screen.
 - Under Settings, select Personal settings.
 - On the sidebar, select App passwords.
 - Select Create app password. Add following settings:
-    - Label : custom
+    - Label : my_app_password
     - Permissions : 
         - Account : email
 
@@ -110,8 +113,8 @@ Now, for allowing deployment of public bitbucket repositories, which do not even
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-5.png)
 
-- Now, base 64 encode `${username}:${password}` as explained above, and store it as app_password. Here username is the bitbucket account's username, and password is the app-password generated above.
+- Now, base 64 encode `${username}:${password}` and store it as encoded_password. Here username is the Bitbucket account's username, and password is the app-password generated above.
 - Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploying-on-your-own-cloud/production-installation) :
     - BITBUCKET_CLIENT_ID=${key}
     - BITBUCKET_CLIENT_SECRET=${secret}
-    - BITBUCKET_APP_PASSWORD=${app_password}
+    - BITBUCKET_APP_PASSWORD=${encoded_password}
