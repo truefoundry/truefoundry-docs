@@ -60,8 +60,12 @@ Follow these steps to create the github app and integrate it with truefoundry:
 
 ![Github app private key](../assets/vcs-integration-github-settings-9.png)
 
-- Base 64 encode the entire content of the file. Please make sure to omit any whitelines before or after the text. Store it as private_key.
-- Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploy/concepts/env-variables) :
+- Base 64 encode the entire content of the file. Please make sure to omit any whitelines before or after the text in the file. To base64 encode, use following commands on the command line:
+    - Linux : `base64 private_key.pem > private_key.b64`
+    - Windows : `certutil -encode private_key.pem tmp.b64 && findstr /v /c:- tmp.b64 > private_key.b64 && del tmp.b64`
+    - Mac : `base64 -i private_key.pem -o private_key.b64`
+Please make sure to omit any whitelines before or after the text in the file. Store the file content of `private_key.b64` as private_key.
+- Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploying-on-your-own-cloud/production-installation) :
     - GITHUB_INSTALLATION_URL=https://github.com/apps/${app_name}/installations/new
     - GITHUB_PRIVATE_KEY=${private_key}
     - GITHUB_APP_ID=${app_id}
@@ -106,8 +110,8 @@ Now, for allowing deployment of public bitbucket repositories, which do not even
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-5.png)
 
-- Now, base 64 encode `${username}:${password}` and store it as app_password. Here username is the bitbucket account's username, and password is the app-password generated above.
-- Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploy/concepts/env-variables) :
+- Now, base 64 encode `${username}:${password}` as explained above, and store it as app_password. Here username is the bitbucket account's username, and password is the app-password generated above.
+- Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploying-on-your-own-cloud/production-installation) :
     - BITBUCKET_CLIENT_ID=${key}
     - BITBUCKET_CLIENT_SECRET=${secret}
     - BITBUCKET_APP_PASSWORD=${app_password}
