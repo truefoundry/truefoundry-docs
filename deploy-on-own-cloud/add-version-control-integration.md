@@ -109,7 +109,7 @@ Now, for allowing deployment of public Bitbucket repositories, which do not even
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-4.png)
 
-- Create the password and store it as app_password.
+- Create the password and store it.
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-5.png)
 
