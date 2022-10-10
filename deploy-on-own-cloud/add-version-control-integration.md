@@ -106,12 +106,12 @@ Now, for allowing deployment of public bitbucket repositories, which do not even
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-4.png)
 
-- Create the password and store it as app_password.
+- Create the password and store it.
 
 ![Bitbucket app password](../assets/vcs-integration-bitbucket-settings-5.png)
 
+- Now, base 64 encode `${username}:${password}` as explained above, and store it as app_password. Here username is the bitbucket account's username, and password is the app-password generated above.
 - Set environment variables using the [docs](https://docs.truefoundry.com/documentation/deploying-on-your-own-cloud/production-installation) :
     - BITBUCKET_CLIENT_ID=${key}
     - BITBUCKET_CLIENT_SECRET=${secret}
     - BITBUCKET_APP_PASSWORD=${app_password}
-    - BITBUCKET_ADMIN_USERNAME=${username}. Here username is the admin's bitbucket account's username
