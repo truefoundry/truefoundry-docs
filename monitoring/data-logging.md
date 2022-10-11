@@ -4,45 +4,40 @@ The inference data (predictions and actuals) can be logged into truefoundry with
 
 **Note**: Each prediction or actual data packet is associated with a `model_version`. User needs to pass `model_version_fqn` with each log request which can be found from the experimentation tracking section of the truefoundry's dashboard.
 
+### How to get the `model_version_fqn`?
+A model_version can be found in the experimentation section of the dashboard.  Go to the [dashboard](https://app.truefoundry.com/mlfoundry) and click on the project and navigate to the models section, click on the model to view the model versions.
+
+![Getting model_version_fqn](../assets/model-version-fqn.png)
+
+### Logging the data
 ```python
 import mlfoundry as mlf
+
 client = mlf.get_client()
 data_id = uuid.uuid4().hex
 
 client.log_predictions(
-    model_version_fqn = "",
-    predictions = [
+    model_version_fqn="",
+    predictions=[
         mlf.Prediction(
-            data_id = data_id,
-            features = {
+            data_id=data_id,
+            features={
                 "feature1": 3.33,
                 "feature2": "class1",
             },
-            prediction_data = {
+            prediction_data={
                 "value": "pred_class1",
-                "probabilities": {
-                    "pred_class1": 0.2,
-                    "pred_class2": 0.8
-                },
-                "shap_values": {
-                    "feature1": 0.23,
-                    "feature2": 0.77
-                }
+                "probabilities": {"pred_class1": 0.2, "pred_class2": 0.8},
+                "shap_values": {"feature1": 0.23, "feature2": 0.77},
             },
-            occurred_at = datetime.utcnow(),
-            raw_data = {"data": "any_data"}
+            occurred_at=datetime.utcnow(),
+            raw_data={"data": "any_data"},
         )
-    ]
+    ],
 )
 
 client.log_actuals(
-    model_version_fqn = "",
-    actuals = [
-        mlf.Actual(
-            data_id = data_id,
-            value = "pred_class2"
-        )
-    ]
+    model_version_fqn="", actuals=[mlf.Actual(data_id=data_id, value="pred_class2")]
 )
 ```
 
@@ -61,28 +56,30 @@ The actual data packet `mlf.Actual` has following elements:
 
 **Note**
 * Prediction Data Packet corresponding to a data_id must be logged before logging the actual.
-* Actual value may or may not be logged in all the cases. If logged, user can have better visualizations on the monitoring dashboard.
-* The data_id must be maintained and saved by the user (truefoundry platform's user) in order to log the actuals correctly. This task can be cumbersome in a few cases, so it can be dealt with some cases with API descibed below.
+* Actual value is optional to log. If logged, user can have better visualizations on the monitoring dashboard.
+* The data_id must be maintained and saved by the user (truefoundry platform's user) in order to log the actuals correctly. This task can be cumbersome in a few cases, so it can be dealt with some cases with API described below.
 
 ### Generating data_id from hash of features
 This function generates unique id by from with the help of a hash on features and timestamp (optional).
 
 ```python
 import mlfoundry as mlf
+
 client = mlf.get_client()
 data_id = mlf.generate_hash_from_data(
-    features = {
+    features={
         "features1": 1.22,
-        "feature2" : "class2"
+        "feature2": "class2"
     }
 )
 data_id_with_ts = mlf.generate_hash_from_data(
-    features = {
+    features={
         "features1": 1.22,
-        "feature2" : "class2"
+        "feature2": "class2"
     },
-    timestamp = datetime.now()
+    timestamp=datetime.now()
 )
+
 ```
 This API can be useful for users who do not want to maintain the data_id. The user can log the actuals by generating data_id from the same features and timestamp(optional) that were used at the time of logging predictions.
 
