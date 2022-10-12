@@ -46,18 +46,14 @@ model_version = run.log_model(
     description="sklearn model, rbf kernel",
     model_schema={
         "features": [
-            {"name": "sepal length (cm)", "type": "float"}, 
+            {"name": "sepal length (cm)", "type": "float"},
             {"name": "sepal width (cm)", "type": "float"},
             {"name": "petal length (cm)", "type": "float"},
-            {"name": "petal width (cm)", "type": "float"}
+            {"name": "petal width (cm)", "type": "float"},
         ],
-        "prediction": "categorical"
+        "prediction": "categorical",
     },
-    custom_metrics=[{
-        "name": "log_loss", 
-        "type": "metric",
-        "value_type": "float"
-    }],
+    custom_metrics=[{"name": "log_loss", "type": "metric", "value_type": "float"}],
 )
 ```
 
@@ -67,42 +63,34 @@ model_version = run.log_model(
 from datetime import datetime
 
 for i in range(150):
-    
-    features = { 
-        iris.feature_names[j]: float(X[i][j]) for j in range(4)
-    }
-    
+
+    features = {iris.feature_names[j]: float(X[i][j]) for j in range(4)}
+
     prediction_data = {
         "value": prediction[i],
         "probabilities": {
-            iris.target_names[j]: float(prediction_probabilities[i][j]) 
+            iris.target_names[j]: float(prediction_probabilities[i][j])
             for j in range(3)
         },
-        "shap_values": {}
     }
-    id = client.generate_hash_from_data(
-        features=features,
-        timestamp = datetime.utcnow()
-    )
+    id = client.generate_hash_from_data(features=features, timestamp=datetime.utcnow())
     client.log_predictions(
-        model_version_fqn = model_version.fqn,
-        predictions = [
+        model_version_fqn=model_version.fqn,
+        predictions=[
             mlf.Prediction(
                 data_id=id,
                 features=features,
-                prediction_data = prediction_data,
-                raw_data = {},
+                prediction_data=prediction_data,
+                raw_data={},
             )
-        ]
-            
+        ],
     )
-   
+
     client.log_actuals(
-        model_version_fqn = model_version.fqn,
-        actuals = [
-            mlf.Actual(data_id=id, value=y[i])
-        ]
+        model_version_fqn=model_version.fqn,
+        actuals=[mlf.Actual(data_id=id, value=y[i])],
     )
+
 ```
 
 And with these log-lines, truefoundry generates monitoring dashboards for your models. You can open the monitoring dashboard with by clicking on this [link](https://app.truefoundry.com/data-monitoring).
